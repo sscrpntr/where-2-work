@@ -29,6 +29,6 @@ ninety_day_ago = now - (60 * 60 * 24 * 90)
     natural_light: [true, true, true, true, true, true, true, false, false, false].sample,
     timestamp: rand(ninety_day_ago..now),
     stars: rand(0..5),
-    food_price: rand(1..3)
+    food_price: ["cheap", "normal", "expensive"].sample
   )
 end
