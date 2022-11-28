@@ -77,8 +77,6 @@ while x < user_photos.size - 20
   )
   x += 1
 end
-200.times do
-end
 
 x = 0
 while x < 20
@@ -89,7 +87,7 @@ while x < 20
     username: name.strip,
     email: Faker::Internet.email,
     password: Faker::Blockchain::Bitcoin.address,
-    photo: user_photos[x + 179]
+    photo: user_photos[x + 179],
     venue_owned: x
   )
   x += 1
