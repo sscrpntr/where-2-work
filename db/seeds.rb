@@ -77,8 +77,6 @@ while x < user_photos.size - 20
   )
   x += 1
 end
-200.times do
-end
 
 x = 0
 while x < 20
