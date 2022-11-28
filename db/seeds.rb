@@ -1,7 +1,8 @@
 require 'faker'
 require "csv"
 require "open-uri"
-Faker::Config.locale = 'ca-CAT'
+
+Faker::Config.locale = "ca-CAT"
 
 now = Time.now
 ninety_day_ago = now - (60 * 60 * 24 * 90)
@@ -41,6 +42,14 @@ while x < 100
 end
 
 # OFFERS ?
+x = 0
+while x < 100
+  Offer.create(
+    venue_id: x,
+    offer: [5.0, 10.0, 15.0, 20.0, 30.0].sample
+  )
+  x += 8
+end
 
 300.times do
   Review.create(
