@@ -10,6 +10,7 @@ csv = CSV.parse(csv_text, encoding: 'UTF-8')
 csv.each do |row|
   venue_photos << row
 end
+
 user_photos = []
 csv_text = File.read(Rails.root.join('lib','seeds','user_photos.csv'))
 csv = CSV.parse(csv_text, encoding: 'UTF-8')
@@ -20,7 +21,6 @@ end
 x = 0
 while x < user_photos.size - 20
   name = Faker::Name.name
-  puts name
   user = User.new(
     is_owner: false,
     name: name,
@@ -57,7 +57,7 @@ while x < 100
   venue = Venue.new(
     name: Faker::Coffee.blend_name,
     address: Faker::Address.full_address,
-    website: "#{Faker::Blockchain::Bitcoin.address.com}",
+    website: "#{Faker::Blockchain::Bitcoin.address}.com",
     category: ["Bar", "Cafe", "Library", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe"].sample,
     user: User.all.sample,
     power_outlets: [true, false].sample,
@@ -94,8 +94,8 @@ while x < 171
   x += 1
 end
 
-x = 0
-while x < 70
+x = 1
+while x < 71
   review = Review.new(
     suited_for_calls: [true, true, true, true, true, true, true, false, false, false].sample,
     coffe_price: rand(0..5),
@@ -107,7 +107,7 @@ while x < 70
     food_price: rand(0..5),
     comment: Faker::Restaurant.review,
     title: Faker::Coffee.notes,
-    booking: Booking.find_by_id(x)
+    booking: Booking.find(x)
   )
   review.save!
   x += 1
