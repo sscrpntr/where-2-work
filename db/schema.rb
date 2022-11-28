@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_103406) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_28_145811) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,41 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_103406) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "bookings", force: :cascade do |t|
+    t.date "date"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "venue_id", null: false
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+    t.index ["venue_id"], name: "index_bookings_on_venue_id"
+  end
+
+  create_table "review_likes", force: :cascade do |t|
+    t.bigint "review_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_review_likes_on_review_id"
+    t.index ["user_id"], name: "index_review_likes_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "booking_id", null: false
+    t.boolean "suited_for_calls"
+    t.integer "wifi_down"
+    t.integer "wifi_up"
+    t.boolean "power_outlets"
+    t.boolean "natural_light"
+    t.integer "rating"
+    t.integer "coffe_price"
+    t.integer "food_price"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -50,10 +85,45 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_103406) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_owner"
+    t.string "name"
+    t.string "username"
+    t.integer "venue_owned"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "venue_offers", force: :cascade do |t|
+    t.float "coupon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "venues", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "venue_offer_id", null: false
+    t.string "category"
+    t.string "name"
+    t.string "address"
+    t.string "website"
+    t.boolean "power_outlets"
+    t.boolean "natural_light"
+    t.boolean "suited_for_calls"
+    t.float "opening_time"
+    t.float "closing_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_venues_on_user_id"
+    t.index ["venue_offer_id"], name: "index_venues_on_venue_offer_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "bookings", "venues"
+  add_foreign_key "review_likes", "reviews"
+  add_foreign_key "review_likes", "users"
+  add_foreign_key "reviews", "bookings"
+  add_foreign_key "venues", "users"
+  add_foreign_key "venues", "venue_offers"
 end
