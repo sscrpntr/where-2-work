@@ -89,7 +89,7 @@ while x < 20
     username: name.strip,
     email: Faker::Internet.email,
     password: Faker::Blockchain::Bitcoin.address,
-    photo: user_photos[x + 179]
+    photo: user_photos[x + 179],
     venue_owned: x
   )
   x += 1
