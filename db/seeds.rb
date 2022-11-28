@@ -4,8 +4,8 @@ require "open-uri"
 
 Faker::Config.locale = "ca-CAT"
 
-now = Time.now
-ninety_day_ago = now - (60 * 60 * 24 * 90)
+# now = Time.now
+# ninety_day_ago = now - (60 * 60 * 24 * 90)
 
 venue_photos = []
 csv_text = File.read(Rails.root.join('lib','seeds','cafe_photos.csv'))
@@ -53,12 +53,13 @@ end
 
 300.times do
   Review.create(
-    calls: [true, true, true, true, true, true, true, false, false, false].sample,
-    cafe_con_leche_price: rand(1.4..2.3),
-    wifi: [rand(30..300), rand(30..150)],
+    suited_for_calls: [true, true, true, true, true, true, true, false, false, false].sample,
+    coffe_price: rand(1.4..2.3),
+    wifi_up: rand(30..150),
+    wifi_down: rand(30..300),
     power_outlets: [true, true, true, true, true, true, true, false, false, false].sample,
     natural_light: [true, true, true, true, true, true, true, false, false, false].sample,
-    timestamp: rand(ninety_day_ago..now),
+    # timestamp: rand(ninety_day_ago..now),
     stars: rand(0..5),
     food_price: rand(0..5)
   )
@@ -68,7 +69,7 @@ x = 0
 while x < user_photos.size - 20
   name = Faker::Name.name,
   User.create(
-    owner: false,
+    is_owner: false,
     name: name,
     username: name.strip,
     email: Faker::Internet.email,
@@ -82,7 +83,7 @@ x = 0
 while x < 20
   name = Faker::Name.name,
   User.create(
-    owner: true,
+    is_owner: true,
     name: name,
     username: name.strip,
     email: Faker::Internet.email,
