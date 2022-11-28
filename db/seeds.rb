@@ -13,7 +13,6 @@ csv = CSV.parse(csv_text, encoding: 'UTF-8')
 csv.each do |row|
   venue_photos << row
 end
-puts venue_photos
 
 user_photos = []
 csv_text = File.read(Rails.root.join('lib','seeds','user_photos.csv'))
@@ -21,23 +20,25 @@ csv = CSV.parse(csv_text, encoding: 'UTF-8')
 csv.each do |row|
   user_photos << row
 end
-puts user_photos
 
 x = 0
 while x < 100
-  Venue.create(
-  name: Faker::Coffee.blend_name,
-  address: Faker::Address.full_address,
-  website: Faker::Blockchain::Bitcoin.address,
-  photo: venue_photos[x],
-  category: ["Bar", "Cafe", "Library", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe"].sample,
-  user_id: x,
-  power_outlets: [true, false].sample,
-  natural_light: [true, false].sample,
-  suited_for_calls: [true, false].sample,
-  opening_time: [6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9, 9.5, 10.0].sample,
-  closing_time: [17.0, 17.5, 18.0, 18.5, 19.0, 19.5, 20.0, 20.5, 21.0, 21.5, 22.0, 22.5, 23.0, 23.5].sample
-)
+  venue = Venue.new(
+    name: Faker::Coffee.blend_name,
+    address: Faker::Address.full_address,
+    website: Faker::Blockchain::Bitcoin.address,
+    category: ["Bar", "Cafe", "Library", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe"].sample,
+    user_id: x,
+    power_outlets: [true, false].sample,
+    natural_light: [true, false].sample,
+    suited_for_calls: [true, false].sample,
+    opening_time: [6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9, 9.5, 10.0].sample,
+    closing_time: [17.0, 17.5, 18.0, 18.5, 19.0, 19.5, 20.0, 20.5, 21.0, 21.5, 22.0, 22.5, 23.0, 23.5].sample
+  )
+  file = URI.open(venue_photos[x])
+  venue.photo.attach(io: file, content_type: "image/png", filename: "venue_#{venue.id}.jpg")
+  venue.save!
+  puts "Venue #{x} saved!"
   x += 1
 end
 
@@ -67,28 +68,33 @@ end
 x = 0
 while x < user_photos.size - 20
   name = Faker::Name.name,
-  User.create(
+  user = User.new(
     owner: false,
     name: name,
     username: name.strip,
     email: Faker::Internet.email,
     password: Faker::Blockchain::Bitcoin.address,
-    photo: user_photos[x]
   )
+  file = URI.open(user_photos[x])
+  user.photo.attach(io: file, content_type: "image/png", filename: "user#{venue.id}.jpg")
+  user.save!
+  puts "User #{x} saved!"
   x += 1
 end
 
 x = 0
 while x < 20
   name = Faker::Name.name,
-  User.create(
+  user = User.new(
     owner: true,
     name: name,
     username: name.strip,
     email: Faker::Internet.email,
     password: Faker::Blockchain::Bitcoin.address,
-    photo: user_photos[x + 179],
-    venue_owned: x
   )
+  file = URI.open(user_photos[x + 179])
+  user.photo.attach(io: file, content_type: "image/png", filename: "user#{user.id}.jpg")
+  user.save!
+  puts "User #{x + 179} saved!"
   x += 1
 end
