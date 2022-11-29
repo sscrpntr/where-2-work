@@ -30,7 +30,7 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
-    # @markers = [{ lat: @laptop.latitude, lng: @laptop.longitude }]
+    @markers = [{ lat: @venue.latitude, lng: @venue.longitude }]
     @booking = Booking.new
     @venues = Venue.all
   end
