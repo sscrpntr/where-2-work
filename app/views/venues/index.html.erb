@@ -1,31 +1,42 @@
-<%# <div class="laptop-title"> %>
-  <h2>Placeholder 1</h2>
-  <%# <div class="cards-container"> %>
-    <%# This button is going to allow to click on the image and redirect to the laptop.id path %>
-    <% @venues.first(4).each do |venue| %>
-      <%# <div class="laptop-card"> %>
-        <a href=<%= venue_path(venue) %>>
-        <%= cl_image_tag(venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250) %>
-        <%# <div class="specs"> %>
-          </a>
-        <%# </div> %>
-      <%# </div> %>
-    <% end %>
-  <%# </div> %>
-<%# </div> %>
-
-<%# <div class="laptop-title"> %>
-  <h2>Placeholder 2</h2>
-  <%# <div class="cards-container"> %>
-    <%# This button is going to allow to click on the image and redirect to the laptop.id path %>
-    <% @venues.last(4).each do |venue| %>
-      <%# <div class="laptop-card"> %>
-        <a href=<%= venue_path(venue) %>>
-        <%= cl_image_tag(venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250) %>
-        <%# <div class="specs"> %>
-          </a>
-        <%# </div> %>
-      <%# </div> %>
-    <% end %>
-  <%# </div> %>
-<%# </div> %>
+<div class="container">
+  <div class="row height d-flex justify-content-center align-items-center">
+    <div class="col-md-6">
+      <div class="form">
+        <i class="fa fa-search"></i>
+        <input type="text" class="form-control form-input" placeholder="Search anything...">
+        <span class="left-pan"><i class="fa fa-microphone"></i></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="btn-group">
+  <button>List</button>
+  <button>Map</button>
+  </div>
+<h3><%= link_to "☀", "#" %>  📶  🔌  📞</h3>
+<div class="wrapper">
+  <% @venues.first(10).each do |venue| %>
+    <div class="venue-card">
+      <%= image_tag "https://cdn.shopify.com/s/files/1/0534/0371/3720/files/cinnamon-bun_051e2ac8-8bc5-49cb-a113-8e57b511cfe5_1472x1472.jpg", :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
+      <%= tag.p venue.name, class: 'venue-text' %>
+    </div>
+  <% end %>
+</div>
+<h3>🔥 Top Rated in your city</h3>
+<div class="wrapper">
+  <% @venues.last(10).each do |venue| %>
+    <div class="venue-card">
+      <%= image_tag "https://cdn.shopify.com/s/files/1/0534/0371/3720/files/cinnamon-bun_051e2ac8-8bc5-49cb-a113-8e57b511cfe5_1472x1472.jpg", :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
+      <%= tag.p venue.name, class: 'venue-text' %>
+    </div>
+  <% end %>
+</div>
+<h3>💯 Best offers</h3>
+<div class="wrapper">
+  <% @venues.first(10).each do |venue| %>
+    <div class="venue-card">
+      <%= image_tag "https://cdn.shopify.com/s/files/1/0534/0371/3720/files/cinnamon-bun_051e2ac8-8bc5-49cb-a113-8e57b511cfe5_1472x1472.jpg", :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
+      <%= tag.p venue.name, class: 'venue-text' %>
+    </div>
+  <% end %>
+</div>
