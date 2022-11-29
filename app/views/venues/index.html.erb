@@ -1,1 +1,15 @@
-ALL VENUES
+<%# <div class="laptop-title"> %>
+  <h2>Nearby</h2>
+  <%# <div class="cards-container"> %>
+    <%# This button is going to allow to click on the image and redirect to the laptop.id path %>
+    <% @venues.first(4).each do |venue| %>
+      <%# <div class="laptop-card"> %>
+        <a href=<%= venue_path(venue) %>>
+        <%= cl_image_tag(venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250) %>
+        <%# <div class="specs"> %>
+          </a>
+        <%# </div> %>
+      <%# </div> %>
+    <% end %>
+  <%# </div> %>
+<%# </div> %>
