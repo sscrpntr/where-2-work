@@ -12,7 +12,8 @@ form for the review with all the permited fields given in the reviews controller
     <%= f.input :naural_light%>
     <%= f.input :coffe_price%>
     <%= f.input :food_price%>
+    <%= f.input :photo, as: :file %>
     <%= f.submit class: 'btn btn-primary' %>
   <% end %>
-  <%= link_to "See all Laptops", laptops_path %>
+  <%= link_to "See all Venues", venues_path %>
 </div>
