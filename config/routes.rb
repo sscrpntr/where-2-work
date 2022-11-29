@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     resources :venue_offers, only: %i[create edit new update destroy]
   end
   resources :users, only: %i[show edit update]
-
   # Defines the root path route ("/")
   # root "articles#index"
 end
