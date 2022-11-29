@@ -14,7 +14,7 @@ class Venue < ApplicationRecord
     reviews.each do |review|
       sum += review.rating
     end
-    return (sum.to_f / reviews.count).round(2)
+    return (sum.to_f / reviews.count).round(2) if reviews.count != 0
   end
 
   def opening_time_display
