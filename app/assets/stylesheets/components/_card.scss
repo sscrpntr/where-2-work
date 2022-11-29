@@ -1,0 +1,55 @@
+.wrapper {
+  width: 100%;
+  position: relative;
+  overflow: scroll;
+  display: flex;
+}
+
+.venue-card {
+  box-sizing: border-box;
+
+  width: 198px;
+  height: 179px;
+
+  background: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  box-shadow: 2px 1px 7px rgba(0, 0, 0, 0.25);
+
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+
+  border-radius: 15px;
+
+}
+
+.venue-card:hover {
+  box-shadow: 0 0px 12px 0 rgba(0, 0, 0, 0.3);
+  transform: scale(103%);
+}
+
+.venue-image {
+  display: block;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 4px;
+  width: 186px;
+  height: 99px;
+  border-radius: 15px;
+  object-position: center;
+}
+
+.venue-text {
+  width: 98px;
+  height: 24px;
+
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+
+  text-align: center;
+
+  color: #000000;
+}

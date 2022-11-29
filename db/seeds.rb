@@ -56,7 +56,7 @@ x = 0
 while x < 100
   venue = Venue.new(
     name: Faker::Coffee.blend_name,
-    address: Faker::Address.full_address,
+    address: Faker::Address.street_address,
     website: "#{Faker::Blockchain::Bitcoin.address}.com",
     category: ["Bar", "Cafe", "Library", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe"].sample,
     user: User.all.sample,
@@ -105,8 +105,8 @@ while x < 71
     natural_light: [true, true, true, true, true, true, true, false, false, false].sample,
     rating: rand(0..5),
     food_price: rand(0..5),
-    comment: Faker::Restaurant.review,
-    title: Faker::Coffee.notes,
+    comment: Faker::Coffee.notes,
+    title: Faker::Coffee.origin,
     booking: Booking.find(x)
   )
   review.save!

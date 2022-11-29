@@ -1,0 +1,77 @@
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0;
+}
+.card-trip h3 {
+  font-size: 1.5em;
+  margin-top: 1.0em;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin-bottom: 0.5em;
+}
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.card-trip-heart {
+  position: absolute;
+  right: 0.25em;
+  top: 1.5em;
+  width: 40px;
+  color: #AF795D;
+}
+.fa-regular .fa-heart .fa-star .fas {
+  color: #AF795D;
+}
+
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.avatar-large {
+  width: 56px;
+  border-radius: 50%;
+}
+
+.avatar-bordered {
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+}
+
+.avatar-square {
+  width: 40px;
+  border-radius: 0px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+}
