@@ -4,8 +4,18 @@
 <div class="venue-container">
   <h1><%= @venue.name %></h1>
   <p><%= @venue.address %></p>
-  <div class="reviews">
+  <div class="average-rating">
     <%= @venue.average_rating unless @venue.average_rating.nan? %>
   </div>
   <p><%= @venue.opening_time_display %> - <%= @venue.closing_time_display %></p>
+  <div class="reviews-new">
+    <% @venue.all_reviews.each do |review| %>
+      <%= review.title.first(30) %>
+      <%= review.rating %>
+      <br>
+      <%= "#{review.comment.first(60)}..." %>
+      <br>
+    <% end %>
+  </div>
+  <%= link_to "All Venues", venues_path %>
 </div>

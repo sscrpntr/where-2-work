@@ -5,6 +5,10 @@ class Venue < ApplicationRecord
   has_many :bookings
   has_many :reviews, through: :bookings
 
+  def all_reviews
+    reviews.all
+  end
+
   def average_rating
     sum = 0
     reviews.each do |review|
@@ -15,7 +19,11 @@ class Venue < ApplicationRecord
 
   def opening_time_display
     if opening_time % 1 > 0
-      return "#{(opening_time - 0.5).to_i}:00"
+      if opening_time < 10
+        return "0#{(opening_time - 0.5).to_i}:00"
+      else
+        return "#{(opening_time - 0.5).to_i}:00"
+      end
     else
       return "#{opening_time.to_i}:30"
     end
