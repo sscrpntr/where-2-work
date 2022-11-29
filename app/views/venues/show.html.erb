@@ -1,0 +1,19 @@
+<div class="card-trip">
+  <img src="https://cdn.shopify.com/s/files/1/0534/0371/3720/files/cinnamon-bun_051e2ac8-8bc5-49cb-a113-8e57b511cfe5_1472x1472.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= @venue.name %></h2>
+      <p><%= @venue.address %></p>
+      <% @venue.all_reviews.each do |review| %>
+        <%= review.title.first(30) %>
+        <%= review.rating %>
+        <br>
+        <%= "#{review.comment.first(60)}..." %>
+        <br>
+      <% end %>
+    </div>
+    <h2 class="card-trip-pricing"><i class="fa-regular fa-heart"></i></h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+  <%= link_to "All Venues", venues_path, class: "btn btn-gradient" %>
+</div>

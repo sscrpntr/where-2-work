@@ -1,0 +1,62 @@
+.btn-group button {
+  background-color: #846046;
+  border: 1px solid black;
+  /* Green border */
+  color: white;
+  /* White text */
+  padding: 10px 24px;
+  /* Some padding */
+  cursor: pointer;
+  /* Pointer/hand icon */
+  float: left;
+  /* Float the buttons side by side */
+  width: 25%;
+  border-radius: 15%;
+}
+
+.btn-group {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none;
+  /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #6f513c;
+}
+.btn-gradient {
+  display: flex;
+  width: fit-content;
+  text-transform: uppercase;
+  background-color: #d1e751;
+  color: white;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 1em;
+  font-weight: bold;
+  background: linear-gradient(#AF795D, #DCB5A1);
+  transition: background 0.3s ease;
+  border: 1px solid white;
+  width: 10em;
+  margin-top: 2.0em;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(#30D6B0, #99CEDD);
+  color: white;
+}

@@ -1,8 +1,10 @@
 class VenuesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  
   def index
     @venues = Venue.all
   end
-
+  
   def new
     @venue = Venue.new
   end
@@ -15,6 +17,13 @@ class VenuesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+    
+  def show
+    @venue = Venue.find(params[:id])
+    # @markers = [{ lat: @laptop.latitude, lng: @laptop.longitude }]
+    @booking = Booking.new
+    @venues = Venue.all
   end
 
   private
