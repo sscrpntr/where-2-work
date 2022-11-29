@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_145811) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_28_194003) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -74,6 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_145811) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
 
@@ -97,11 +98,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_145811) do
     t.float "coupon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "venue_id", null: false
+    t.index ["venue_id"], name: "index_venue_offers_on_venue_id"
   end
 
   create_table "venues", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "venue_offer_id", null: false
     t.string "category"
     t.string "name"
     t.string "address"
@@ -114,7 +116,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_145811) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_venues_on_user_id"
-    t.index ["venue_offer_id"], name: "index_venues_on_venue_offer_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -124,6 +125,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_145811) do
   add_foreign_key "review_likes", "reviews"
   add_foreign_key "review_likes", "users"
   add_foreign_key "reviews", "bookings"
+  add_foreign_key "venue_offers", "venues"
   add_foreign_key "venues", "users"
-  add_foreign_key "venues", "venue_offers"
 end
