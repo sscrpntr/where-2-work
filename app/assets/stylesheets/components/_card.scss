@@ -23,10 +23,16 @@
 
 }
 
+.venue-card:hover {
+  box-shadow: 0 0px 12px 0 rgba(0, 0, 0, 0.3);
+  transform: scale(103%);
+}
+
 .venue-image {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 4px;
   width: 186px;
   height: 99px;
   border-radius: 15px;
@@ -34,18 +40,14 @@
 }
 
 .venue-text {
-
   width: 98px;
   height: 24px;
-
-  /* Text/Body Reg 16px | 20px */
 
   font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  /* identical to box height, or 150% */
 
   text-align: center;
 
