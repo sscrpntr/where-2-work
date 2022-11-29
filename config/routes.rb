@@ -2,13 +2,17 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
   resources :venues do
-    resources :reviews
-    resources :bookings
+    resources :bookings, only: %i[new create]
     resources :venue_offers, only: %i[create edit new update destroy]
   end
+
   resources :users, only: %i[show edit update]
 
+  resources :bookings, only: [] do
+    resources :reviews, only: %i[create new]
+  end
   # Defines the root path route ("/")
   # root "articles#index"
 end
