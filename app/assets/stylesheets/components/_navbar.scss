@@ -10,3 +10,22 @@
 .navbar-lewagon .navbar-brand img {
   width: 4em;
 }
+
+.add-button {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  width: 20%;
+  text-align: center;
+  z-index: 100;
+}
+
+.add-button i {
+  background-color: whitesmoke;
+  width: fit-content;
+  border-radius: 50%;
+  padding: 4px;
+}
