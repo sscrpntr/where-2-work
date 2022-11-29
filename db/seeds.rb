@@ -105,7 +105,7 @@ while x < 71
     natural_light: [true, true, true, true, true, true, true, false, false, false].sample,
     rating: rand(0..5),
     food_price: rand(0..5),
-    comment: Faker::Restaurant.review,
+    comment: Faker::Coffee.notes,
     title: Faker::Coffee.origin,
     booking: Booking.find(x)
   )
