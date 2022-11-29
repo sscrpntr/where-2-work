@@ -1,21 +1,19 @@
-<div class="venue-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.shopify.com/s/files/1/0534/0371/3720/files/cinnamon-bun_051e2ac8-8bc5-49cb-a113-8e57b511cfe5_1472x1472.jpg);">
-</div>
-
-<div class="venue-container">
-  <h1><%= @venue.name %></h1>
-  <p><%= @venue.address %></p>
-  <div class="average-rating">
-    <%= @venue.average_rating unless @venue.average_rating.nan? %>
-  </div>
-  <p><%= @venue.opening_time_display %> - <%= @venue.closing_time_display %></p>
-  <div class="reviews-new">
-    <% @venue.all_reviews.each do |review| %>
-      <%= review.title.first(30) %>
-      <%= review.rating %>
-      <br>
-      <%= "#{review.comment.first(60)}..." %>
-      <br>
-    <% end %>
+<div class="card-trip">
+  <img src="https://cdn.shopify.com/s/files/1/0534/0371/3720/files/cinnamon-bun_051e2ac8-8bc5-49cb-a113-8e57b511cfe5_1472x1472.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= @venue.name %></h2>
+      <p><%= @venue.address %></p>
+      <% @venue.all_reviews.each do |review| %>
+        <%= review.title.first(30) %>
+        <%= review.rating %>
+        <br>
+        <%= "#{review.comment.first(60)}..." %>
+        <br>
+      <% end %>
+    </div>
+    <h2 class="card-trip-pricing">£99.99</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
   <%= link_to "All Venues", venues_path %>
 </div>
