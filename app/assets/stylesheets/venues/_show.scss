@@ -22,7 +22,6 @@
   margin: 0;
 }
 
-
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
@@ -37,12 +36,14 @@
   top: -20px;
   width: 40px;
 }
+
 .card-trip-pricing {
   position: absolute;
-  right: 16px;
-  top: 30px;
+  right: 0.25em;
+  top: 1.5em;
   width: 40px;
 }
+
 .avatar {
   width: 40px;
   border-radius: 50%;
