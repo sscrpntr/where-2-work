@@ -21,3 +21,17 @@
   <%= link_to "Visit #{@venue.category}", new_venue_booking_path, class: "btn btn-gradient" %>
   <%= link_to "All Venues", venues_path, class: "btn btn-gradient" %>
 </div>
+
+<div>
+  <div id="right-side">
+    <div class="venue-title" id="booking">
+      <h2>Checkout</h2>
+      <div class="form-styled" >
+        <%= simple_form_for [@venue, @booking] do |f| %>
+          <%= f.input(:date, as: :date)%>
+          <%= f.submit class:"btn-rent", value:"Book" %>
+      </div>
+        <% end %>
+    </div>
+  </div>
+</div>
