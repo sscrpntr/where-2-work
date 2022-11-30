@@ -7,6 +7,8 @@ class Venue < ApplicationRecord
   has_many :venue_offers
   has_many :bookings
   has_many :reviews, through: :bookings
+  has_many :favorites
+  has_many :favorited_by, through: :favorites, source: :user
 
   def all_reviews
     reviews.all
