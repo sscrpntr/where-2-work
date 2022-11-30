@@ -1,6 +1,6 @@
 <div class="venue-title">
   <h2>Your Bookings</h2>
-  <div class="venue-card">
+  <div class="wrapper">
     <% @user_bookings.each do |booking| %>
     <div class="venue-card">
       <a href=<%=venues_path(booking.venue)%>>
