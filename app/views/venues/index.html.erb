@@ -1,4 +1,9 @@
-<div class="container">
+<div
+  class="container"
+  data-controller="button map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+>
   <div class="container">
     <div class="row height d-flex justify-content-center align-items-center">
       <div class="col-md-6">
@@ -12,9 +17,9 @@
       </div>
     </div>
   </div>
-  <div class="btn-group" data-controller="button">
+  <div class="btn-group">
     <button class="button-list button-clicked" data-action="click->button#switchButtonList" data-button-target="buttonList">List</button>
-    <button class="button-map" data-action="click->button#switchButtonMap" data-button-target="buttonMap">Map</button>
+    <button class="button-map" data-action="click->button#switchButtonMap click->map#resize" data-button-target="buttonMap">Map</button>
   </div>
   <div class=btn-group>
     <button class ="fa-solid fa-wifi">
@@ -22,7 +27,7 @@
     <button class ="fa-solid fa-headset">
     <button class ="fa-solid fa-sun">
   </div>
-  <div class="listDiv">
+  <div class="listDiv" data-button-target="listDiv">
     <div class=btn-group>
       <i class="fa-solid fa-magnifying-glass"></i><h3>Your Search Results</h3>
     </div>
@@ -69,11 +74,9 @@
       <% end %>
     </div>
   </div>
-  <div class="mapDiv" style="display: none">
-    <div style="width: 100%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="mapDiv"  data-button-target="mapDiv" style="display: none;">
+    <div class="tab-pane" style="width: 100%; height: 600px;"
+      data-map-target="map"
     </div>
     <%= Geocoder.search(@ip).first.coordinates %>
   </div>

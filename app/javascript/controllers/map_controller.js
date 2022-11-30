@@ -5,22 +5,27 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="mapbox"
 export default class extends Controller {
+  static targets = ["map", "mapButton"]
+
   static values = {
     apiKey: String,
     markers: Array
   }
 
   connect() {
-    console.log("Hi from Harrison")
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
-      container: this.element,
+      container: this.mapTarget,
       style: "mapbox://styles/mapbox/streets-v10"
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+  }
 
+  resize() {
+    console.log('resizing')
+    this.map.resize()
   }
 
   #addMarkersToMap() {
