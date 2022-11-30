@@ -35,6 +35,22 @@ class VenuesController < ApplicationController
     @venues = Venue.all
   end
 
+  def favorite
+    @venue = Venue.find(params[:id])
+    type = params[:type]
+    if type == "favorite"
+      current_user.favorites << @venue
+      redirect_to :back, notice: 'Added to favorites'
+
+    elsif type == "unfavorite"
+      current_user.favorites.delete(@venue)
+      redirect_to :back, notice: 'Removed from favorites'
+
+    else
+      redirect_to :back, notice: 'Nothing happened.'
+    end
+  end
+
   private
 
   def venue_params
