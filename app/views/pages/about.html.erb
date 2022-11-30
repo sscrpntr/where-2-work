@@ -1,7 +1,4 @@
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+<h1>Coming soon!</h1>
 
-<%= Geocoder.search(@ip).first.coordinates %>
+<p>Your download speed: <strong><%= @user.wifi_speed.download_rate / 1024000 %></strong></p>
+<p>Your upload speed: <strong><%= @user.wifi_speed.upload_rate / 1024000 %></strong></p>
