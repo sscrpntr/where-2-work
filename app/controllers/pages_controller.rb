@@ -6,5 +6,13 @@ class PagesController < ApplicationController
   end
 
   def about
+    @venues = Venue.all
+    @markers = @venues.geocoded.map do |venue|
+      {
+        lat: venue.latitude,
+        lng: venue.longitude
+      }
+    end
+    @ip = request.remote_ip
   end
 end
