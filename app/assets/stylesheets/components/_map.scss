@@ -1,1 +1,10 @@
-.mapDiv {}
+.mapDiv>.tab-pane {
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+
+.mapDiv>.active {
+  display: block;
+  height: auto;
+}
