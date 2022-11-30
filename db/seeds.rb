@@ -53,12 +53,12 @@ while x < 20
 end
 
 x = 0
-while x < 100
+while x < venue_photos.size
   venue = Venue.new(
-    name: Faker::Coffee.blend_name,
-    address: Faker::Address.street_address,
-    website: "#{Faker::Blockchain::Bitcoin.address}.com",
-    category: ["Bar", "Cafe", "Library", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe", "Cafe"].sample,
+    name: venue_photos[x][0],
+    address: venue_photos[x][3],
+    website: venue_photos[x][4],
+    category: venue_photos[x][1],
     user: User.all.sample,
     power_outlets: [true, false].sample,
     natural_light: [true, false].sample,
@@ -66,7 +66,7 @@ while x < 100
     opening_time: [6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9, 9.5, 10.0].sample,
     closing_time: [17.0, 17.5, 18.0, 18.5, 19.0, 19.5, 20.0, 20.5, 21.0, 21.5, 22.0, 22.5, 23.0, 23.5].sample
   )
-  file = URI.open(venue_photos[x][0])
+  file = URI.open(venue_photos[x][2])
   venue.photo.attach(io: file, content_type: "image/png", filename: "venue_#{venue.id}.jpg")
   venue.save!
   puts "Venue #{x} saved!"
