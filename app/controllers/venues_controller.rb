@@ -19,7 +19,7 @@ class VenuesController < ApplicationController
       }
     end
     @user_location = Geocoder.search(request.remote_ip).first.coordinates
-    @user_coordinates = [{:lat=>@user_location[0], :lng=>@user_location[1]}]
+    @markers << {:lat=>@user_location[0], :lng=>@user_location[1]}
   end
 
   def new
