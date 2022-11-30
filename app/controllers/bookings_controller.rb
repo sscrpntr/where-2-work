@@ -1,10 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: :show
-  before_action :set_venue
+  before_action :set_venue, only: %i[:show :new :create :destroy]
   # fow now we don't need to set any venue before starting a method
 
   def index
-    @bookings = Booking.all
+    # @bookings = Booking.all
     @venues = Venue.all
     @user_bookings = Booking.where(user_id: current_user.id)
   end
@@ -18,11 +18,12 @@ class BookingsController < ApplicationController
   end
 
   def create
+    set_venue
     @booking = Booking.new
     @booking.venue = @venue
     @booking.user = current_user
     @booking.save!
-    redirect_to venue_bookings_path
+    redirect_to bookings_path
   end
 
   def destroy

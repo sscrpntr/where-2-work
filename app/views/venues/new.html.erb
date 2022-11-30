@@ -3,7 +3,7 @@
     <div class="form-group" style="width: 500px" >
       <%= simple_form_for @venue, data:{turbo: false} do |f| %>
         <%= f.input :name, placeholder: 'Bar La Camila', required: true  %>
-        <%= f.input :adress, placeholder: 'Carrer de Banyoles, 11, 08012 Barcelona', required: true  %>
+        <%= f.input :address, placeholder: 'Carrer de Banyoles, 11, 08012 Barcelona', required: true  %>
         <%= f.input :website, placeholder: 'https://www.instagram.com/barlacamila/' %>
         <%= f.input :power_outlets, placeholder: 'Yes', required: true  %>
         <%= f.input :natural_light, placeholder: 'Yes', required: true  %>
