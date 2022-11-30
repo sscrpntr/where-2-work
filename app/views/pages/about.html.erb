@@ -1,4 +1,8 @@
 <h1>Coming soon!</h1>
 
-<p>Your download speed: <strong><%= @user.wifi_speed.pretty_download_rate %></strong></p>
-<p>Your upload speed: <strong><%= @user.wifi_speed.pretty_upload_rate %></strong></p>
+<% if user_signed_in? %>
+  <p>Your download speed: <strong><%= @user.wifi_speed.pretty_download_rate %></strong></p>
+  <p>Your upload speed: <strong><%= @user.wifi_speed.pretty_upload_rate %></strong></p>
+<% else %>
+  <p>Please <%= link_to "sign in", new_user_session_path %> sign in to test the wifi speed.</p>
+<% end %>
