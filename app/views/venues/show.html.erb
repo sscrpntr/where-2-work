@@ -18,19 +18,20 @@
     <h3 class="card-trip-heart"><i class="fa-regular fa-heart"></i></h3>
     <img src="https://i.imgur.com/T1ryMJk.png" class="card-trip-user avatar-bordered" />
   </div>
+  <div class="venue-title" id="booking">
+      <h3>Visit</h3>
+      <div class="form-styled" >
+        <%= simple_form_for [@venue, @booking] do |f| %>
+          <%= f.input :date, as: :date, html5: true, required: true, format: 'yyyy-mm-dd' %>
+          <%= f.submit class:"btn-rent", value:"Book" %>
+        <% end %>
+      </div>
+    </div>
   <%= link_to "All Venues", venues_path, class: "btn btn-gradient" %>
 </div>
 
 <div>
   <div id="right-side">
-    <div class="venue-title" id="booking">
-      <h2>Checkout</h2>
-      <div class="form-styled" >
-        <%= simple_form_for [@venue, @booking] do |f| %>
-          <%= f.input(:date, as: :date)%>
-          <%= f.submit class:"btn-rent", value:"Book" %>
-      </div>
-        <% end %>
-    </div>
+
   </div>
 </div>
