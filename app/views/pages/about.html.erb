@@ -1,4 +1,4 @@
 <h1>Coming soon!</h1>
 
-<p>Your download speed: <strong><%= @user.wifi_speed.download_rate / 1024000 %></strong></p>
-<p>Your upload speed: <strong><%= @user.wifi_speed.upload_rate / 1024000 %></strong></p>
+<p>Your download speed: <strong><%= @user.wifi_speed.pretty_download_rate %></strong></p>
+<p>Your upload speed: <strong><%= @user.wifi_speed.pretty_upload_rate %></strong></p>
