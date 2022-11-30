@@ -1,10 +1,10 @@
 <div class="venue-title">
   <h2>Your Bookings</h2>
-  <div class="wrapper">
-    <% @user_bookings.each do |booking| %>
-    <div class="venue-card">
-      <a href=<%=venues_path(booking.venue)%>>
-      <%= cl_image_tag(booking.venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250) %>
+    <div class="wrapper">
+      <% @user_bookings.each do |booking| %>
+        <div class="venue-card">
+          <a href=<%=venue_path(booking.venue)%>>
+            <%= cl_image_tag(booking.venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250) %>
         <div class="venue-text">
           <div class ="venue-text" <%= booking.venue.name %> <%= booking.venue.address %> | <%= booking.venue %>
             <% unless booking.venue.average_rating == nil %>
