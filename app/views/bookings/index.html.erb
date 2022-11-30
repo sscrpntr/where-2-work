@@ -1,19 +1,18 @@
-This will show user bookings
-
-
 <div class="venue-title">
-  <h2>Your bookings</h2>
-  <div class="cards-container">
+  <h2>Your Bookings</h2>
+  <div class="venue-card">
     <% @user_bookings.each do |booking| %>
     <div class="venue-card">
       <a href=<%=venues_path(booking.venue)%>>
       <%= cl_image_tag(booking.venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250) %>
-        <div class="specs">
-          <h4><%= booking.venue.name %> <%= booking.venue.address %> | <%= booking.laptop.venue %><%= "| #{("⭐" * booking.venue.average_rating)}" if booking.venue.average_rating > 0 %></h4>
-          <p class ="venue-text"> Opening time: <%= booking.venue.opening_time %>, Closing time: <%= booking.venue.closing_time %></p>
-          <%# <h5 class ="venue-text">€<%= '%.2f' % (booking.venue.price * 10) %>/day </h5> %>
-          <%# <p> Return date: <%= booking.end_date %></p> %>
+        <div class="venue-text">
+          <div class ="venue-text" <%= booking.venue.name %> <%= booking.venue.address %> | <%= booking.venue %>
+            <% unless booking.venue.average_rating == nil %>
+            <%= "| #{("⭐" * booking.venue.average_rating)}" if booking.venue.average_rating > 0 %>
+            <% end %>
+            <p class ="venue-text"> Opening time: <%= booking.venue.opening_time %>, Closing time: <%= booking.venue.closing_time %></p>
           </a>
+          </div>
         </div>
       </div>
     <% end %>
