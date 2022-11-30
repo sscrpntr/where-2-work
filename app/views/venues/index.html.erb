@@ -1,50 +1,72 @@
 <div class="container">
-  <div class="row height d-flex justify-content-center align-items-center">
-    <div class="col-md-6">
-      <div class="form">
-        <i class="fa fa-search"></i>
-        <%= form_for "", url: venues_path, role: "search", method: :get do %>
-          <%= text_field_tag :search, @search_term, class:"form-control form-input", placeholder: "Search.." %>
-        <% end %>
-        <span class="left-pan"><i class="fa fa-microphone"></i></span>
+  <div class="container">
+    <div class="row height d-flex justify-content-center align-items-center">
+      <div class="col-md-6">
+        <div class="form">
+          <i class="fa fa-search"></i>
+          <%= form_for "", url: venues_path, role: "search", method: :get do %>
+            <%= text_field_tag :search, @search_term, class:"form-control form-input", placeholder: "Search.." %>
+          <% end %>
+          <span class="left-pan"><i class="fa fa-microphone"></i></span>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="btn-group">
-  <button class="button-list">List</button>
-  <button class="button-map">Map</button>
+  <div class="btn-group" data-controller="button">
+    <button class="button-list button-clicked" data-action="click->button#switchButtonList" data-button-target="buttonList">List</button>
+    <button class="button-map" data-action="click->button#switchButtonMap" data-button-target="buttonMap">Map</button>
   </div>
-<h3><%= link_to "🔆", "#" %><%= link_to "📶", "#" %><%= link_to "🔌", "#" %><%= link_to "📞", "#" %></h3>
-<div class="wrapper">
-  <% @venues.first(10).each do |venue| %>
-    <%=link_to venue_path(venue) do  %>
-      <div class="venue-card">
-        <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
-        <%= tag.p venue.name, class: 'venue-text' %><%= "#{("⭐" * venue.average_rating)}" if venue.average_rating%>
-      </div>
-    <% end %>
-  <% end %>
-</div>
-<h3>🔥 Top Rated Nearby</h3>
-<div class="wrapper">
-  <% @venues.select{|a| a.average_rating}.sort{ |a,b| b.average_rating <=> a.average_rating}.first(10).each do |venue| %>
-    <%=link_to venue_path(venue) do %>
-      <div class="venue-card">
-        <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
-        <%= tag.p venue.name, class: 'venue-text' %><%= "#{("⭐" * venue.average_rating)}" if venue.average_rating%>
-      </div>
-    <% end %>
-  <% end %>
-</div>
-<h3>💯 Best offers</h3>
-<div class="wrapper">
-  <% @venues.first(10).each do |venue| %>
-    <%=link_to venue_path(venue) do %>
-      <div class="venue-card">
-        <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
-        <%= tag.p venue.name, class: 'venue-text' %><%= "#{("⭐" * venue.average_rating)}" if venue.average_rating%>
-      </div>
-    <% end %>
-  <% end %>
+  <div class=btn-group>
+    <button class ="fa-solid fa-wifi">
+    <button class ="fa-solid fa-plug">
+    <button class ="fa-solid fa-headset">
+    <button class ="fa-solid fa-sun">
+  </div>
+  <div class="listDiv">
+    <div class=btn-group>
+      <i class="fa-solid fa-magnifying-glass"></i><h3>Your Search Results</h3>
+    </div>
+    <div class="wrapper">
+      <% @venues.first(10).each do |venue| %>
+        <%=link_to venue_path(venue) do  %>
+          <div class="venue-card">
+            <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
+            <%= tag.p venue.name, class: 'venue-text' %><% venue.average_rating.to_i.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class=btn-group>
+      <i class="fa-solid fa-fire-flame-curved"></i><h3>Top Rated Nearby</h3>
+    </div>
+    <div class="wrapper">
+      <% @venues.select{|a| a.average_rating}.sort{ |a,b| b.average_rating <=> a.average_rating}.first(10).each do |venue| %>
+        <%=link_to venue_path(venue) do %>
+          <div class="venue-card">
+            <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
+            <%= tag.p venue.name, class: 'venue-text' %><% venue.average_rating.to_i.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class=btn-group>
+      <i class="fa-solid fa-percent"></i><h3>Best offers</h3>
+    </div>
+    <div class="wrapper">
+      <% @venues.first(10).each do |venue| %>
+        <%=link_to venue_path(venue) do %>
+          <div class="venue-card">
+            <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
+            <%= tag.p venue.name, class: 'venue-text' %><% venue.average_rating.to_i.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

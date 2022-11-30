@@ -1,8 +1,6 @@
 .btn-group button {
-  background-color: #846046;
-  border: 2px solid #422800;
-  box-shadow: #422800 4px 4px 0 0;
-  color: white;
+  border: 1px solid rgba(145, 134, 134, 0.54);
+  box-shadow: 0 0px 12px 0 rgba(0, 0, 0, 0.3);
   cursor: pointer;
   display: inline-block;
   font-weight: 600;
@@ -14,20 +12,18 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  background-color: white;
+  color: black;
+  width: 144px;
+  height: 53px;
 }
 
 .button-map {
-  border-top-right-radius: 20%;
-  border-bottom-right-radius: 20%;
-  width: 144px;
-  height: 53px;
+  border-radius: 0px 100px 100px 0px;
 }
 
 .button-list {
-  border-top-left-radius: 20%;
-  border-bottom-left-radius: 20%;
-  width: 144px;
-  height: 53px;
+  border-radius: 100px 0px 0px 100px;
 }
 
 .btn-group {
@@ -55,8 +51,9 @@
 }
 
 /* Add a background color on hover */
-.btn-group button:hover {
-  background-color: #6f513c;
+.button-clicked {
+  background-color: #846046 !important;
+  color: white !important;
 }
 
 .btn-gradient {
