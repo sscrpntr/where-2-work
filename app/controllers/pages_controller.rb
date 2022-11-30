@@ -13,5 +13,6 @@ class PagesController < ApplicationController
         lng: venue.longitude
       }
     end
+    @ip = request.remote_ip
   end
 end
