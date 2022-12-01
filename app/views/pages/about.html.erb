@@ -1,6 +1,7 @@
 <h1>Coming soon!</h1>
 
 <% if user_signed_in? %>
+  <%= button_tag "Waiting", class: "btn btn-default", 'data-disable-with' => "<i class='fa fa-spinner fa-spin'></i>".html_safe %>
   <p>Your download speed: <strong><%= @user.wifi_speed.pretty_download_rate %></strong></p>
   <p>Your upload speed: <strong><%= @user.wifi_speed.pretty_upload_rate %></strong></p>
 <% else %>
