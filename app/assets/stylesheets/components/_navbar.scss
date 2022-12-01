@@ -33,3 +33,10 @@
 .fa-cog {
   color: rgba(132, 96, 70, 1);
 }
+
+.sticky{
+width: 100%;
+position:fixed;
+bottom: 0px;
+z-index: 1020;
+}
