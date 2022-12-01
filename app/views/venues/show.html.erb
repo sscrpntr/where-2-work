@@ -16,24 +16,24 @@
           <i class="far fa-star"></i>
         <% end %>
         </p>
-        <p><%= "#{review.comment.first(60)}..." %></p>
+        <p><%= "#{review.comment.capitalize.first(60)}..." %></p>
         <br>
       <% end %>
     </div>
     <h3 class="card-trip-heart"><i class="fa-regular fa-heart"></i></h3>
-    <img src="https://i.imgur.com/T1ryMJk.png" class="card-trip-user avatar-bordered" />
+    <h3 class="card-trip-user avatar-bordered"><%= @venue.average_rating %></h3>
   </div>
 
   <div class="venue-title">
     <h3>Visit</h3>
     <div class="form-styled">
       <%= simple_form_for [@venue, @booking] do |f| %>
-      <%= f.input :date, :as => :hidden,
+      <%= f.input :date, as: :date, required: true %>
+<%# f.input :date, :as => :hidden,
       :input_html => {
         :id => "basicDate"
       }, required: true %>
-
-        <%= f.submit class:"btn-gradient", value:"Work" %>
+        <%= f.submit class:"btn btn-gradient", value:"Get 2 Work  " %>
       <% end %>
     </div>
 <script>
@@ -42,5 +42,6 @@ $("#basicDate").flatpickr({
 });
   </script>
   </div>
+  <%= link_to "New Review", venues_path, class: "btn btn-gradient" %>
   <%= link_to "All Venues", venues_path, class: "btn btn-gradient" %>
 </div>
