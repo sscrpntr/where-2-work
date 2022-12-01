@@ -13,7 +13,7 @@
 .card-trip h2 {
   font-size: 2em;
   font-weight: bold;
-  margin: 0;
+  margin: .5em 0 0 0;
 }
 .card-trip h3 {
   font-size: 1.5em;
@@ -33,12 +33,49 @@
   align-items: flex-end;
   position: relative;
 }
+.card-trip-infos .card-trip-review {
+  position: absolute;
+  text-transform: uppercase;
+  background-color: #d1e751;
+  color: white;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 1em;
+  font-weight: bold;
+  background: linear-gradient(#422800, #AF795D);
+  transition: background 0.3s ease;
+  border: 1px solid white;
+  margin-top: 2.0em;
+  right: 0.5em;
+  top: -2.8em;
+  width: 25%;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  font-size: 1em;
+}
 
 .card-trip-infos .card-trip-user {
   position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+  text-transform: uppercase;
+  background-color: #d1e751;
+  color: white;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 1em;
+  font-weight: bold;
+  background: linear-gradient(#422800, #AF795D);
+  transition: background 0.3s ease;
+  border: 1px solid white;
+  margin-top: 2.0em;
+  left: 0.5em;
+  top: -2.8em;
+  width: 25%;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em
 }
 
 .card-trip-heart {
@@ -92,6 +129,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   top: 0;
   width: auto;
 }
-.fa-star .fa-heart{
-  color: #422800;
+.fa-star {
+  color: #FDBC1F;
+}
+.card-trip-infos .fa-heart {
+  color: #FE8668;
 }

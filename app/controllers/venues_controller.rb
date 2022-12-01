@@ -21,6 +21,7 @@ class VenuesController < ApplicationController
         lng: venue.longitude
       }
     end
+    # LeWagon Coordinates: @user_location = [41.398655, 2.163333]
     @user_location = Geocoder.search(request.remote_ip).first.coordinates
     @markers << { lat: @user_location[0], lng: @user_location[1] }
   end
@@ -50,16 +51,17 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
     type = params[:type]
     if type == "favorite"
-      current_user.favorites << @venue
+      current_user.favorite_venues << @venue
       redirect_to :back, notice: 'Added to favorites'
 
     elsif type == "unfavorite"
-      current_user.favorites.delete(@venue)
+      current_user.favorite_venues.delete(@venue)
       redirect_to :back, notice: 'Removed from favorites'
 
     else
       redirect_to :back, notice: 'Nothing happened.'
     end
+    raise
   end
 
   private
