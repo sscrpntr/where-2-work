@@ -21,8 +21,7 @@
     <button class="button-list button-clicked" data-action="click->button#switchButtonList" data-button-target="buttonList">List</button>
     <button class="button-map" data-action="click->button#switchButtonMap click->map#resize" data-button-target="buttonMap">Map</button>
   </div>
-  <div class=btn-group>
-    <%# <button class ="fa-solid fa-wifi" href="#"> %>
+  <div class="btn-group">
     <%= link_to venues_path(has_plugs:"true") do %>
       <%= image_tag "https://icon2.cleanpng.com/20180531/fvs/kisspng-ac-power-plugs-and-sockets-computer-icons-electric-plug-5b103a9d4a78c8.577232151527790237305.jpg", style: "height: 30px; width: 30px;" %>
     <% end %>
@@ -32,8 +31,6 @@
     <%= link_to venues_path(has_light:"true") do %>
       <%= image_tag "https://w7.pngwing.com/pngs/537/511/png-transparent-black-sun-computer-icons-symbol-sun-miscellaneous-symmetry-monochrome-thumbnail.png", style: "height: 30px; width: 30px;" %>
     <% end %>
-    <%# <button class ="fa-solid fa-headset" href="/venues/1">
-    <button class ="fa-solid fa-sun" href="/venues/has_light"> %>
   </div>
   <div class="listDiv" data-button-target="listDiv">
     <div class=btn-group>
