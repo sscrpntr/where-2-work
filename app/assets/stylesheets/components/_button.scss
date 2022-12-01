@@ -75,6 +75,25 @@
   margin-top: 2.0em;
 }
 
+.btn-danger {
+  display: flex;
+  width: fit-content;
+  text-transform: uppercase;
+  background-color: #d1e751;
+  color: red;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 1em;
+  font-weight: bold;
+  background: linear-gradient(#422800, #AF795D);
+  transition: background 0.3s ease;
+  border: 1px solid white;
+  width: 10em;
+  margin-top: 2.0em;
+}
+
 .btn-gradient:active {
   box-shadow: #422800 2px 2px 0 0;
   transform: translate(2px, 2px);
