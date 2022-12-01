@@ -3,6 +3,9 @@ class VenuesController < ApplicationController
 
   def index
     @venues = Venue.all
+    @venues = Venue.has_plugs if params[:has_plugs].present?
+    @venues = Venue.has_calls if params[:has_calls].present?
+    @venues = Venue.has_light if params[:has_light].present?
     if params[:search].present?
       sql_query = <<~SQL
         venues.category @@ :query
@@ -19,7 +22,7 @@ class VenuesController < ApplicationController
       }
     end
     @user_location = Geocoder.search(request.remote_ip).first.coordinates
-    @markers << {:lat=>@user_location[0], :lng=>@user_location[1]}
+    @markers << { lat: @user_location[0], lng: @user_location[1] }
   end
 
   def new
