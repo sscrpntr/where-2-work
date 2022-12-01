@@ -21,7 +21,8 @@
       <% end %>
     </div>
     <h3 class="card-trip-user"><i class="far fa-star"></i>  <%= @venue.average_rating %></h3>
-    <h3 class="card-trip-review"><i class="fa-solid fa-plus"></i>Review</h3>
+    <h3 class="card-trip-review"><i class="fa-solid fa-plus"></i><%= link_to "Review", bookings_path %></h3>
+
   </div>
 
   <div class="venue-title">
