@@ -60,6 +60,7 @@ while x < venue_photos.size
     website: venue_photos[x][4],
     category: venue_photos[x][1],
     user: User.all.sample,
+    wifi: [true, true, true, true, true, true, true, true, true, false].sample,
     power_outlets: [true, false].sample,
     natural_light: [true, false].sample,
     suited_for_calls: [true, false].sample,
