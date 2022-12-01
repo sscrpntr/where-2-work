@@ -1,3 +1,5 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
 <div class="card-trip">
   <%= cl_image_tag @venue.photo.key %>
   <div class="card-trip-infos">
@@ -10,6 +12,9 @@
         <% review.rating.times do %>
           <i class="fas fa-star"></i>
         <% end %>
+        <% (5 - review.rating).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
         </p>
         <p><%= "#{review.comment.first(60)}..." %></p>
         <br>
@@ -19,20 +24,23 @@
     <img src="https://i.imgur.com/T1ryMJk.png" class="card-trip-user avatar-bordered" />
   </div>
 
-  <div class="venue-title" id="booking">
+  <div class="venue-title">
     <h3>Visit</h3>
-      <div class="form-styled" >
-        <%= simple_form_for [@venue, @booking] do |f| %>
-          <%= f.input :date, as: :date, html5: true, required: true, format: 'yyyy-mm-dd' %>
-          <%= f.submit class:"btn-rent", value:"Book" %>
-        <% end %>
-      </div>
+    <div class="form-styled">
+      <%= simple_form_for [@venue, @booking] do |f| %>
+      <%= f.input :date, :as => :hidden,
+      :input_html => {
+        :id => "basicDate"
+      }, required: true %>
+
+        <%= f.submit class:"btn-gradient", value:"Work" %>
+      <% end %>
     </div>
-  <%= link_to "All Venues", venues_path, class: "btn btn-gradient" %>
-</div>
-
-<div>
-  <div id="right-side">
-
+<script>
+$("#basicDate").flatpickr({
+    dateFormat: "F, d Y H:i"
+});
+  </script>
   </div>
+  <%= link_to "All Venues", venues_path, class: "btn btn-gradient" %>
 </div>

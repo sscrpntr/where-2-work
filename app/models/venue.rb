@@ -10,6 +10,10 @@ class Venue < ApplicationRecord
   has_many :favorites
   has_many :favorited_by, through: :favorites, source: :user
 
+  scope :has_plugs, -> { where(power_outlets: true) }
+  scope :has_calls, -> { where(suited_for_calls: true) }
+  scope :has_light, -> { where(natural_light: true) }
+
   def all_reviews
     reviews.all
   end
