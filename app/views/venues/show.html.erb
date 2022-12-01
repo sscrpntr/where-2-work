@@ -20,7 +20,7 @@
   </div>
 
   <div class="venue-title" id="booking">
-      <h3>Visit</h3>
+    <h3>Visit</h3>
       <div class="form-styled" >
         <%= simple_form_for [@venue, @booking] do |f| %>
           <%= f.input :date, as: :date, html5: true, required: true, format: 'yyyy-mm-dd' %>

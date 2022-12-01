@@ -1,1 +1,36 @@
-this page will be displayed when the user hits a specific booking
+<h1>Edit your bookings</h1>
+<h2>Booking ID <%= (@booking.id) %></h2>
+  <div class="product-specs">
+    <div class="product-specs">
+        <%= cl_image_tag(@booking.venue.photo.key, :class=>"booking-image", :alt=>"venue image", :width=>350, :height=>250) %>
+        <h3>Venue information</h3>
+        <ul>
+          <li>Website: <%= @booking.venue.website %></li>
+          <li>Power Outlets available: <%= @booking.venue.power_outlets %></li>
+          <li>Natural light: <%= @booking.venue.natural_light %>"</li>
+          <li>Suitable for calls: <%= @booking.venue.suited_for_calls %>"</li>
+        </ul>
+            <%= link_to "Delete",
+              booking_path(@booking),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+            %>
+      </div>
+
+<h2>Your other bookings</h2>
+  <div class="wrapper">
+      <% @user_bookings.each do |booking| %>
+        <div class="venue-card">
+          <a href=<%=booking_path(booking.venue)%>>
+            <%= cl_image_tag(booking.venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250) %>
+            <div class="venue-text">
+              <div class ="venue-text" <%= booking.venue.name %> <%= booking.venue.address %> | <%= booking.venue %>
+              <% unless booking.venue.average_rating == nil %>
+              <%= "| #{("⭐" * booking.venue.average_rating)}" if booking.venue.average_rating > 0 %>
+              <% end %>
+              <p class ="venue-text"> Opening time: <%= booking.venue.opening_time %>, Closing time: <%= booking.venue.closing_time %></p>
+              </a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
