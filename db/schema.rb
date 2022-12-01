@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_104901) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_150533) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -108,13 +108,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_104901) do
     t.index ["venue_id"], name: "index_bookings_on_venue_id"
   end
 
-  create_table "favorites", force: :cascade do |t|
+  create_table "favorite_venues", force: :cascade do |t|
     t.bigint "venue_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_favorites_on_user_id"
-    t.index ["venue_id"], name: "index_favorites_on_venue_id"
+    t.index ["user_id"], name: "index_favorite_venues_on_user_id"
+    t.index ["venue_id"], name: "index_favorite_venues_on_venue_id"
   end
 
   create_table "review_likes", force: :cascade do |t|
@@ -191,8 +191,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_104901) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "venues"
-  add_foreign_key "favorites", "users"
-  add_foreign_key "favorites", "venues"
+  add_foreign_key "favorite_venues", "users"
+  add_foreign_key "favorite_venues", "venues"
   add_foreign_key "review_likes", "reviews"
   add_foreign_key "review_likes", "users"
   add_foreign_key "reviews", "bookings"

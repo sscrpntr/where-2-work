@@ -7,8 +7,8 @@ class Venue < ApplicationRecord
   has_many :venue_offers
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
-  has_many :favorites
-  has_many :favorited_by, through: :favorites, source: :user
+  has_many :favorite_venues
+  has_many :favorited_by, through: :favorites_venues, source: :user
 
   scope :has_plugs, -> { where(power_outlets: true) }
   scope :has_calls, -> { where(suited_for_calls: true) }
