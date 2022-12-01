@@ -71,10 +71,11 @@
   background: linear-gradient(#422800, #AF795D);
   transition: background 0.3s ease;
   border: 1px solid white;
-  width: 80%;
   margin-top: 2.0em;
 }
-
+.card-trip .btn-gradient {
+  width: 50%;
+}
 .btn-danger {
   display: flex;
   width: fit-content;

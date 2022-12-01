@@ -6,8 +6,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :favorite_venues
-  has_many :venues, through: :favorite_venues
+has_many :favorite_venues
+has_many :favorited_by, through: :favorites_venues, source: :user
 
   def wifi_speed
     Speedtest::Test.new(
