@@ -8,13 +8,13 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :venues do
-      resources :bookings, only: %i[new create]
-      resources :venue_offers, only: %i[create edit new update destroy]
-      member do
-        put "like" => "venues#upvote"
-        put "unlike" => "venues#downvote"
-      end
-      put :favorite, on: :member
+    resources :bookings, only: %i[new create]
+    resources :venue_offers, only: %i[create edit new update destroy]
+    member do
+      put "like" => "venues#upvote"
+      put "unlike" => "venues#downvote"
+    end
+    put :favorite, on: :member
   end
 
   resources :users, only: %i[show edit update]

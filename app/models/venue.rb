@@ -5,10 +5,14 @@ class Venue < ApplicationRecord
   has_one_attached :photo
   belongs_to :user
   has_many :venue_offers
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
   has_many :favorites
   has_many :favorited_by, through: :favorites, source: :user
+
+  scope :has_plugs, -> { where(power_outlets: true) }
+  scope :has_calls, -> { where(suited_for_calls: true) }
+  scope :has_light, -> { where(natural_light: true) }
 
   def all_reviews
     reviews.all
