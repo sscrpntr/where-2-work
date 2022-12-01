@@ -88,15 +88,16 @@
               <% end %>
               <div class="col-sm-4 col-xs-12 text-center">
                 <button type="button" class="btn btn-danger btn-block">
-                <% if user_signed_in? && current_user.favorite_venues.include? venue %>
-                    <i class="fa fa-heart"></i>
+                <i class="fa fa-heart"></i>
+                <% if user_signed_in? %>
+                  <% if current_user.favorite_venues.include? venue %>
                     <p>Already in Favorites</p>
-                  <% elsif user_signed_in? %>
-                    <i class="fa fa-heart"></i>
-                    <%= link_to "favorite", venue_favorite_venues_path(venue), data: { turbo_method: "post" }%>
                   <% else %>
-                    <%= link_to "#{<i class="fa fa-heart"></i>}", new_user_session_path %>
+                    <%= link_to "favorite", venue_favorite_venues_path(venue), data: { turbo_method: "post" }%>
                   <% end %>
+                <% else %>
+                  <%= link_to "HolaOscar", new_user_session_path %>
+                <% end %>
                   <span class="badge">favorite</span>
                 </button>
               </div>
