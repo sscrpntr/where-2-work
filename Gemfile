@@ -82,3 +82,4 @@ gem "cloudinary"
 gem "faker"
 gem "geocoder"
 gem 'speedtest'
+gem "blazer"
