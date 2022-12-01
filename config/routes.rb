@@ -10,11 +10,7 @@ Rails.application.routes.draw do
   resources :venues do
     resources :bookings, only: %i[new create]
     resources :venue_offers, only: %i[create edit new update destroy]
-    member do
-      put "like" => "venues#upvote"
-      put "unlike" => "venues#downvote"
-    end
-    put :favorite, on: :member
+    resources :favorite_venues, only: %i[create destroy]
   end
 
   resources :users, only: %i[show edit update]

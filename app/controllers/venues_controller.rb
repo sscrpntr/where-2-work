@@ -50,16 +50,17 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
     type = params[:type]
     if type == "favorite"
-      current_user.favorites << @venue
+      current_user.favorite_venues << @venue
       redirect_to :back, notice: 'Added to favorites'
 
     elsif type == "unfavorite"
-      current_user.favorites.delete(@venue)
+      current_user.favorite_venues.delete(@venue)
       redirect_to :back, notice: 'Removed from favorites'
 
     else
       redirect_to :back, notice: 'Nothing happened.'
     end
+    raise
   end
 
   private
