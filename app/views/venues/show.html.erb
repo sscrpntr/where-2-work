@@ -10,6 +10,9 @@
         <% review.rating.times do %>
           <i class="fas fa-star"></i>
         <% end %>
+        <% (5 - review.rating).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
         </p>
         <p><%= "#{review.comment.first(60)}..." %></p>
         <br>
@@ -24,15 +27,9 @@
       <div class="form-styled" >
         <%= simple_form_for [@venue, @booking] do |f| %>
           <%= f.input :date, as: :date, html5: true, required: true, format: 'yyyy-mm-dd' %>
-          <%= f.submit class:"btn-rent", value:"Book" %>
+          <%= f.submit class:"btn-gradient", value:"Work" %>
         <% end %>
       </div>
     </div>
   <%= link_to "All Venues", venues_path, class: "btn btn-gradient" %>
-</div>
-
-<div>
-  <div id="right-side">
-
-  </div>
 </div>
