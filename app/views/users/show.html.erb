@@ -1,3 +1,5 @@
 Hello
 
 <%= link_to "Log in", new_user_session_path, class: "btn btn-gradient" %>
+ <%= link_to "Log out", destroy_user_session_path, data: {
+      turbo_method: :delete }, class: "btn btn-gradient" %>

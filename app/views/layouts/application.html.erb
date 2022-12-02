@@ -46,8 +46,10 @@
   </head>
 
   <body>
-  <%= render "shared/branding" %>
-  <%= yield %>
-  <%= render "shared/navbar" %>
+    <%= render "shared/branding" %>
+    <div class="main-content">
+      <%= yield %>
+    </div>
+    <%= render "shared/navbar" %>
   </body>
 </html>
