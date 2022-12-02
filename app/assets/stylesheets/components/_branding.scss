@@ -1,4 +1,5 @@
 .branding-navbar{
+<<<<<<< HEAD
   display: flex;
   flex-direction: row;
   justify-content: left;
@@ -6,6 +7,13 @@
   color: white;
   padding-top: 1em;
   padding-left: 1em
+=======
+    display: flex;
+    justify-items: left;
+    background-color: rgb(66, 40, 0);
+    color: white;
+    padding-top: 14px;
+>>>>>>> master
 }
 
 .icon-branding{
