@@ -24,23 +24,4 @@
     <h3 class="card-trip-review"><i class="fa-solid fa-plus"></i><%= link_to "Review", bookings_path, class:"white-link" %></h3>
 
   </div>
-
-  <div class="venue-title">
-    <h3>Visit</h3>
-    <div class="form-styled">
-      <%= simple_form_for [@venue, @booking] do |f| %>
-      <%= f.input :date, as: :date, required: true %>
-<%# f.input :date, :as => :hidden,
-      :input_html => {
-        :id => "basicDate"
-      }, required: true %>
-        <%= f.submit class:"btn-left", value:"Get 2 Work" %>
-      <% end %>
-    </div>
-<script>
-$("#basicDate").flatpickr({
-    dateFormat: "F, d Y H:i"
-});
-  </script>
-  </div>
-</div>
+  <%= render "form" %>
