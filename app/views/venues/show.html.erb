@@ -6,7 +6,7 @@
     <div>
       <h2><%= @venue.name %></h2>
       <p><%= @venue.address %></p>
-      <% @venue.all_reviews.first(2).each do |review| %>
+      <% @venue.all_reviews.last(2).each do |review| %>
         <h3><%= review.title %></h3>
         <p>
         <% review.rating.times do %>
