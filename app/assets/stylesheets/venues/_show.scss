@@ -17,7 +17,8 @@
 }
 .card-trip h3 {
   font-size: 1.5em;
-  margin-top: 1.0em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .card-trip p {
@@ -27,7 +28,7 @@
 }
 
 .card-trip .card-trip-infos {
-  padding: 16px;
+  padding: 1em 1em 0 1em;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -42,20 +43,22 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  border-radius: 1em;
+  border-radius: 1.5em;
   font-weight: bold;
   background: linear-gradient(#422800, #AF795D);
   transition: background 0.3s ease;
   border: 1px solid white;
   margin-top: 2.0em;
   right: 0.5em;
-  top: -2.8em;
-  width: 25%;
-  padding-top: 0.2em;
+  top: -3.25em;
+  width: 40%;
+  padding-top: 0.3em;
   padding-bottom: 0.2em;
   font-size: 1em;
 }
-
+.card-trip-infos .card-trip-review i {
+  font-size: 2em;
+}
 .card-trip-infos .card-trip-user {
   position: absolute;
   text-transform: uppercase;
@@ -134,4 +137,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .card-trip-infos .fa-heart {
   color: #FE8668;
+}
+
+.venue-title {
+  padding: 1em;
+  margin: 0;
+}
+.venue-title h3 {
+  padding: 0;
+  margin: 0;
+}
+.white-link {
+  color: white;
+  text-decoration: none;
 }

@@ -4,6 +4,12 @@ require "open-uri"
 
 Faker::Config.locale = "ca-CAT"
 
+# Destroying:
+Review.destroy_all
+Booking.destroy_all
+VenueOffer.destroy_all
+Venue.destroy_all
+User.destroy_all
 venue_photos = []
 csv_text = File.read(Rails.root.join('lib','seeds','cafe_photos.csv'))
 csv = CSV.parse(csv_text, encoding: 'UTF-8')
@@ -84,19 +90,19 @@ while x < 100
   x += 8
 end
 
-x = 101
-while x < 171
+x = 0
+while x < 1000
   booking = Booking.new(
     user: User.all.sample,
     venue: Venue.all.sample,
-    date: Date.today - rand(150)
+    date: Date.today - rand(900)
   )
   booking.save!
   x += 1
 end
 
 x = 1
-while x < 71
+while x < 500
   review = Review.new(
     suited_for_calls: [true, true, true, true, true, true, true, false, false, false].sample,
     coffe_price: rand(0..5),
@@ -106,7 +112,7 @@ while x < 71
     natural_light: [true, true, true, true, true, true, true, false, false, false].sample,
     rating: rand(0..5),
     food_price: rand(0..5),
-    comment: Faker::Coffee.notes,
+    comment: Faker::Restaurant.review,
     title: Faker::Coffee.origin,
     booking: Booking.find(x)
   )
