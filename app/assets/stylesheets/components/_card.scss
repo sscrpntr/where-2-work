@@ -1,7 +1,7 @@
 .wrapper {
   width: 100%;
   position: relative;
-  overflow: hidden;
+  overflow: scroll;
   display: flex;
   margin-bottom: 20px;
 }
@@ -54,9 +54,11 @@
 
   color: #000000;
 }
+
 .venue-card .fa-star {
   margin-left: 0.5em;
 }
+
 .card-trip-heart {
   // position: absolute;
   text-transform: uppercase;
