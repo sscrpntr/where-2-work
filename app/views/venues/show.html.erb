@@ -4,7 +4,7 @@
   <%= cl_image_tag @venue.photo.key %>
   <div class="card-trip-infos">
     <div>
-      <h2><%= @venue.name %> <i class="fa-regular fa-heart"></i></h2>
+      <h2><%= @venue.name %></h2>
       <p><%= @venue.address %></p>
       <% @venue.all_reviews.first(2).each do |review| %>
         <h3><%= review.title %></h3>
@@ -21,7 +21,9 @@
       <% end %>
     </div>
     <h3 class="card-trip-user"><i class="far fa-star"></i>  <%= @venue.average_rating %></h3>
-    <h3 class="card-trip-review"><i class="fa-solid fa-plus"></i><%= link_to "Review", bookings_path, class:"white-link" %></h3>
+
+    <h3 class="card-trip-review"><i class="fa-regular fa-heart"></i></h3>
+    <%# <h3 class="card-trip-review"><i class="fa-solid fa-plus"></i><%= link_to "Review", bookings_path, class:"white-link" %>
 
   </div>
   <%= render "form" %>
