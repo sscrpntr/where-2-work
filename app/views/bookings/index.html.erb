@@ -7,6 +7,7 @@
           <a href=<%= booking_path(booking.id) %>>
           <%= cl_image_tag(booking.venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250) %></a>
           <%= booking.venue.name %>
+          <br>
           <%= booking.date %>
           </div>
       <% end %>
