@@ -125,5 +125,5 @@ User.create(
   name: "Speedy Gonzalez",
   username: "SGonzalez",
   email: "admin@where2work.es",
-  password: "gonzalez",
+  password: "gonzalez"
 )
