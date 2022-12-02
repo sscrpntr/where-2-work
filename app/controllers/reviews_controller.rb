@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.booking = Booking.find(params[:booking_id])
     if @review.save
-      redirect_to venues_path(@venue)
+      redirect_to venue_path(@venue)
     else
       render "reviews/show", status: :unprocessable_entity
     end
