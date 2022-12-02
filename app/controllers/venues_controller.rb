@@ -35,7 +35,7 @@ class VenuesController < ApplicationController
     @venue = Venue.new(venue_params)
     @venue.user = current_user
     if @venue.save
-      redirect_to venues_path(@venue), notice: 'Venue was successfully created.'
+      redirect_to venue_path(@venue), notice: 'Venue was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
