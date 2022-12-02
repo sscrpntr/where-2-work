@@ -9,7 +9,7 @@
       <h3>Visit</h3>
       <%= render "form" %>
       <h3>Reviews:</h3>
-      <% @venue.all_reviews.first(2).each do |review| %>
+      <% @venue.all_reviews.last(2).each do |review| %>
         <h3><%= review.title %></h3>
         <p>
         <% review.rating.times do %>
