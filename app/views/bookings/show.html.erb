@@ -1,4 +1,4 @@
-<h1>Edit your bookings</h1>
+<h1>Edit your bookings or add a review</h1>
 <h2>Booking ID <%= (@booking.id) %></h2>
   <div class="product-specs">
     <div class="product-specs">
@@ -11,8 +11,12 @@
           <li>Suitable for calls: <%= @booking.venue.suited_for_calls %></li>
         </ul>
             <%= link_to "Delete",
-              booking_path(@booking),
+              booking_path(@booking), class: "btn btn-gradient",
               data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+            %>
+            <%= link_to "Add Review",
+            new_booking_review_path(@booking), class: "btn btn-gradient"
+            # data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
             %>
       </div>
 
