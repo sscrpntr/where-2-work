@@ -24,15 +24,4 @@
     <h3 class="card-trip-review"><i class="fa-solid fa-plus"></i><%= link_to "Review", bookings_path, class:"white-link" %></h3>
 
   </div>
-
-  <div class="row">
-    <div class="col">
-      <%= simple_form_for [@venue, @booking] do |f| %>
-        <%= f.text_field :date, input_html: { data: {
-      controller: "flatpickr",
-      flatpickr_date_format: "Y-m-d",
-      flatpickr_min_date: Time.zone.now
-    } } %>
-      <%= f.submit %>
-      <% end %>
-</div>
+  <%= render "form" %>

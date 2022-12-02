@@ -1,9 +1,11 @@
-import { Controller } from '@hotwired/stimulus';
-
+import { Controller } from "@hotwired/stimulus";
 import flatpickr from "flatpickr";
 
 export default class extends Controller {
   connect() {
-    flatpickr(this.element, {});
+    new flatpickr(this.element, {
+      enableTime: false
+      // more options available on the documentation!
+    });
   }
 }
