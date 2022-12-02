@@ -25,6 +25,7 @@ class BookingsController < ApplicationController
     @booking.venue = @venue
     @booking.user = current_user
     @booking.save!
+    raise
     redirect_to bookings_path
   end
 
