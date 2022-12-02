@@ -119,8 +119,9 @@ while x < 500
   review.save!
   x += 1
 end
+
 User.create(
-  admin: true;
+  admin: true,
   is_owner: false,
   name: "Speedy Gonzalez",
   username: "SGonzalez",
