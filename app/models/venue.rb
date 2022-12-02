@@ -13,6 +13,7 @@ class Venue < ApplicationRecord
   scope :has_plugs, -> { where(power_outlets: true) }
   scope :has_calls, -> { where(suited_for_calls: true) }
   scope :has_light, -> { where(natural_light: true) }
+  scope :has_wifi, -> { where(wifi: true) }
 
   def all_reviews
     reviews.all
