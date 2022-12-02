@@ -6,6 +6,9 @@
     <div>
       <h2><%= @venue.name %></h2>
       <p><%= @venue.address %></p>
+      <h3>Visit</h3>
+      <%= render "form" %>
+      <h3>Reviews:</h3>
       <% @venue.all_reviews.first(2).each do |review| %>
         <h3><%= review.title %></h3>
         <p>
@@ -26,4 +29,3 @@
     <%# <h3 class="card-trip-review"><i class="fa-solid fa-plus"></i><%= link_to "Review", bookings_path, class:"white-link" %>
 
   </div>
-  <%= render "form" %>
