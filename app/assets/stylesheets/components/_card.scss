@@ -41,16 +41,41 @@
 }
 
 .venue-text {
-  width: 98px;
-  height: 24px;
-
+  width: 100%;
+  // height: 24px;
   font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
+  margin-left: 0.5em;
 
-  text-align: center;
+  text-align: left;
 
   color: #000000;
+}
+.venue-card .fa-star {
+  margin-left: 0.5em;
+}
+.card-trip-heart {
+  // position: absolute;
+  text-transform: uppercase;
+  background-color: #d1e751;
+  color: #FE8668;
+  margin: auto;
+  // align-items: center;
+  // display: flex;
+  // justify-content: center;
+  border-radius: 1.5em;
+  font-weight: bold;
+  background: linear-gradient(#422800, #AF795D);
+  transition: background 0.3s ease;
+  border: 1px solid white;
+  margin-top: 5.0em;
+  right: 0.5em;
+  top: 10em;
+  width: 20%;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  font-size: 1em;
 }
