@@ -21,8 +21,7 @@ class ReviewsController < ApplicationController
     set_booking
     @review = Review.new(review_params)
     @review.booking = Booking.find(params[:booking_id])
-    puts @review
-    # @venue = Review.find(params[:review_id])
+    @venue = @review.booking.venue_id
     if @review.save
       redirect_to venue_path(@venue)
     else
