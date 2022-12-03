@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     @review.booking = Booking.find(params[:booking_id])
     # @venue = Review.find(params[:review_id])
     if @review.save
-      redirect_to venues_path
+      redirect_to venue_path(@venue)
     else
       render "reviews/show", status: :unprocessable_entity
     end
@@ -25,7 +25,18 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:comment, :suited_for_calls, :wifi_down, :wifi_up, :power_outlets, :naural_light,
-                                   :rating, :coffe_price, :food_price, :comment, :title, :photo)
+    params.require(:review)
+          .permit(:comment,
+                  :suited_for_calls,
+                  :wifi_down,
+                  :wifi_up,
+                  :power_outlets,
+                  :naural_light,
+                  :rating,
+                  :coffe_price,
+                  :food_price,
+                  :comment,
+                  :title,
+                  :photo)
   end
 end
