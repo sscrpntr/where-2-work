@@ -1,17 +1,29 @@
 class ReviewsController < ApplicationController
-  before_action :set_booking
+  before_action :set_booking, only: [:create, :update, :new]
+
+  def index
+    @venue = Venue.find(params[:venue_id])
+  end
+
   def new
     @venues = Venue.all
     @booking = Booking.find(params[:booking_id])
     @review = Review.new
   end
 
+  def show
+    @venue = Venue.find(params[:venue_id])
+    @review = Review.find(params[:id])
+    @booking = Booking.find(params[:id])
+  end
+
   def create
     set_booking
     @review = Review.new(review_params)
     @review.booking = Booking.find(params[:booking_id])
+    @venue = @review.booking.venue_id
     if @review.save
-      redirect_to venues_path(@venue)
+      redirect_to venue_path(@venue)
     else
       render "reviews/show", status: :unprocessable_entity
     end
@@ -24,7 +36,18 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:comment, :suited_for_calls, :wifi_down, :wifi_up, :power_outlets, :naural_light,
-                                   :rating, :coffe_price, :food_price, :comment, :title, :photo)
+    params.require(:review)
+          .permit(:comment,
+                  :suited_for_calls,
+                  :wifi_down,
+                  :wifi_up,
+                  :power_outlets,
+                  :naural_light,
+                  :rating,
+                  :coffe_price,
+                  :food_price,
+                  :comment,
+                  :title,
+                  :photo)
   end
 end

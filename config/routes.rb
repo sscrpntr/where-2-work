@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
     resources :venue_offers, only: %i[create edit new update destroy]
     resources :favorite_venues, only: %i[create destroy]
+    resources :reviews, only: %i[show index]
   end
 
   resources :users, only: %i[show edit update]
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
     # should we add a route to display availability for booking?
     resources :reviews, only: %i[create new]
   end
+  resources :reviews, only: %i[show index]
   # Defines the root path route ("/")
   # root "articles#index"
 end

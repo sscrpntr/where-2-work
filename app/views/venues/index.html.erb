@@ -22,32 +22,32 @@
   </div>
   <div class="filter-group">
     <%= link_to (params[:has_wifi].nil? ? venues_path(request.query_parameters.merge({has_wifi:"true"})) : venues_path(request.query_parameters.merge({has_wifi: nil}))) do %>
-        <% if params[:has_wifi].nil? %>
-      <%= image_tag "https://www.freeiconspng.com/thumbs/wifi-icon/black-wifi-icon-32.png", class: "filter" %>
+      <% if params[:has_wifi].nil? %>
+        <i class="fa-duotone fa-wifi-weak filter"></i>
       <% elsif params[:has_wifi] %>
-      <%= image_tag "https://png.pngtree.com/png-vector/20190420/ourmid/pngtree-wifi-vector-icon-png-image_963352.jpg", class: "filter"%>
+        <i class="fa-solid fa-wifi filter"></i>
       <% end %>
     <% end %>
     <%= link_to (params[:has_plugs].nil? ? venues_path(request.query_parameters.merge({has_plugs:"true"})) : venues_path(request.query_parameters.merge({has_plugs: nil}))) do %>
       <% if params[:has_plugs].nil? %>
-      <%= image_tag "https://icon2.cleanpng.com/20180531/fvs/kisspng-ac-power-plugs-and-sockets-computer-icons-electric-plug-5b103a9d4a78c8.577232151527790237305.jpg", class: "filter" %>
+        <i class="fa-solid fa-plug-circle-xmark filter"></i>
       <% elsif params[:has_plugs] %>
-      <%= image_tag "https://cdn-icons-png.flaticon.com/512/51/51397.png", class:"filter" %>
+        <i class="fa-solid fa-plug filter"></i>
       <% end %>
     <% end %>
     <%= link_to (params[:has_calls].nil? ? venues_path(request.query_parameters.merge({has_calls:"true"})) : venues_path(request.query_parameters.merge({has_calls: nil}))) do %>
       <% if params[:has_calls].nil? %>
-        <%= image_tag "https://e7.pngegg.com/pngimages/468/969/png-clipart-phone-call-logo-sketch-telephone-mobile-phones-computer-icons-logo-telephone-miscellaneous-text.png", class: "filter" %>
+        <i class="fa-solid fa-phone-slash filter"></i>
       <% elsif params[:has_calls] %>
-      <%= image_tag "https://png.pngtree.com/png-clipart/20201113/ourmid/pngtree-phone-icon-with-square-black-frame-png-image_5578524.png", class:"filter" %>
-    <% end %>
+        <i class="fa-solid fa-phone filter"></i>
+      <% end %>
     <% end %>
     <%= link_to (params[:has_light].nil? ? venues_path(request.query_parameters.merge({has_light:"true"})) : venues_path(request.query_parameters.merge({has_light: nil}))) do %>
       <% if params[:has_light].nil? %>
-      <%= image_tag "https://w7.pngwing.com/pngs/537/511/png-transparent-black-sun-computer-icons-symbol-sun-miscellaneous-symmetry-monochrome-thumbnail.png", class: "filter" %>
-    <% elsif params[:has_light] %>
-    <%= image_tag "https://png.pngtree.com/png-clipart/20190925/original/pngtree-vector-sun-icon-png-image_4946341.jpg", class:"filter" %>
-    <% end %>
+        <i class="fa-duotone fa-sun filter"></i>
+      <% elsif params[:has_light] %>
+        <i class="fa-solid fa-sun filter"></i>
+      <% end %>
     <% end %>
   </div>
   <div class="listDiv" data-button-target="listDiv">
@@ -59,46 +59,49 @@
         <%=link_to venue_path(venue) do  %>
           <div class="venue-card">
             <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
-            <%= tag.p venue.name.first(25), class: 'venue-text' %>
-            <% venue.average_rating.to_i.times do %>
-              <i class="fas fa-star"></i>
-            <% end %>
-            <% (5 - venue.average_rating.to_i).times do %>
-              <i class="far fa-star"></i>
-            <% end %>
-
+            <%= tag.p venue.name, class: 'venue-text' %>
+            <div class="index-rating">
+              <% venue.average_rating.to_i.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% (5 - venue.average_rating.to_i).times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+            </div>
           </div>
         <% end %>
       <% end %>
     </div>
     <div class=btn-group>
-      <i class="fa-solid fa-fire-flame-curved"></i><h3>Top Rated Nearby</h3>
+      <i class="fas fa-fire-flame-curved"></i><h3>Top Rated Nearby</h3>
     </div>
     <div class="wrapper">
       <% @venues.select{|a| a.average_rating}.sort{ |a,b| b.average_rating <=> a.average_rating}.first(10).each do |venue| %>
         <%=link_to venue_path(venue) do %>
           <div class="venue-card">
             <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
-            <%= tag.p venue.name.first(25), class: 'venue-text' %>
-            <% venue.average_rating.to_i.times do %>
-              <i class="fas fa-star"></i>
-            <% end %>
-            <% (5 - venue.average_rating.to_i).times do %>
-              <i class="far fa-star"></i>
-            <% end %>
-          </div>
+            <%= tag.p venue.name, class: 'venue-text' %>
+            <div class="index-rating">
+              <% venue.average_rating.to_i.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% (5 - venue.average_rating.to_i).times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+              </div>
+            </div>
         <% end %>
       <% end %>
     </div>
     <div class=btn-group>
-      <i class="fa-solid fa-percent"></i><h3>Best offers</h3>
+      <i class="fas fa-euro-sign"></i><h3>Best offers</h3>
     </div>
     <div class="wrapper">
       <% @venues.first(10).each do |venue| %>
         <%= link_to venue_path(venue) do %>
           <div class="venue-card">
             <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
-            <%= tag.p venue.name.first(25), class: 'venue-text' %>
+            <%= tag.p venue.name, class: 'venue-text' %>
             <div class="index-rating">
               <% venue.average_rating.to_i.times do %>
                 <i class="fas fa-star"></i>

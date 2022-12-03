@@ -6,26 +6,53 @@
     <div>
       <h2><%= @venue.name %></h2>
       <p><%= @venue.address %></p>
+<<<<<<< HEAD
       <h3>Visit</h3>
       <%= render "form" %>
       <h3>Reviews:</h3>
+=======
+>>>>>>> master
       <% @venue.all_reviews.last(2).each do |review| %>
         <h3><%= review.title %></h3>
         <p>
-        <% review.rating.times do %>
-          <i class="fas fa-star"></i>
-        <% end %>
-        <% (5 - review.rating).times do %>
-          <i class="far fa-star"></i>
-        <% end %>
+          <% review.rating.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+          <% if review.power_outlets %>
+            <i class="fas fa-plug"></i>
+          <% end %>
+          <% if review.natural_light %>
+            <i class="fas fa-sun"></i>
+          <% end %>
+          <% if review.suited_for_calls %>
+            <i class="fas fa-phone"></i>
+          <% end %>
+          <% unless review.wifi_up.nil? || review.wifi_down.nil? %>
+            <i class="fas fa-wifi"></i>
+            <% unless review.wifi_down.nil? %>
+            <i class="fas fa-arrow-down"></i>
+              <%= review.wifi_down %> Mbps
+            <% end %>
+            <% unless review.wifi_up.nil? %>
+            <i class="fas fa-arrow-up"></i>
+              <%= review.wifi_down %> Mbps
+            <% end %>
+          <% end %>
         </p>
-        <p><%= "#{review.comment.capitalize.first(60)}..." %></p>
-        <br>
+        <p><%= "#{review.comment.capitalize.first(100)}... " %><%= link_to "see more", venue_review_path(@venue, review) if review.comment.size > 100 %></p>
       <% end %>
+      <p><%= link_to "All reviews", venue_reviews_path(@venue) %></p>
     </div>
     <h3 class="card-trip-user"><i class="far fa-star"></i>  <%= @venue.average_rating %></h3>
 
     <h3 class="card-trip-review"><i class="fa-regular fa-heart"></i></h3>
-    <%# <h3 class="card-trip-review"><i class="fa-solid fa-plus"></i><%= link_to "Review", bookings_path, class:"white-link" %>
 
   </div>
+<<<<<<< HEAD
+=======
+  <%= render "form" %>
+</div>
+>>>>>>> master
