@@ -1,15 +1,27 @@
 class ReviewsController < ApplicationController
-  before_action :set_booking
+  before_action :set_booking, only: [:create, :update, :new]
+
+  def index
+    @venue = Venue.find(params[:venue_id])
+  end
+
   def new
     @venues = Venue.all
     @booking = Booking.find(params[:booking_id])
     @review = Review.new
   end
 
+  def show
+    @venue = Venue.find(params[:venue_id])
+    @review = Review.find(params[:id])
+    @booking = Booking.find(params[:id])
+  end
+
   def create
     set_booking
     @review = Review.new(review_params)
     @review.booking = Booking.find(params[:booking_id])
+    puts @review
     # @venue = Review.find(params[:review_id])
     if @review.save
       redirect_to venue_path(@venue)

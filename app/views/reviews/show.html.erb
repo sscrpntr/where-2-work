@@ -1,0 +1,26 @@
+<% if @venue.id == @booking.venue_id %>
+  <h1><%= @venue.name %></h1>
+  <h2><%= @review.title %></h2>
+  <h3><%= @booking.date %></h3>
+  <p>
+    <% @review.rating.times do %>
+      <i class="fas fa-star"></i>
+    <% end %>
+    <% (5 - @review.rating).times do %>
+      <i class="far fa-star"></i>
+    <% end %>
+    <% if @review.power_outlets %>
+      <i class="fas fa-plug"></i>
+    <% end %>
+    <% if @review.natural_light %>
+      <i class="fas fa-sun"></i>
+    <% end %>
+    <% if @review.suited_for_calls %>
+      <i class="fas fa-phone"></i>
+    <% end %>
+  </p>
+  <p><%= @review.comment %></p>
+<% else %>
+  <h1>Review does not match venue</h1>
+  <%= link_to "Back 2 Venue", venue_path(@venue) %>
+<% end %>
