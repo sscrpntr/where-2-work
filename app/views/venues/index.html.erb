@@ -25,14 +25,14 @@
       <% if params[:has_wifi].nil? %>
         <i class="fa-duotone fa-wifi-weak filter"></i>
       <% elsif params[:has_wifi] %>
-        <i class="fas fa-wifi filter"></i>
+        <i class="fa-solid fa-wifi filter"></i>
       <% end %>
     <% end %>
     <%= link_to (params[:has_plugs].nil? ? venues_path(request.query_parameters.merge({has_plugs:"true"})) : venues_path(request.query_parameters.merge({has_plugs: nil}))) do %>
       <% if params[:has_plugs].nil? %>
-        <i class="fas fa-plug-circle-xmark filter"></i>
+        <i class="fa-solid fa-plug-circle-xmark filter"></i>
       <% elsif params[:has_plugs] %>
-        <i class="fas fa-plug filter"></i>
+        <i class="fa-solid fa-plug filter"></i>
       <% end %>
     <% end %>
     <%= link_to (params[:has_calls].nil? ? venues_path(request.query_parameters.merge({has_calls:"true"})) : venues_path(request.query_parameters.merge({has_calls: nil}))) do %>
@@ -44,9 +44,9 @@
     <% end %>
     <%= link_to (params[:has_light].nil? ? venues_path(request.query_parameters.merge({has_light:"true"})) : venues_path(request.query_parameters.merge({has_light: nil}))) do %>
       <% if params[:has_light].nil? %>
-        <i class="far fa-sun filter"></i>
+        <i class="fa-duotone fa-sun filter"></i>
       <% elsif params[:has_light] %>
-        <i class="fas fa-sun filter"></i>
+        <i class="fa-solid fa-sun filter"></i>
       <% end %>
     <% end %>
   </div>
@@ -73,7 +73,7 @@
       <% end %>
     </div>
     <div class=btn-group>
-      <i class="fa-solid fa-fire-flame-curved"></i><h3>Top Rated Nearby</h3>
+      <i class="fas fa-fire-flame-curved"></i><h3>Top Rated Nearby</h3>
     </div>
     <div class="wrapper">
       <% @venues.select{|a| a.average_rating}.sort{ |a,b| b.average_rating <=> a.average_rating}.first(10).each do |venue| %>
@@ -94,7 +94,7 @@
       <% end %>
     </div>
     <div class=btn-group>
-      <i class="fa-solid fa-percent"></i><h3>Best offers</h3>
+      <i class="fas fa-euro-sign"></i><h3>Best offers</h3>
     </div>
     <div class="wrapper">
       <% @venues.first(10).each do |venue| %>
