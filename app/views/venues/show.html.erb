@@ -36,8 +36,7 @@
             <% end %>
           <% end %>
         </p>
-        <p><%= "#{review.comment.capitalize.first(100)}" %><%= link_to "... see more", venue_review_path(@venue, review) if review.comment.size > 100 %></p>
-        <br>
+        <p><%= "#{review.comment.capitalize.first(100)}... " %><%= link_to "see more", venue_review_path(@venue, review) if review.comment.size > 100 %></p>
       <% end %>
       <p><%= link_to "All reviews", venue_reviews_path(@venue) %></p>
     </div>
