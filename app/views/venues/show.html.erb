@@ -9,14 +9,34 @@
       <% @venue.all_reviews.last(2).each do |review| %>
         <h3><%= review.title %></h3>
         <p>
-        <% review.rating.times do %>
-          <i class="fas fa-star"></i>
-        <% end %>
-        <% (5 - review.rating).times do %>
-          <i class="far fa-star"></i>
-        <% end %>
+          <% review.rating.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+          <% if review.power_outlets %>
+            <i class="fas fa-plug"></i>
+          <% end %>
+          <% if review.natural_light %>
+            <i class="fas fa-sun"></i>
+          <% end %>
+          <% if review.suited_for_calls %>
+            <i class="fas fa-phone"></i>
+          <% end %>
+          <% unless review.wifi_up.nil? || review.wifi_down.nil? %>
+            <i class="fas fa-wifi"></i>
+            <% unless review.wifi_down.nil? %>
+            <i class="fas fa-arrow-down"></i>
+              <%= review.wifi_down %> Mbps
+            <% end %>
+            <% unless review.wifi_up.nil? %>
+            <i class="fas fa-arrow-up"></i>
+              <%= review.wifi_down %> Mbps
+            <% end %>
+          <% end %>
         </p>
-        <p><%= "#{review.comment.capitalize.first(60)}..." %><%= link_to "see more", venue_review_path(@venue, review) %></p>
+        <p><%= "#{review.comment.capitalize.first(100)}... " %><%= link_to "see more", venue_review_path(@venue, review) %></p>
         <br>
       <% end %>
       <p><%= link_to "All reviews", venue_reviews_path(@venue) %></p>
