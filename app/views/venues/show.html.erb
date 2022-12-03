@@ -16,9 +16,10 @@
           <i class="far fa-star"></i>
         <% end %>
         </p>
-        <p><%= "#{review.comment.capitalize.first(60)}..." %></p>
+        <p><%= "#{review.comment.capitalize.first(60)}..." %><%= link_to "see more", venue_review_path(@venue, review) %></p>
         <br>
       <% end %>
+      <p><%= link_to "All reviews", venue_reviews_path(@venue) %></p>
     </div>
     <h3 class="card-trip-user"><i class="far fa-star"></i>  <%= @venue.average_rating %></h3>
 
