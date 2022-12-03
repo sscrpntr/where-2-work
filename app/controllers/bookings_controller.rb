@@ -24,7 +24,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @booking.venue = @venue
     @booking.user = current_user
-    @booking.date = Date.new(year.to_i, month.to_i, day.to_i)
     @booking.save!
     redirect_to bookings_path
   end
