@@ -36,7 +36,7 @@
             <% end %>
           <% end %>
         </p>
-        <p><%= "#{review.comment.capitalize.first(100)}... " %><%= link_to "see more", venue_review_path(@venue, review) %></p>
+        <p><%= "#{review.comment.capitalize.first(100)}" %><%= link_to "... see more", venue_review_path(@venue, review) if review.comment.size > 100 %></p>
         <br>
       <% end %>
       <p><%= link_to "All reviews", venue_reviews_path(@venue) %></p>
@@ -44,7 +44,6 @@
     <h3 class="card-trip-user"><i class="far fa-star"></i>  <%= @venue.average_rating %></h3>
 
     <h3 class="card-trip-review"><i class="fa-regular fa-heart"></i></h3>
-    <%# <h3 class="card-trip-review"><i class="fa-solid fa-plus"></i><%= link_to "Review", bookings_path, class:"white-link" %>
 
   </div>
   <%= render "form" %>
