@@ -2,7 +2,7 @@
   <h2>Post a New Review</h2>
     <div class="form-group" style="width: 80%" >
       <%= simple_form_for [@booking, @review], data: { turbo: false } do |f| %>
-        <%= f.input :rating, as: :select, collection: ['1', '2', '3', '4', '5'] %>
+        <%= f.input :rating, as: :select, collection: 0..5 %>
         <%= f.input :title%>
         <%= f.input :comment%>
         <%= f.input :suited_for_calls%>
