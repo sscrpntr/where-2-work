@@ -17,6 +17,13 @@ csv.each do |row|
   venue_photos << row
 end
 
+review_photos = []
+csv_text = File.read(Rails.root.join('lib','seeds','review_photos.csv'))
+csv = CSV.parse(csv_text, encoding: 'UTF-8')
+csv.each do |row|
+  review_photos << row
+end
+
 user_photos = []
 csv_text = File.read(Rails.root.join('lib','seeds','user_photos.csv'))
 csv = CSV.parse(csv_text, encoding: 'UTF-8')
@@ -118,10 +125,8 @@ while x < 500
     title: Faker::Coffee.origin,
     booking: Booking.find(x)
   )
-  temp_venue = venue_photos.sample
-  puts temp_venue
-  puts temp_venue[0]
-  file = URI.open(temp_venue[0])
+  url = review_photos.sample
+  file = URI.open(url)
   review.photo.attach(io: file, content_type: "image/png", filename: "review#{review.id}.jpg")
   review.save!
   x += 1
