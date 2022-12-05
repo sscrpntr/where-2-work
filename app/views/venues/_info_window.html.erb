@@ -1,8 +1,8 @@
         <%=link_to venue_path(venue) do  %>
-          <div class="venue-card">
-            <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
-            <%= tag.p venue.name, class: 'venue-text' %>
-            <div class="index-rating">
+          <div class="venue-cardmap">
+            <%= cl_image_tag venue.photo.key, :class=>"venue-imagemap", :alt=>"venue image", :width=>350, :height=>250 %>
+            <%= tag.p venue.name, class: 'venue-textmap' %>
+            <div class="index-ratingmap">
               <% venue.average_rating.to_i.times do %>
                 <i class="fas fa-star"></i>
               <% end %>
