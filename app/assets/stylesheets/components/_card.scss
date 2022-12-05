@@ -4,7 +4,6 @@
   overflow: scroll;
   display: flex;
   margin-bottom: 20px;
-  margin-top: 10px;
 }
 
 .venue-card {
@@ -19,6 +18,7 @@
 
   margin-right: 1rem;
   margin-bottom: 1rem;
+  margin-top: 1rem;
   display: inline-block;
 
   border-radius: 15px;
@@ -132,4 +132,15 @@
 .venue-index-ratingmap {
   display: flex;
   font-size: smaller;
+}
+
+.title-group {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
 }
