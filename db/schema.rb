@@ -104,7 +104,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_04_172339) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "venue_id", null: false
-    t.date "visit_date"
     t.index ["user_id"], name: "index_bookings_on_user_id"
     t.index ["venue_id"], name: "index_bookings_on_venue_id"
   end

@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[show index]
   end
 
+  resources :users do
+    resources :favorite_venues, only: %i[index create]
+  end
+
   resources :users, only: %i[show edit update]
   resources :bookings, only: %i[index show destroy]
   resources :bookings, only: [] do

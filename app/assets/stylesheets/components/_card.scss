@@ -25,6 +25,13 @@
 
 }
 
+.favorite-venue-card{
+
+  width: 295px;
+  height: 202px;
+
+}
+
 .venue-card:hover {
   box-shadow: 0 0px 12px 0 rgba(0, 0, 0, 0.3);
   transform: scale(103%);
@@ -39,6 +46,10 @@
   height: 99px;
   border-radius: 15px;
   object-position: center;
+}
+
+.favorite-image-size {
+    width: 285px;
 }
 
 .venue-text {
