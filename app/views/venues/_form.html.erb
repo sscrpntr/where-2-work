@@ -1,6 +1,6 @@
 <div class="booking-form">
   <%= simple_form_for [@venue, @booking] do |f| %>
     <%= f.input :date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
-    <%= f.submit %>
+    <%= f.submit "Submit", id:"create-booking", disabled: true %>
   <% end %>
 </div>

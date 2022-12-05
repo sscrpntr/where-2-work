@@ -15,18 +15,23 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @venues = Venue.all
-    @booking = Booking.new
+    # @venues = Venue.all
+    # @booking = Booking.new
   end
 
   def create
     set_venue
-    @booking = Booking.new
-    @booking.venue = @venue
-    @booking.user = current_user
-    @booking.date = params[:booking]["date"]
-    @booking.save!
-    redirect_to booking_path(@booking)
+    if params[:booking]["date"].present?
+      @booking = Booking.new
+      @booking.venue = @venue
+      @booking.user = current_user
+      @booking.date = params[:booking]["date"]
+      @booking.save!
+      redirect_to booking_path(@booking)
+    else
+      flash[:alert] = "User not found."
+      redirect_to venue_path(@venue)#, notice: 'You need to pick a date!'
+    end
   end
 
   def edit
