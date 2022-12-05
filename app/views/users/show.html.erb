@@ -1,15 +1,14 @@
 <% if @user == current_user %>
   <h1>Hello, <strong><%= @user.username %></strong></h1>
-
+  <%= cl_image_tag @user.photo.key, :class=>"venue-image", :alt=>"user image", :width=>350, :height=>250 %>
   <h2><%= @user.email %></h2>
-  <p>Own a venue? <%= mail_to "admin@where2work.es", "email us" %>
-  <p>Your favorite venues:</p>
+  <p>Own a venue? <%= mail_to "admin@where2work.es", "Email us" %>
   <p><%= link_to "Edit Profile", edit_user_path(@user) %></p>
 
 <% else %>
   <h1><strong><%= @user.username %></strong>'s Profile</h1>
-  <p>Favorite venues:</p>
-  <p><%= link_to "Your Profile", user_path(current_user) %></p>
+  <%= cl_image_tag @user.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
+  <p><%= link_to "My Profile", user_path(current_user) %></p>
 <% end %>
 
 <p></p>
