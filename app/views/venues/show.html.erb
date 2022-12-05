@@ -21,7 +21,7 @@
 
       <p><%= @venue.address %></p>
 
-      <% @venue.all_reviews.first(2).each do |review| %>
+      <% @venue.all_reviews.reverse.first(2).each do |review| %>
         <div class="card-product">
           <% unless review.photo.key.nil? %>
             <%= cl_image_tag review.photo.key, :alt=>"review image", :width=>350, :height=>250 %>

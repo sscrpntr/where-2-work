@@ -12,9 +12,13 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @venue = Venue.find(params[:venue_id])
     @review = Review.find(params[:id])
-    @booking = Booking.find(params[:id])
+    @booking_id = @review.booking_id
+    @booking = Booking.find(@booking_id)
+    @user_id = @booking.user_id
+    @user = User.find(@user_id)
+    @venue_id = @booking.venue_id
+    @venue = Venue.find(@venue_id)
   end
 
   def create

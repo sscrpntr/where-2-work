@@ -1,25 +1,30 @@
 <% if @venue.id == @booking.venue_id %>
-  <h1><%= @venue.name %></h1>
-  <h2><%= @review.title %></h2>
-  <h3><%= @booking.date %></h3>
-  <p>
-    <% @review.rating.times do %>
-      <i class="fas fa-star"></i>
-    <% end %>
-    <% (5 - @review.rating).times do %>
-      <i class="far fa-star"></i>
-    <% end %>
-    <% if @review.power_outlets %>
-      <i class="fas fa-plug"></i>
-    <% end %>
-    <% if @review.natural_light %>
-      <i class="fas fa-sun"></i>
-    <% end %>
-    <% if @review.suited_for_calls %>
-      <i class="fas fa-phone"></i>
-    <% end %>
-  </p>
-  <p><%= @review.comment %></p>
+  <div class="review-card-trip">
+    <h1><%= @venue.name %></h1>
+    <% unless @review.photo.key.nil? %>
+      <%= cl_image_tag @review.photo.key, height: 400, crop: :fill %>
+    <% else %>
+      <%= cl_image_tag @venue.photo.key, height: 400, crop: :fill %>
+    <% end %><div class="review-card-trip-infos">
+      <div>
+        <h2><%= @booking.date %></h2>
+        <p>
+          <% if @review.power_outlets %>
+            <i class="fas fa-plug"></i>
+          <% end %>
+          <% if @review.natural_light %>
+            <i class="fas fa-sun"></i>
+          <% end %>
+          <% if @review.suited_for_calls %>
+            <i class="fas fa-phone"></i>
+          <% end %>
+        </p>
+        <p><%= @review.comment %></p>
+      </div>
+      <h2 class="review-card-trip-pricing"><%= @review.rating %></h2>
+      <%= cl_image_tag @user.photo.key, :class=>"review-card-trip-user avatar-bordered" %>
+    </div>
+  </div>
 <% else %>
   <h1>Review does not match venue</h1>
   <%= link_to "Back 2 Venue", venue_path(@venue) %>
