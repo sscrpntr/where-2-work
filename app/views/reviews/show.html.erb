@@ -22,7 +22,9 @@
         <p><%= @review.comment %></p>
       </div>
       <h2 class="review-card-trip-pricing"><%= @review.rating %></h2>
-      <%= cl_image_tag @user.photo.key, :class=>"review-card-trip-user avatar-bordered" %>
+      <%= link_to user_path(@user) do %>
+        <%= cl_image_tag @user.photo.key, :class=>"review-card-trip-user avatar-bordered" %>
+      <% end %>
     </div>
   </div>
 <% else %>
