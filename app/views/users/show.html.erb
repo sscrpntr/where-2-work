@@ -6,8 +6,8 @@
       <%= image_tag "favicon.ico", :alt=>"review image" %>
     <% end %>
     <div class="card-product-infos">
-      <h2><%= @user.username %></h2>
-      <h3><%= @user.email %></h3>
+      <h3><%= @user.username %></h3>
+      <h4><%= @user.email %></h4>
       <% if @user.venue_owned.nil? %>
         <p>Own a venue? <%= mail_to "admin@where2work.es", "Email us" %>
       <% else %>

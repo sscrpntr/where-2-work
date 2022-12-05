@@ -61,10 +61,10 @@
           <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
           <div class="venue-content">
             <div class="venue-first-row">
-              <p class="venue-text">
+              <p class="venue-text index-name-btn">
                 <%= venue.name.first(25) %>
-                <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
               </p>
+                <p class="stars-index-btn"><i class="far fa-star"></i>  <%= venue.average_rating %></p>
             </div>
             <div class="venue-icons">
                 <% if venue.wifi %>

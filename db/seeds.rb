@@ -129,6 +129,7 @@ while x < 500
   file = URI.open(review_photos[x][0])
   review.photo.attach(io: file, content_type: "image/png", filename: "review_#{review.id}.jpg")
   review.save!
+  puts "Review #{x} saved"
   x += 1
 end
 
