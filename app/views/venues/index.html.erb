@@ -92,64 +92,62 @@
       <% @venues.select{|a| a.average_rating}.sort{ |a,b| b.average_rating <=> a.average_rating}.first(10).each do |venue| %>
         <%=link_to venue_path(venue) do %>
           <div class="venue-card">
-            <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
-            <p class="venue-text">
-              <%= venue.name.first(15) %>
-              <% if venue.wifi %>
-                <i class="fa-solid fa-wifi title"></i>
-              <% end %>
-              <% if venue.power_outlets %>
-                <i class="fa-solid fa-plug title"></i>
-              <% end %>
-              <% if venue.suited_for_calls %>
-                <i class="fa-solid fa-phone title"></i>
-              <% end %>
-              <% if venue.natural_light %>
-                <i class="fa-solid fa-sun title"></i>
-              <% end %>
-            </p>
-            <div class="index-rating">
-              <% venue.average_rating.to_i.times do %>
-                <i class="fas fa-star"></i>
-              <% end %>
-              <% (5 - venue.average_rating.to_i).times do %>
-                <i class="far fa-star"></i>
-              <% end %>
+          <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
+          <div class="venue-content">
+            <div class="venue-first-row">
+              <p class="venue-text">
+                <%= venue.name.first(15) %>
+                <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
+              </p>
+            </div>
+            <div class="venue-icons">
+                <% if venue.wifi %>
+                  <i class="fa-solid fa-wifi title"></i>
+                <% end %>
+                <% if venue.power_outlets %>
+                  <i class="fa-solid fa-plug title"></i>
+                <% end %>
+                <% if venue.suited_for_calls %>
+                  <i class="fa-solid fa-phone title"></i>
+                <% end %>
+                <% if venue.natural_light %>
+                  <i class="fa-solid fa-sun title"></i>
+                <% end %>
               </div>
             </div>
+          </div>
         <% end %>
       <% end %>
     </div>
     <div class=title-group>
-      <i class="fas fa-euro-sign"></i><h3>Best offers</h3>
+      <i class="fas fa-euro-sign"></i><h3>Top offers</h3>
     </div>
     <div class="wrapper">
       <% @venues.first(10).each do |venue| %>
-        <%= link_to venue_path(venue) do %>
+        <%=link_to venue_path(venue) do %>
           <div class="venue-card">
-            <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
-            <p class="venue-text">
-              <%= venue.name.first(15) %>
-              <% if venue.wifi %>
-                <i class="fa-solid fa-wifi title"></i>
-              <% end %>
-              <% if venue.power_outlets %>
-                <i class="fa-solid fa-plug title"></i>
-              <% end %>
-              <% if venue.suited_for_calls %>
-                <i class="fa-solid fa-phone title"></i>
-              <% end %>
-              <% if venue.natural_light %>
-                <i class="fa-solid fa-sun title"></i>
-              <% end %>
-            </p>
-            <div class="index-rating">
-              <% venue.average_rating.to_i.times do %>
-                <i class="fas fa-star"></i>
-              <% end %>
-              <% (5 - venue.average_rating.to_i).times do %>
-                <i class="far fa-star"></i>
-              <% end %>
+          <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
+          <div class="venue-content">
+            <div class="venue-first-row">
+              <p class="venue-text">
+                <%= venue.name.first(15) %>
+                <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
+              </p>
+            </div>
+            <div class="venue-icons">
+                <% if venue.wifi %>
+                  <i class="fa-solid fa-wifi title"></i>
+                <% end %>
+                <% if venue.power_outlets %>
+                  <i class="fa-solid fa-plug title"></i>
+                <% end %>
+                <% if venue.suited_for_calls %>
+                  <i class="fa-solid fa-phone title"></i>
+                <% end %>
+                <% if venue.natural_light %>
+                  <i class="fa-solid fa-sun title"></i>
+                <% end %>
+              </div>
             </div>
           </div>
         <% end %>

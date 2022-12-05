@@ -1,6 +1,6 @@
 <%=link_to venue_path(venue) do %>
   <div class="venue-card">
-  <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
+  <%= cl_image_tag venue.photo.key, :class=>"venue-imagemap", :alt=>"venue image", :width=>350, :height=>250 %>
   <div class="venue-content">
     <div class="venue-first-row">
       <p class="venue-text">
@@ -8,7 +8,7 @@
         <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
       </p>
     </div>
-    <div class="venue-icons">
+    <div class="venue-icons" style="text-decoration:none">
         <% if venue.wifi %>
           <i class="fa-solid fa-wifi title"></i>
         <% end %>
