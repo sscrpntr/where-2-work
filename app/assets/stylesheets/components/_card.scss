@@ -6,6 +6,10 @@
   margin-bottom: 20px;
 }
 
+.wrapper a {
+  color: #422800;
+}
+
 .venue-card {
   box-sizing: border-box;
 
@@ -143,4 +147,31 @@
   font-style: normal;
   font-weight: 800;
   font-size: 16px;
+}
+
+.venue-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.venue-icons {
+  display: flex;
+  margin-left: 0.5em;
+}
+
+.venue-icons i {
+  margin-right: 5px;
+}
+
+.venue-first-row {
+  display: flex;
+
+}
+
+.card-rating {
+  display: flex;
+}
+
+.card-rating i {
+  color: #422800;
 }
