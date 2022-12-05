@@ -14,10 +14,12 @@
               booking_path(@booking), class: "btn btn-gradient",
               data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
             %>
-            <%= link_to "Add Review",
+            <% unless @booking.review %>
+              <%= link_to "Add Review",
             new_booking_review_path(@booking), class: "btn btn-gradient"
-            # data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
             %>
+            <% end %>
+
       </div>
 
 <h2>Your other bookings</h2>

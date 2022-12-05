@@ -15,3 +15,9 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)
+
+import WifiRatingController from "./wifi_rating_controller"
+application.register("wifi-rating", WifiRatingController)

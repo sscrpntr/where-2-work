@@ -117,6 +117,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_04_172339) do
     t.index ["venue_id"], name: "index_favorite_venues_on_venue_id"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "venue_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+    t.index ["venue_id"], name: "index_favorites_on_venue_id"
+  end
+
   create_table "review_likes", force: :cascade do |t|
     t.bigint "review_id", null: false
     t.bigint "user_id", null: false
@@ -194,6 +203,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_04_172339) do
   add_foreign_key "bookings", "venues"
   add_foreign_key "favorite_venues", "users"
   add_foreign_key "favorite_venues", "venues"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "favorites", "venues"
   add_foreign_key "review_likes", "reviews"
   add_foreign_key "review_likes", "users"
   add_foreign_key "reviews", "bookings"

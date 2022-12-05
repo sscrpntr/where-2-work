@@ -6,10 +6,12 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "star-rating.js/dist/star-rating.css";
+@import "flatpickr/dist/flatpickr";
+@import "flatpickr/dist/themes/airbnb";
+@import "star-rating.js/dist/star-rating.css";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 @import "venues/show";
-@import "flatpickr/dist/flatpickr";
-@import "flatpickr/dist/themes/airbnb";
