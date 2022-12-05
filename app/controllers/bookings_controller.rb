@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.date = params[:booking]["date"]
     @booking.save!
-    redirect_to bookings_path
+    redirect_to booking_path(@booking)
   end
 
   def destroy
