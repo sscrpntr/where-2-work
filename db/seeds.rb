@@ -30,8 +30,8 @@ while x < user_photos.size - 20
   user = User.new(
     is_owner: false,
     name: name,
-    username: name.strip,
-    email: Faker::Internet.email,
+    username: Faker::Internet.username,
+    email: Faker::Internet.password,
     password: Faker::Blockchain::Bitcoin.address,
   )
   file = URI.open(user_photos[x][0])
@@ -66,7 +66,7 @@ while x < venue_photos.size
     website: venue_photos[x][4],
     category: venue_photos[x][1],
     user: User.all.sample,
-    wifi: [true, true, true, true, true, true, true, true, true, false].sample,
+    wifi: Faker::Boolean.boolean(true_ratio: 0.75),
     power_outlets: [true, false].sample,
     natural_light: [true, false].sample,
     suited_for_calls: [true, false].sample,
@@ -104,27 +104,32 @@ end
 x = 1
 while x < 500
   review = Review.new(
-    suited_for_calls: [true, true, true, true, true, true, true, false, false, false].sample,
+    suited_for_calls: Faker::Boolean.boolean(true_ratio: 0.75),
     coffe_price: rand(0..5),
     wifi_down: rand(30..300),
     wifi_up: rand(30..150),
-    power_outlets: [true, true, true, true, true, true, true, false, false, false].sample,
-    natural_light: [true, true, true, true, true, true, true, false, false, false].sample,
+    power_outlets: Faker::Boolean.boolean(true_ratio: 0.75),
+    natural_light: Faker::Boolean.boolean(true_ratio: 0.75),
     rating: rand(0..5),
     food_price: rand(0..5),
     comment: Faker::Restaurant.review,
     title: Faker::Coffee.origin,
     booking: Booking.find(x)
   )
+  file = URI.open(cafe_photos.sample[0])
+  review.photo.attach(io: file, content_type: "image/png", filename: "review#{review.id}.jpg")
   review.save!
   x += 1
 end
 
-User.create(
+admin = User.new(
   admin: true,
   is_owner: false,
-  name: "Speedy Gonzalez",
-  username: "SGonzalez",
+  name: "Pikachu Roll",
+  username: "PikaRoll",
   email: "admin@where2work.es",
   password: "gonzalez"
 )
+file = URI.open("https://i.imgur.com/HIVLLtb.jpg")
+admin.photo.attach(io: file, content_type: "image/png", filename: "user#{user.id}.jpg")
+admin.save!
