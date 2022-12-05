@@ -114,12 +114,12 @@ end
 x = 1
 while x < 500
   review = Review.new(
-    suited_for_calls: Faker::Boolean.boolean(true_ratio: 0.75),
+    suited_for_calls: [Faker::Boolean.boolean(true_ratio: 0.6)],
     coffe_price: rand(0..5),
     wifi_down: rand(30..300),
     wifi_up: rand(30..150),
-    power_outlets: Faker::Boolean.boolean(true_ratio: 0.75),
-    natural_light: Faker::Boolean.boolean(true_ratio: 0.75),
+    power_outlets: Faker::Boolean.boolean(true_ratio: 0.33),
+    natural_light: Faker::Boolean.boolean(true_ratio: 0.85),
     rating: rand(0..5),
     food_price: rand(0..5),
     comment: Faker::Restaurant.review,
