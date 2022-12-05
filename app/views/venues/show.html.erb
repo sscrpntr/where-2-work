@@ -5,6 +5,19 @@
   <div class="card-trip-infos">
     <div>
       <h2><%= @venue.name %></h2>
+      <h3><% if @venue.wifi %>
+        <i class="fa-solid fa-wifi title"></i>
+      <% end %>
+      <% if @venue.power_outlets %>
+        <i class="fa-solid fa-plug title"></i>
+      <% end %>
+      <% if @venue.suited_for_calls %>
+        <i class="fa-solid fa-phone title"></i>
+      <% end %>
+      <% if @venue.natural_light %>
+        <i class="fa-solid fa-sun title"></i>
+      <% end %>
+      </h3>
       <p><%= @venue.address %></p>
       <% @venue.all_reviews.reverse.first(2).each do |review| %>
         <h3><%= review.title %></h3>
