@@ -1,5 +1,24 @@
-Hello
+<% if @user == current_user %>
+  <h1>Hello, <strong><%= @user.username %></strong></h1>
 
-<%= link_to "Log in", new_user_session_path, class: "btn btn-gradient" %>
- <%= link_to "Log out", destroy_user_session_path, data: {
-      turbo_method: :delete }, class: "btn btn-gradient" %>
+  <h2><%= @user.email %></h2>
+  <p>Own a venue? <%= mail_to "admin@where2work.es", "email us" %>
+  <p>Your favorite venues:</p>
+  <p><%= link_to "Edit Profile", edit_user_path(@user) %></p>
+
+<% else %>
+  <h1><strong><%= @user.username %></strong>'s Profile</h1>
+  <p>Favorite venues:</p>
+  <p><%= link_to "Your Profile", user_path(current_user) %></p>
+<% end %>
+
+<p></p>
+
+
+
+
+
+<% if false %>
+  <%= link_to "Log in", new_user_session_path, class: "btn btn-gradient" %>
+  <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-gradient" %>
+<% end %>
