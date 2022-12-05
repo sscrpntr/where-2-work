@@ -14,7 +14,7 @@
   box-sizing: border-box;
 
   width: 198px;
-  height: 179px;
+  height: 188px;
 
   background: #FFFFFF;
   border: 1px solid #FFFFFF;
@@ -47,7 +47,7 @@
   margin-right: 4px;
   margin-top: 4px;
   width: 186px;
-  height: 99px;
+  height: 110px;
   border-radius: 15px;
   object-position: center;
 }
@@ -57,13 +57,16 @@
 }
 
 .venue-text {
-  width: 100%;
+  width: 75%;
   // height: 24px;
   font-family: 'Lato';
   font-weight: 400;
-  font-size: 20px;
+  font-size: 14px;
   line-height: 24px;
   margin-left: 0.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   text-align: left;
 
@@ -164,6 +167,7 @@
   font-size: 25px;
   color: #422800;
   margin-right: 5px;
+  margin-left: 3px;
 }
 
 .venue-content {
