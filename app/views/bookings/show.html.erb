@@ -1,26 +1,38 @@
-<h1>Edit your bookings or add a review</h1>
-<h2>Booking Date: <%= (@booking.date) %></h2>
-  <div class="product-specs">
-    <div class="product-specs">
+<h1>Your Booking</h1>
+<h2>Date: <%= (@booking.date) %></h2>
+<div class="card-trip">
+    <div class="card-trip-infos">
         <%= cl_image_tag(@booking.venue.photo.key, :class=>"booking-image", :alt=>"venue image", :width=>350, :height=>250) %>
-        <h3>Venue information</h3>
         <ul>
-          <li>Website: <%= @booking.venue.website %></li>
-          <li>Power Outlets available: <%= @booking.venue.power_outlets %></li>
-          <li>Natural light: <%= @booking.venue.natural_light %></li>
-          <li>Suitable for calls: <%= @booking.venue.suited_for_calls %></li>
+          <h2><%= @booking.venue.name %></h2>
+          <h3><% if @booking.venue.wifi %>
+            <i class="fa-solid fa-wifi title"></i>
+          <% end %>
+          <% if @booking.venue.power_outlets %>
+            <i class="fa-solid fa-plug title"></i>
+          <% end %>
+          <% if @booking.venue.suited_for_calls %>
+            <i class="fa-solid fa-phone title"></i>
+          <% end %>
+          <% if @booking.venue.natural_light %>
+            <i class="fa-solid fa-sun title"></i>
+          <% end %>
+          </h3>
         </ul>
-            <%= link_to "Delete",
+            <%= link_to "Delete Booking",
               booking_path(@booking), class: "btn btn-gradient",
               data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+            %>
+            <%= link_to "Edit Booking",
+              edit_booking_path(@booking), class: "btn btn-gradient"
             %>
             <% unless @booking.review %>
               <%= link_to "Add Review",
             new_booking_review_path(@booking), class: "btn btn-gradient"
             %>
             <% end %>
-
-      </div>
+    </div>
+</div>
 
 <h2>Your other bookings</h2>
   <div class="wrapper">
