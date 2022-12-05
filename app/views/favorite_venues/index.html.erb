@@ -8,15 +8,37 @@
     <div>
       <% if current_user.favorite_venues.size > 0 %>
         <% @favorites.each do |favorite| %>
+        <% venue = favorite.venue %>
           <%=link_to venue_path(favorite.venue) do %>
             <div class="venue-card favorite-venue-card">
               <%= cl_image_tag favorite.venue.photo.key, :class=>"venue-image favorite-image-size", :alt=>"venue image", :width=>450, :height=>250 %>
-              <%= tag.p favorite.venue.name, class: 'venue-text' %>
-              <%= tag.p favorite.venue.address, class: 'venue-text' %>
-              <div class="venue-timetable">
-                <%= tag.p favorite.venue.opening_time, class: 'venue-text' %>
-                <%= tag.p favorite.venue.closing_time, class: 'venue-text' %>
-              </div>
+              <div class="venue-content">
+                 <div class="venue-first-row">
+                    <p class="venue-text">
+                      <%= favorite.venue.name %>
+                      <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
+                    </p>
+                  </div>
+                  <div class="venue-first-row">
+                    <p class="venue-text">
+                      <%= favorite.venue.opening_time %>
+                      <%= favorite.venue.closing_time %>
+                    </p>
+                  </div>
+                  <div class="venue-icons">
+                    <% if favorite.venue.wifi %>
+                      <i class="fa-solid fa-wifi title"></i>
+                    <% end %>
+                    <% if venue.power_outlets %>
+                      <i class="fa-solid fa-plug title"></i>
+                    <% end %>
+                    <% if venue.suited_for_calls %>
+                      <i class="fa-solid fa-phone title"></i>
+                    <% end %>
+                    <% if venue.natural_light %>
+                      <i class="fa-solid fa-sun title"></i>
+                    <% end %>
+                  </div>
             </div>
           <% end %>
         <% end %>
