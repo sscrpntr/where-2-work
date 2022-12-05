@@ -124,7 +124,7 @@
 
       <li class="nav-item">
         <% if user_signed_in? %>
-          <%= link_to "#", class:"nav-link d-flex flex-column" do  %>
+          <%= link_to user_path(current_user), class:"nav-link d-flex flex-column" do  %>
             <% if params[:action] == 'create' && params[:controller] == 'users'%>
               <i class="fa-regular fa-user fa-cog"></i>
               <span class="d-none d-sm-inline", style=" color: rgba(132, 96, 70, 1);">You</span>

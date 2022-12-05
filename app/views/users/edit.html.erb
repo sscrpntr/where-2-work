@@ -1,0 +1,10 @@
+<% if @user == current_user %>
+  <h1>Hello, <strong><%= @user.username %></strong></h1>
+  <h2><%= @user.email %></h2>
+  <h3>Edit</h3>
+
+<% else %>
+  <h1>Not You!</h1>
+  <p>Don't try to edit someone else's profile!</p>
+  <p>Edit <%= link_to "your profile", edit_user_path(current_user) %> instead.</p>
+<% end %>

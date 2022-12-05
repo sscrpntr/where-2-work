@@ -1,5 +1,23 @@
-Hello
-
-<%= link_to "Log in", new_user_session_path, class: "btn btn-gradient" %>
- <%= link_to "Log out", destroy_user_session_path, data: {
-      turbo_method: :delete }, class: "btn btn-gradient" %>
+<% if @user == current_user %>
+  <div class="card-product">
+    <%= cl_image_tag @user.photo.key %>
+    <div class="card-product-infos">
+      <h2><%= @user.username %></h2>
+      <h3><%= @user.email %></h3>
+      <% if @user.venue_owned.nil? %>
+        <p>Own a venue? <%= mail_to "admin@where2work.es", "Email us" %>
+      <% else %>
+        <p><strong>Venue(s):</strong>  <%= @user.venue_owned %>
+      <% end %>
+      <p><%= link_to "Edit Profile", edit_user_path(@user) %></p>
+    </div>
+  </div>
+<% else %>
+  <div class="card-product">
+    <%= cl_image_tag @user.photo.key %>
+    <div class="card-product-infos">
+      <h2><%= @user.username %></h2>
+      <p><%= link_to "My Profile", user_path(current_user) %></p>
+    </div>
+  </div>
+<% end %>

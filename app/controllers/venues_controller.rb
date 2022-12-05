@@ -17,7 +17,8 @@ class VenuesController < ApplicationController
       @venues = @venues.where(sql_query, query: "%#{@search_term}%")
     end
     @markers = @venues.geocoded.map do |venue|
-      { lat: venue.latitude, lng: venue.longitude }
+      { lat: venue.latitude, lng: venue.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { venue: }) }
     end
 
     @user_location = Geocoder.search(request.remote_ip).first.coordinates
