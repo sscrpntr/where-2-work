@@ -116,8 +116,8 @@ while x < 500
     title: Faker::Coffee.origin,
     booking: Booking.find(x)
   )
-  cafe = cafe_photos.sample
-  file = URI.open(cafe[0])
+  temp_venue = venue_photos.sample
+  file = URI.open(temp_venue[0])
   review.photo.attach(io: file, content_type: "image/png", filename: "review#{review.id}.jpg")
   review.save!
   x += 1
