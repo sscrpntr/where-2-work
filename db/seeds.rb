@@ -110,7 +110,11 @@ end
 #   x += 1
 # end
 
-x = 1
+puts review_photos
+puts review_photos[0]
+puts review_photos.sample
+
+x = 0
 while x < 500
   review = Review.new(
     suited_for_calls: Faker::Boolean.boolean(true_ratio: 0.75),
