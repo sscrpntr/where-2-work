@@ -58,6 +58,7 @@
 
 .venue-text {
   width: 75%;
+  text-transform: uppercase;
   // height: 24px;
   font-family: 'Lato';
   font-weight: 400;
@@ -67,10 +68,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
   text-align: left;
-
-  color: #000000;
+  color: black;
 }
 
 .venue-card .fa-star {
@@ -177,11 +176,13 @@
 
 .venue-icons {
   display: flex;
-  margin-left: 0.5em;
+  position: absolute;
+  top: 10.8em;
+  margin-left: 0.6em;
 }
 
 .venue-icons i {
-  margin-right: 5px;
+  margin-right: 0.5em;
 }
 
 .venue-first-row {

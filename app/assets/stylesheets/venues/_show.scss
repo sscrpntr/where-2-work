@@ -195,3 +195,28 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   top: -20px;
   width: 40px;
 }
+
+
+.card-trip-user-index {
+  width: 50%;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  padding-right: 0.8em;
+  padding-left: 0.3em;
+  text-transform: uppercase;
+  position: absolute;
+  // background-color: #d1e751;
+  color: white;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 1em;
+  font-weight: bold;
+  // background: linear-gradient(#422800, #AF795D);
+  // transition: background 0.3s ease;
+  // border: 1px solid white;
+  // margin-top: 2.0em;
+  // left: 8em;
+  // top: 7em;
+}
