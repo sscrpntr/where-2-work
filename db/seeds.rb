@@ -31,8 +31,8 @@ while x < user_photos.size - 20
     is_owner: false,
     name: name,
     username: Faker::Internet.username,
-    email: Faker::Internet.password,
-    password: Faker::Blockchain::Bitcoin.address,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password,
   )
   file = URI.open(user_photos[x][0])
   user.photo.attach(io: file, content_type: "image/png", filename: "user#{user.id}.jpg")
