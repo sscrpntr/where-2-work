@@ -38,7 +38,7 @@
 
 .venue-card:hover {
   box-shadow: 0 0px 12px 0 rgba(0, 0, 0, 0.3);
-  // transform: scale(103%);
+  transform: scale(103%);
 }
 
 .venue-image {
@@ -58,7 +58,6 @@
 
 .venue-text {
   width: 75%;
-  text-transform: uppercase;
   // height: 24px;
   font-family: 'Lato';
   font-weight: 400;
@@ -68,8 +67,10 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
   text-align: left;
-  color: black;
+
+  color: #000000;
 }
 
 .venue-card .fa-star {
@@ -176,13 +177,11 @@
 
 .venue-icons {
   display: flex;
-  position: absolute;
-  top: 10.8em;
-  margin-left: 0.6em;
+  margin-left: 0.5em;
 }
 
 .venue-icons i {
-  margin-right: 0.5em;
+  margin-right: 5px;
 }
 
 .venue-first-row {

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i[show edit update]
-  resources :bookings, only: %i[index show destroy edit update]
+  resources :bookings, only: %i[index show destroy]
   resources :bookings, only: [] do
     # missing routes to display bookings on the venues
     # should we add a route to display availability for booking?
