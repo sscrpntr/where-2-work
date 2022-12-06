@@ -1,175 +1,79 @@
-<div
-  data-controller="button map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
->
-  <div class="container">
-    <div class="row height d-flex justify-content-center align-items-center">
-      <div class="col-md-6">
-        <div class="form">
-          <i class="fa fa-search"></i>
-          <%= form_for "", url: venues_path, role: "search", method: :get do %>
-            <%= text_field_tag :search, @search_term, class:"form-control form-input", placeholder: "Search.." %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
+<div class="card-trip">
+  <%= cl_image_tag @venue.photo.key %>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= @venue.name %></h2>
+      <h3><% if @venue.wifi %>
+        <i class="fa-solid fa-wifi title"></i>
+      <% end %>
+      <% if @venue.power_outlets %>
+        <i class="fa-solid fa-plug title"></i>
+      <% end %>
+      <% if @venue.suited_for_calls %>
+        <i class="fa-solid fa-phone title"></i>
+      <% end %>
+      <% if @venue.natural_light %>
+        <i class="fa-solid fa-sun title"></i>
+      <% end %>
+      </h3>
+
+      <p><%= @venue.address %></p>
+
+      <% @venue.all_reviews.reverse.first(2).each do |review| %>
+        <div class="card-product">
+          <% unless review.photo.key.nil? %>
+            <%= cl_image_tag review.photo.key, :alt=>"review image", :width=>350, :height=>250 %>
+          <% else %>
+            <%= image_tag "favicon.ico", :alt=>"review image", :width=>350, :height=>250 %>
           <% end %>
-          <span class="left-pan"><i class="fa fa-microphone"></i></span>
+          <div class="card-product-infos">
+            <h3>
+              <% review.rating.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% (5 - review.rating).times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+            </h3>
+            <p>
+              <% if review.power_outlets %>
+                <i class="fas fa-plug"></i>
+              <% end %>
+              <% if review.natural_light %>
+                <i class="fas fa-sun"></i>
+              <% end %>
+              <% if review.suited_for_calls %>
+                <i class="fas fa-phone"></i>
+              <% end %>
+              <% unless review.wifi_up.nil? || review.wifi_down.nil? %>
+                <i class="fas fa-wifi"></i>
+                <% unless review.wifi_down.nil? %>
+                  <i class="fas fa-arrow-down"></i>
+                  <%= review.wifi_down %> Mbps
+                <% end %>
+                <% unless review.wifi_up.nil? %>
+                  <i class="fas fa-arrow-up"></i>
+                  <%= review.wifi_down %> Mbps
+                <% end %>
+              <% end %>
+            </p>
+
+            <p>
+            <%= "#{review.comment.capitalize.first(75)} ... " %>
+            <%= link_to "(full review)", venue_review_path(@venue, review) %>
+            </p>
+
+          </div>
         </div>
+        <% end %>
+        <p><%= link_to "All reviews", venue_reviews_path(@venue) %></p>
       </div>
-    </div>
+    <h3 class="card-trip-user"><i class="far fa-star"></i>  <%= @venue.average_rating %></h3>
+
+    <h3 class="card-trip-review"><i class="fa-regular fa-heart"></i></h3>
+
   </div>
-  <div class="btn-group">
-    <button class="button-list button-clicked" data-action="click->button#switchButtonList" data-button-target="buttonList">List</button>
-    <button class="button-map" data-action="click->button#switchButtonMap click->map#resize" data-button-target="buttonMap">Map</button>
-  </div>
-  <div class="filter-group">
-    <%= link_to (params[:has_wifi].nil? ? venues_path(request.query_parameters.merge({has_wifi:"true"})) : venues_path(request.query_parameters.merge({has_wifi: nil}))) do %>
-      <% if params[:has_wifi].nil? %>
-        <i class="fa-duotone fa-wifi-weak filter"></i>
-      <% elsif params[:has_wifi] %>
-        <i class="fa-solid fa-wifi filter"></i>
-      <% end %>
-    <% end %>
-    <%= link_to (params[:has_plugs].nil? ? venues_path(request.query_parameters.merge({has_plugs:"true"})) : venues_path(request.query_parameters.merge({has_plugs: nil}))) do %>
-      <% if params[:has_plugs].nil? %>
-        <i class="fa-solid fa-plug-circle-xmark filter"></i>
-      <% elsif params[:has_plugs] %>
-        <i class="fa-solid fa-plug filter"></i>
-      <% end %>
-    <% end %>
-    <%= link_to (params[:has_calls].nil? ? venues_path(request.query_parameters.merge({has_calls:"true"})) : venues_path(request.query_parameters.merge({has_calls: nil}))) do %>
-      <% if params[:has_calls].nil? %>
-        <i class="fa-solid fa-phone-slash filter"></i>
-      <% elsif params[:has_calls] %>
-        <i class="fa-solid fa-phone filter"></i>
-      <% end %>
-    <% end %>
-    <%= link_to (params[:has_light].nil? ? venues_path(request.query_parameters.merge({has_light:"true"})) : venues_path(request.query_parameters.merge({has_light: nil}))) do %>
-      <% if params[:has_light].nil? %>
-        <i class="fa-duotone fa-sun filter"></i>
-      <% elsif params[:has_light] %>
-        <i class="fa-solid fa-sun filter"></i>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="listDiv" data-button-target="listDiv">
-    <div class=title-group>
-      <i class="fa-solid fa-magnifying-glass"></i><h3>Your Search Results</h3>
-    </div>
-    <div class="wrapper">
-      <% @venues.first(10).each do |venue| %>
-        <%=link_to venue_path(venue) do %>
-          <div class="venue-card">
-          <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
-          <div class="venue-content">
-            <div class="venue-first-row">
-              <p class="venue-text index-name-btn">
-                <%= venue.name.first(25) %>
-              </p>
-                <p class="stars-index-btn"><i class="far fa-star"></i>  <%= venue.average_rating %></p>
-            </div>
-            <div class="venue-icons">
-                <% if venue.wifi %>
-                  <i class="fa-solid fa-wifi title"></i>
-                <% end %>
-                <% if venue.power_outlets %>
-                  <i class="fa-solid fa-plug title"></i>
-                <% end %>
-                <% if venue.suited_for_calls %>
-                  <i class="fa-solid fa-phone title"></i>
-                <% end %>
-                <% if venue.natural_light %>
-                  <i class="fa-solid fa-sun title"></i>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-    <div class=title-group>
-      <i class="fas fa-fire-flame-curved"></i><h3>Top Rated Nearby</h3>
-    </div>
-    <div class="wrapper">
-      <% @venues.select{|a| a.average_rating}.sort{ |a,b| b.average_rating <=> a.average_rating}.first(10).each do |venue| %>
-        <%=link_to venue_path(venue) do %>
-          <div class="venue-card">
-          <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
-          <div class="venue-content">
-            <div class="venue-first-row">
-              <p class="venue-text">
-                <%= venue.name.first(25) %>
-                <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
-              </p>
-            </div>
-            <div class="venue-icons">
-                <% if venue.wifi %>
-                  <i class="fa-solid fa-wifi title"></i>
-                <% end %>
-                <% if venue.power_outlets %>
-                  <i class="fa-solid fa-plug title"></i>
-                <% end %>
-                <% if venue.suited_for_calls %>
-                  <i class="fa-solid fa-phone title"></i>
-                <% end %>
-                <% if venue.natural_light %>
-                  <i class="fa-solid fa-sun title"></i>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-    <div class=title-group>
-      <i class="fas fa-euro-sign"></i><h3>Top offers</h3>
-    </div>
-    <div class="wrapper">
-      <% @venues.first(10).each do |venue| %>
-        <%= link_to venue_path(venue) do %>
-          <div class="venue-card">
-          <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
-          <div class="venue-content">
-            <div class="venue-first-row">
-              <p class="venue-text">
-                <%= venue.name.first(25) %>
-                <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
-              </p>
-            </div>
-            <div class="venue-icons">
-                <% if venue.wifi %>
-                  <i class="fa-solid fa-wifi title"></i>
-                <% end %>
-                <% if venue.power_outlets %>
-                  <i class="fa-solid fa-plug title"></i>
-                <% end %>
-                <% if venue.suited_for_calls %>
-                  <i class="fa-solid fa-phone title"></i>
-                <% end %>
-                <% if venue.natural_light %>
-                  <i class="fa-solid fa-sun title"></i>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-  <div class="mapDiv"  data-button-target="mapDiv" style="display: none;">
-    <div class="tab-pane" style="width: 100%; height: 600px;"
-      data-map-target="map">
-    </div>
-  </div>
+  <%= render "form" %>
 </div>
- <%# <div class="col-sm-4 col-xs-12 text-center"> %>
-                <%# <button type="button" class="btn btn-danger btn-block"> %>
-                <%# <% if user_signed_in? %>
-                  <%# <% if current_user.favorite_venues.include? venue %>
-                    <%# <p>Already in Favorites</p> %>
-                  <%# <% else %>
-                    <%# <%= link_to venue_favorite_venues_path(venue), data: { turbo_method: "post" }%>
-                  <%# <% end %>
-                <%# <% else %>
-                  <%# <%= link_to "HolaOscar", new_user_session_path %>
-                <%# <% end %>
-                  <%# <span class="badge">favorite</span> %>
-                <%# </button> %>
