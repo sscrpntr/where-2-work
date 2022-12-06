@@ -1,20 +1,17 @@
-<div class="venue-title">
-  <h2>Your Visits</h2>
-  <div class="wrapper">
-    <% if @user_bookings.size > 0 %>
-      <% @user_bookings.each do |booking| %>
-        <div class="venue-card">
-          <a href=<%= booking_path(booking.id) %>>
-          <%= cl_image_tag(booking.venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250) %></a>
-          <%= booking.venue.name %>
-          <br>
-          <%= booking.date %>
-          </div>
-      <% end %>
-    <% else %>
-      <p>No more visits.
-      <br>
-      <%= link_to "New Visit", venues_path, class: "btn btn-gradient" %></p>
-    <% end %>
-  </div>
-</div>
+<h1 class="visit-title">Your Visits</h1>
+<% if @user_bookings.size > 0 %>
+  <% @user_bookings.each do |booking| %>
+    <div class="card-product-booking">
+      <%= cl_image_tag booking.venue.photo.key, :alt=>"booking image", :width=>300 %>
+      <div class="card-product-infos">
+        <h2><%= booking.venue.name %></h2>
+        <p><%= link_to booking.date, booking_path(booking) %></p>
+        <p><%= booking.venue.address %></p>
+      </div>
+    </div>
+  <% end %>
+  <% else %>
+    <p>No more visits.
+    <br>
+    <%= link_to "New Visit", venues_path, class: "btn btn-gradient" %></p>
+  <% end %>
