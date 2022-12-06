@@ -124,21 +124,22 @@
   padding-bottom: 0.25em;
   margin-bottom: 1em;
 }
+
 .stars-index-btn {
-  width: 40%;
+  width: auto;
   text-transform: uppercase;
   background-color: #d1e751;
   color: white;
-  margin: auto;
+  margin-bottom: 1.5em;
+  margin-left: 0.5em;
   border-radius: 1.5em;
   font-weight: bold;
-  background: #422800;
-  margin-top: 2em;
-  padding-right: 0.1em;
-  padding-top: 0.25em;
-  padding-bottom: 0.25em;
-  margin-right: 0.3em;
+  background: #AF795D;
+  // transition: background 0.3s ease;
+  // border: 1px solid white;
+  padding: 0.5em;
 }
+
 .index-name-btn {
   width: auto;
   text-transform: uppercase;
@@ -148,7 +149,7 @@
   border-radius: 1.5em;
   font-weight: bold;
   font-weight: bold;
-  background: #422800;
+  background: #AF795D;
   padding-right: 0.5em;
   padding-left: 0.5em;
   padding-bottom: 0.25em;
@@ -157,6 +158,7 @@
   top: 8em;
   // margin-right: 0.3em;
 }
+
 .btn-left-icon {
   width: auto;
   text-transform: uppercase;
@@ -166,7 +168,7 @@
   margin-left: 0.5em;
   border-radius: 1.5em;
   font-weight: bold;
-  background: #422800;
+  background: #AF795D;
   // transition: background 0.3s ease;
   // border: 1px solid white;
   padding: 0.5em;
