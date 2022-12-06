@@ -6,7 +6,10 @@ export default class extends Controller {
     console.log("hi");
     new flatpickr(this.element, {
       enableTime: false,
-      minDate: "today"
+      minDate: "today",
+      allowInput: false,
+      enableTime: false,
+      firstDayOfWeek: 1
     });
   }
 }
