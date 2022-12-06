@@ -1,11 +1,12 @@
 <div class="venue-title">
-  <h2>Post a new Venue</h2>
-    <div class="form-group" style="width: 500px" >
-      <%= simple_form_for @venue, data:{turbo: false} do |f| %>
+  <h2>Add a New Venue</h2>
+    <div class="form-group" style="width: 80%" >
+      <%= simple_form_for @venue, data:{ turbo: false } do |f| %>
         <%= f.input :name, placeholder: 'Bar La Camila', required: true  %>
         <%= f.input :address, placeholder: 'Carrer de Banyoles, 11, 08012 Barcelona', required: true  %>
         <%= f.input :website, placeholder: 'https://www.instagram.com/barlacamila/' %>
         <%= f.input :power_outlets, placeholder: 'Yes', required: true  %>
+        <%= f.input :wifi, placeholder: 'Yes', required: true  %>
         <%= f.input :natural_light, placeholder: 'Yes', required: true  %>
         <%= f.input :suited_for_calls, placeholder: 'true' %>
         <%= f.input :opening_time, placeholder: '09:00' %>

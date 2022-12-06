@@ -30,14 +30,16 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker, index) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window) // Add this
       if (index == this.markersValue.length - 1) {
         new mapboxgl.Marker({ color: "red" })
-        .setLngLat([marker.lng, marker.lat])
-        .addTo(this.map)
+          .setLngLat([marker.lng, marker.lat])
+          .addTo(this.map)
       } else {
         new mapboxgl.Marker()
-        .setLngLat([marker.lng, marker.lat])
-        .addTo(this.map)
+          .setLngLat([marker.lng, marker.lat])
+          .setPopup(popup) // Add this
+          .addTo(this.map)
       }
     })
   }

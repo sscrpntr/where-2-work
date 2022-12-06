@@ -83,3 +83,4 @@ gem "faker"
 gem "geocoder"
 gem 'speedtest'
 gem "blazer"
+gem 'bootstrap-datepicker-rails'

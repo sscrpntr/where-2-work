@@ -13,7 +13,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   background-color: white;
-  color: black;
+  color: #422800;
   width: 144px;
   height: 53px;
 }
@@ -35,7 +35,6 @@
   font-style: normal;
   font-weight: 800;
   font-size: 16px;
-
 }
 
 .btn-group button:not(:last-child) {
@@ -71,6 +70,28 @@
   background: linear-gradient(#422800, #AF795D);
   transition: background 0.3s ease;
   border: 1px solid white;
+  margin-top: 2.0em;
+}
+
+.card-trip .btn-gradient {
+  width: 50%;
+}
+
+.btn-danger {
+  display: flex;
+  width: fit-content;
+  text-transform: uppercase;
+  background-color: #d1e751;
+  color: red;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 1em;
+  font-weight: bold;
+  background: linear-gradient(#422800, #AF795D);
+  transition: background 0.3s ease;
+  border: 1px solid white;
   width: 10em;
   margin-top: 2.0em;
 }
@@ -85,4 +106,68 @@
     min-width: 120px;
     padding: 0 25px;
   }
+}
+
+.btn-left {
+  width: 40%;
+  text-transform: uppercase;
+  background-color: #d1e751;
+  color: white;
+  margin: auto;
+  border-radius: 1.5em;
+  font-weight: bold;
+  background: linear-gradient(#422800, #AF795D);
+  transition: background 0.3s ease;
+  border: 1px solid white;
+  margin-top: 0.25em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  margin-bottom: 1em;
+}
+.stars-index-btn {
+  width: 40%;
+  text-transform: uppercase;
+  background-color: #d1e751;
+  color: white;
+  margin: auto;
+  border-radius: 1.5em;
+  font-weight: bold;
+  background: #422800;
+  margin-top: 2em;
+  padding-right: 0.1em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  margin-right: 0.3em;
+}
+.index-name-btn {
+  width: auto;
+  text-transform: uppercase;
+  background-color: #d1e751;
+  color: white;
+  margin: 0 0 0 0.5em;
+  border-radius: 1.5em;
+  font-weight: bold;
+  font-weight: bold;
+  background: #422800;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  padding-bottom: 0.25em;
+  padding-top: 0.25em;
+  position: absolute;
+  top: 8em;
+  // margin-right: 0.3em;
+}
+.btn-left-icon {
+  width: auto;
+  text-transform: uppercase;
+  background-color: #d1e751;
+  color: white;
+  margin-bottom: 1.5em;
+  margin-left: 0.5em;
+  border-radius: 1.5em;
+  font-weight: bold;
+  background: #422800;
+  // transition: background 0.3s ease;
+  // border: 1px solid white;
+  padding: 0.5em;
 }

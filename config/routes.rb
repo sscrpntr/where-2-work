@@ -8,13 +8,14 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :venues do
-      resources :bookings, only: %i[new create]
-      resources :venue_offers, only: %i[create edit new update destroy]
-      member do
-        put "like" => "venues#upvote"
-        put "unlike" => "venues#downvote"
-      end
-      put :favorite, on: :member
+    resources :bookings, only: %i[new create]
+    resources :venue_offers, only: %i[create edit new update destroy]
+    resources :favorite_venues, only: %i[create destroy]
+    resources :reviews, only: %i[show index]
+  end
+
+  resources :users do
+    resources :favorite_venues, only: %i[index create]
   end
 
   resources :users, only: %i[show edit update]
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
     # should we add a route to display availability for booking?
     resources :reviews, only: %i[create new]
   end
+  resources :reviews, only: %i[show index]
   # Defines the root path route ("/")
   # root "articles#index"
 end

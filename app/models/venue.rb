@@ -5,10 +5,15 @@ class Venue < ApplicationRecord
   has_one_attached :photo
   belongs_to :user
   has_many :venue_offers
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
-  has_many :favorites
-  has_many :favorited_by, through: :favorites, source: :user
+  has_many :favorite_venues
+  has_many :favorited_by, through: :favorites_venues, source: :user
+
+  scope :has_plugs, -> { where(power_outlets: true) }
+  scope :has_calls, -> { where(suited_for_calls: true) }
+  scope :has_light, -> { where(natural_light: true) }
+  scope :has_wifi, -> { where(wifi: true) }
 
   def all_reviews
     reviews.all
@@ -19,7 +24,7 @@ class Venue < ApplicationRecord
     reviews.each do |review|
       sum += review.rating
     end
-    return (sum.to_f / reviews.count).round(2) if reviews.count != 0
+    return (sum.to_f / reviews.count).round(1) if reviews.count != 0
   end
 
   def opening_time_display

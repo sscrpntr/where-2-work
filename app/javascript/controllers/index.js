@@ -7,8 +7,20 @@ import { application } from "./application"
 import ButtonController from "./button_controller"
 application.register("button", ButtonController)
 
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import SpeedtestController from "./speedtest_controller"
+application.register("speedtest", SpeedtestController)
+
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)
+
+import CheckIfDateController from "./checkifdate_controller"
+application.register("checkifdate", CheckIfDateController)

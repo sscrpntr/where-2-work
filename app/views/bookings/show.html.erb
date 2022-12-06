@@ -1,1 +1,41 @@
-this page will be displayed when the user hits a specific booking
+<h1>Edit your bookings or add a review</h1>
+<h2>Booking Date: <%= (@booking.date) %></h2>
+  <div class="product-specs">
+    <div class="product-specs">
+        <%= cl_image_tag(@booking.venue.photo.key, :class=>"booking-image", :alt=>"venue image", :width=>350, :height=>250) %>
+        <h3>Venue information</h3>
+        <ul>
+          <li>Website: <%= @booking.venue.website %></li>
+          <li>Power Outlets available: <%= @booking.venue.power_outlets %></li>
+          <li>Natural light: <%= @booking.venue.natural_light %></li>
+          <li>Suitable for calls: <%= @booking.venue.suited_for_calls %></li>
+        </ul>
+            <%= link_to "Delete",
+              booking_path(@booking), class: "btn btn-gradient",
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+            %>
+            <% unless @booking.review %>
+              <%= link_to "Add Review",
+            new_booking_review_path(@booking), class: "btn btn-gradient"
+            %>
+            <% end %>
+
+      </div>
+
+<h2>Your other bookings</h2>
+  <div class="wrapper">
+    <% @user_bookings.each do |booking| %>
+      <% if booking.id != @booking.id %>
+        <div class="venue-card">
+          <a href=<%= booking_path(booking.id) %>>
+          <%= cl_image_tag(booking.venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250) %></a><%= booking.venue.name %> <%= booking.venue.address %>
+          <p>Opening time: <%= booking.venue.opening_time %>, Closing time: <%= booking.venue.closing_time %></p>
+        </div>
+      <% end %>
+      <% if @user_bookings.size < 2 %>
+        <p>No more bookings.
+        <br>
+        Visit a venue.</p>
+      <% end %>
+    <% end %>
+  </div>

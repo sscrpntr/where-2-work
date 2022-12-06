@@ -1,38 +1,79 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
 <div class="card-trip">
   <%= cl_image_tag @venue.photo.key %>
   <div class="card-trip-infos">
     <div>
       <h2><%= @venue.name %></h2>
-      <p><%= @venue.address %></p>
-      <% @venue.all_reviews.each do |review| %>
-        <h3><%= review.title %></h3>
-        <p>
-        <% review.rating.times do %>
-          <i class="fas fa-star"></i>
-        <% end %>
-        </p>
-        <p><%= "#{review.comment.first(60)}..." %></p>
-        <br>
+      <h3><% if @venue.wifi %>
+        <i class="fa-solid fa-wifi title"></i>
       <% end %>
-    </div>
-    <h3 class="card-trip-heart"><i class="fa-regular fa-heart"></i></h3>
-    <img src="https://i.imgur.com/T1ryMJk.png" class="card-trip-user avatar-bordered" />
-  </div>
+      <% if @venue.power_outlets %>
+        <i class="fa-solid fa-plug title"></i>
+      <% end %>
+      <% if @venue.suited_for_calls %>
+        <i class="fa-solid fa-phone title"></i>
+      <% end %>
+      <% if @venue.natural_light %>
+        <i class="fa-solid fa-sun title"></i>
+      <% end %>
+      </h3>
 
-  <div class="venue-title" id="booking">
-      <h3>Visit</h3>
-      <div class="form-styled" >
-        <%= simple_form_for [@venue, @booking] do |f| %>
-          <%= f.input :date, as: :date, html5: true, required: true, format: 'yyyy-mm-dd' %>
-          <%= f.submit class:"btn-rent", value:"Book" %>
+      <p><%= @venue.address %></p>
+
+      <% @venue.all_reviews.reverse.first(2).each do |review| %>
+        <div class="card-product">
+          <% unless review.photo.key.nil? %>
+            <%= cl_image_tag review.photo.key, :alt=>"review image", :width=>350, :height=>250 %>
+          <% else %>
+            <%= image_tag "favicon.ico", :alt=>"review image", :width=>350, :height=>250 %>
+          <% end %>
+          <div class="card-product-infos">
+            <h3>
+              <% review.rating.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% (5 - review.rating).times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+            </h3>
+            <p>
+              <% if review.power_outlets %>
+                <i class="fas fa-plug"></i>
+              <% end %>
+              <% if review.natural_light %>
+                <i class="fas fa-sun"></i>
+              <% end %>
+              <% if review.suited_for_calls %>
+                <i class="fas fa-phone"></i>
+              <% end %>
+              <% unless review.wifi_up.nil? || review.wifi_down.nil? %>
+                <i class="fas fa-wifi"></i>
+                <% unless review.wifi_down.nil? %>
+                  <i class="fas fa-arrow-down"></i>
+                  <%= review.wifi_down %> Mbps
+                <% end %>
+                <% unless review.wifi_up.nil? %>
+                  <i class="fas fa-arrow-up"></i>
+                  <%= review.wifi_down %> Mbps
+                <% end %>
+              <% end %>
+            </p>
+
+            <p>
+            <%= "#{review.comment.capitalize.first(75)} ... " %>
+            <%= link_to "(full review)", venue_review_path(@venue, review) %>
+            </p>
+
+          </div>
+        </div>
         <% end %>
+        <p><%= link_to "All reviews", venue_reviews_path(@venue) %></p>
       </div>
-    </div>
-  <%= link_to "All Venues", venues_path, class: "btn btn-gradient" %>
-</div>
+    <h3 class="card-trip-user"><i class="far fa-star"></i>  <%= @venue.average_rating %></h3>
 
-<div>
-  <div id="right-side">
+    <h3 class="card-trip-review"><i class="fa-regular fa-heart"></i></h3>
 
   </div>
+  <%= render "form" %>
 </div>

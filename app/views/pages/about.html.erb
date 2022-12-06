@@ -1,9 +1,44 @@
-<h1>Coming soon!</h1>
+<h1>About Us</h1>
+<p>Born out of a web-development bootcamp, Where 2 Work was created to alleviate the stress and pain of not being able to find a reliable place to work while on-the-go.</p>
+<p>Users are able to find a workspace on a budget based on their needs.</p>
+<p>By leaving reviews, users help their fellow digital nomads and grow the community.</p>
 
-<% if user_signed_in? %>
-  <%= button_tag "Waiting", class: "btn btn-default", 'data-disable-with' => "<i class='fa fa-spinner fa-spin'></i>".html_safe %>
-  <p>Your download speed: <strong><%= @user.wifi_speed.pretty_download_rate %></strong></p>
-  <p>Your upload speed: <strong><%= @user.wifi_speed.pretty_upload_rate %></strong></p>
-<% else %>
-  <p>Please <%= link_to "sign in", new_user_session_path %> sign in to test the wifi speed.</p>
+
+<h3>The Team:</h3>
+<div class="card-product">
+  <img src="https://i.imgur.com/T1ryMJk.png" />
+  <div class="card-product-infos">
+    <h2>Oscar Estellés</h2>
+    <p>DJ JavaScript</p>
+  </div>
+</div>
+<div class="card-product">
+  <img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1665408859/npimofqrxkfnhxjqsyfr.jpg" />
+  <div class="card-product-infos">
+    <h2>Dilmer Alverado</h2>
+    <p>Señor Sticky</p>
+  </div>
+</div>
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Sergi Escarpenter</h2>
+    <p>Chef Break Finder</p>
+  </div>
+</div>
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Harrison Hassig</h2>
+    <p>Work from Everywhere</p>
+  </div>
+</div>
+
+<% if false %>
+  <% if user_signed_in? %>
+    <p>Your download speed: <strong><%= @user.wifi_speed.pretty_download_rate %></strong></p>
+    <p>Your upload speed: <strong><%= @user.wifi_speed.pretty_upload_rate %></strong></p>
+  <% else %>
+    <p>Please <%= link_to "sign in", new_user_session_path %> sign in to test the wifi speed.</p>
+  <% end %>
 <% end %>
