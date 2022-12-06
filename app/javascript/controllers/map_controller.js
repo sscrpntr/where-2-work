@@ -19,6 +19,16 @@ export default class extends Controller {
       container: this.mapTarget,
       style: "mapbox://styles/mapbox/streets-v10"
     })
+
+    this.map.addControl(
+      new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        trackUserLocation: true,
+        showUserHeading: true
+      })
+    )
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
   }
