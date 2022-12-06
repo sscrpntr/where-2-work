@@ -3,10 +3,10 @@ class VenuesController < ApplicationController
 
   def index
     @venues = Venue.all
-    @venues = Venue.has_plugs if params[:has_plugs].present?
-    @venues = Venue.has_calls if params[:has_calls].present?
-    @venues = Venue.has_light if params[:has_light].present?
-    @venues = Venue.has_wifi if params[:has_wifi].present?
+    @venues = @venues.has_plugs if params[:has_plugs].present?
+    @venues = @venues.has_calls if params[:has_calls].present?
+    @venues = @venues.has_light if params[:has_light].present?
+    @venues = @venues.has_wifi if params[:has_wifi].present?
     if params[:search].present?
       sql_query = <<~SQL
         venues.category @@ :query
