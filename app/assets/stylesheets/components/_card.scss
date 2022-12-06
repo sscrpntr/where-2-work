@@ -188,3 +188,9 @@
 .card-rating i {
   color: #422800;
 }
+
+#wifi-review {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
