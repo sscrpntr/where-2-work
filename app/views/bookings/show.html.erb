@@ -3,7 +3,8 @@
   <div class="card-trip-infos-booking">
     <div>
       <h1><%= @booking.venue.name %></h1>
-          <p><% if @booking.venue.wifi %>
+          <p>
+          <% if @booking.venue.wifi %>
             <i class="fa-solid fa-wifi title"></i>
           <% end %>
           <% if @booking.venue.power_outlets %>
