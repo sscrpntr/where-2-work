@@ -12,21 +12,14 @@
 
 .venue-card {
   box-sizing: border-box;
-
   width: 198px;
   height: 188px;
-
   background: #FFFFFF;
-  border: 1px solid #FFFFFF;
   box-shadow: 2px 1px 7px rgba(0, 0, 0, 0.25);
-
   margin-right: 1rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
-  display: inline-block;
-
   border-radius: 15px;
-
 }
 
 .favorite-venue-card {
@@ -43,11 +36,8 @@
 
 .venue-image {
   display: block;
-  margin-left: 4px;
-  margin-right: 4px;
-  margin-top: 4px;
-  width: 186px;
-  height: 110px;
+  width: 198px;
+  height: 188px;
   border-radius: 15px;
   object-position: center;
 }
@@ -58,7 +48,6 @@
 
 .venue-text {
   width: 75%;
-  // height: 24px;
   font-family: 'Lato';
   font-weight: 400;
   font-size: 14px;
@@ -67,9 +56,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
   text-align: left;
-
   color: #000000;
 }
 
@@ -78,14 +65,10 @@
 }
 
 .card-trip-heart {
-  // position: absolute;
   text-transform: uppercase;
   background-color: #d1e751;
   color: #FE8668;
   margin: auto;
-  // align-items: center;
-  // display: flex;
-  // justify-content: center;
   border-radius: 1.5em;
   font-weight: bold;
   background: linear-gradient(#422800, #AF795D);
@@ -173,6 +156,7 @@
 .venue-content {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .venue-icons {
@@ -197,4 +181,14 @@
 
 .card-rating i {
   color: #422800;
+}
+
+.rating-thingy {
+  display: flex;
+}
+
+.second-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
