@@ -238,3 +238,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .visit-title {
   margin: 0.5em;
 }
+#booking-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 1em;
+}
