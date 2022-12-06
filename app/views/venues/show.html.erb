@@ -19,8 +19,15 @@
         <i class="fa-solid fa-sun title"></i>
       <% end %>
       </h3>
+      <% unless @venue.latitude.nil? %>
+        <% url = "https://www.google.com/maps/search/?api=1&query=#{@venue.latitude},#{@venue.longitude}" %>
+        <p></p>
+        <a href=pe><%= @venue.address %></a>
+      <% else %>
+        <p><%= @venue.address %></p>
+      <% end %>
 
-      <p><%= @venue.address %></p>
+      <p><%= @venue.address %></a></p>
 
       <% @venue.all_reviews.reverse.first(2).each do |review| %>
         <div class="card-product">
