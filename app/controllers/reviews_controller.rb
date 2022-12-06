@@ -33,6 +33,17 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def test_speed
+    @test = Speedtest::Test.new(
+      download_runs: 1,
+      upload_runs: 1,
+      ping_runs: 1,
+      download_sizes: [750, 1500],
+      upload_sizes: [10000, 400000],
+      debug: true
+      )
+  end
+
   private
 
   def set_booking
