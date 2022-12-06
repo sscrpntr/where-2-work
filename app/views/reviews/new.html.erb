@@ -5,6 +5,10 @@
         <%= f.input :rating, collection: (1..5).to_a, label: false, input_html: {data: {controller: "star-rating"}} %>
         <%= f.input :comment%>
         <%= f.input :rating, collection: (1..3).to_a, label: "Wi-Fi quality", input_html: {data: {controller: "star-rating"}} %>
+        <%= f.input :wifi_down %>
+        <%= f.input :wifi_up %>
+        <div> "test wifi button" </div>
+        <%= f.input :wifi %>
         <%= f.input :power_outlets%>
         <%= f.input :suited_for_calls%>
         <%= f.input :natural_light%>

@@ -26,12 +26,22 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.booking = Booking.find(params[:booking_id])
     @venue = @review.booking.venue_id
-
     if @review.save
       redirect_to venue_path(@venue)
     else
       render "reviews/show", status: :unprocessable_entity
     end
+  end
+
+  def test_speed
+    @test = Speedtest::Test.new(
+      download_runs: 1,
+      upload_runs: 1,
+      ping_runs: 1,
+      download_sizes: [750, 1500],
+      upload_sizes: [10000, 400000],
+      debug: true
+      )
   end
 
   private
