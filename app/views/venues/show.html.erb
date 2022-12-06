@@ -61,7 +61,6 @@
             </p>
 
             <p>
-            <%= EasyTranslate.translate("#{review.comment.capitalize.first(75)} ... ", to: :english) %>
             <%= "#{review.comment.capitalize.first(75)} ... " %>
             <%= link_to "(full review)", venue_review_path(@venue, review) %>
             </p>
