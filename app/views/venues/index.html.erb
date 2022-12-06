@@ -80,6 +80,23 @@
                   <i class="fa-solid fa-sun title"></i>
                 <% end %>
               </div>
+              <p class="stars-index-btn"><i class="far fa-star"></i>  <%= venue.average_rating %></p>
+              <% if venue.wifi || venue.power_outlets || venue.suited_for_calls || venue.natural_light %>
+                <div class="venue-icons btn-left-icon">
+                  <% if venue.wifi %>
+                    <i class="fa-solid fa-wifi title"></i>
+                  <% end %>
+                  <% if venue.power_outlets %>
+                    <i class="fa-solid fa-plug title"></i>
+                  <% end %>
+                  <% if venue.suited_for_calls %>
+                    <i class="fa-solid fa-phone title"></i>
+                  <% end %>
+                  <% if venue.natural_light %>
+                    <i class="fa-solid fa-sun title"></i>
+                  <% end %>
+                </div>
+              <% end %>
             </div>
           </div>
         <% end %>

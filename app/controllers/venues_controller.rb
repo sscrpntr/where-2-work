@@ -20,9 +20,10 @@ class VenuesController < ApplicationController
       { lat: venue.latitude, lng: venue.longitude,
         info_window: render_to_string(partial: "info_window", locals: { venue: }) }
     end
-
-    @user_location = Geocoder.search(request.remote_ip).first.coordinates
-    @markers << { lat: @user_location[0], lng: @user_location[1] }
+    if Geocoder.search(request.remote_ip)
+      @user_location = Geocoder.search(request.remote_ip).first.coordinates
+      @markers << { lat: @user_location[0], lng: @user_location[1] }
+    end
   end
 
   def new
