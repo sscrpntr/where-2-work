@@ -25,8 +25,11 @@ class BookingsController < ApplicationController
     @booking.venue = @venue
     @booking.user = current_user
     @booking.date = params[:booking]["date"]
-    @booking.save!
-    redirect_to booking_path(@booking)
+    if @booking.save
+      redirect_to booking_path(@booking)
+    else
+      render "venues/show", status: :unprocessable_entity
+    end
   end
 
   def edit
