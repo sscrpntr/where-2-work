@@ -24,6 +24,18 @@
       <%= image_tag "favicon.ico", class: "card-trip-user-booking avatar-bordered"  %>
     <% end %>
   </div>
+  <%= link_to "Delete",
+              booking_path(@booking), class: "btn btn-gradient",
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+            %>
+            <%= link_to "Edit",
+              edit_booking_path(@booking), class: "btn btn-gradient"
+            %>
+            <% unless @booking.review %>
+              <%= link_to "Review",
+            new_booking_review_path(@booking), class: "btn btn-gradient"
+            %>
+            <% end %>
 </div>
 
 
