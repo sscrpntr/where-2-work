@@ -55,7 +55,7 @@ while x < 20
   user = User.new(
     is_owner: true,
     name: name,
-    username: name.strip,
+    username: Faker::Internet.username,
     email: Faker::Internet.email,
     password: Faker::Blockchain::Bitcoin.address,
   )
