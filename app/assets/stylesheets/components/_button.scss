@@ -1,6 +1,3 @@
-
-
-
 .btn-group button {
   border: 1px solid rgba(145, 134, 134, 0.54);
   box-shadow: 0 0px 12px 0 rgba(0, 0, 0, 0.3);
@@ -58,29 +55,10 @@
   color: white !important;
 }
 
-.btn{
-  width: 85%!important;
-}
-
-.btn:hover{
-  background: #704628;
-  color:white;
-}
-
-.btn:focus-visible {
-  background: #704628;
-  color:white;
-}
-
-.btn:active{
-  background: #704628!important;
-  color:white!important;
-  border: 0px!important;
-}
-
 .btn-gradient {
   display: flex;
   width: fit-content;
+  text-transform: uppercase;
   background-color: #d1e751;
   color: white;
   margin: auto;
@@ -89,16 +67,10 @@
   justify-content: center;
   border-radius: 1em;
   font-weight: bold;
-  background: rgba(132, 96, 70, 1);
+  background: linear-gradient(#422800, #AF795D);
   transition: background 0.3s ease;
+  border: 1px solid white;
   margin-top: 2.0em;
-}
-
-
-.btn-gradient:active {
-  background: #704628;
-  color:white;
-  transform: translate(2px, 2px);
 }
 
 .card-trip .btn-gradient {
@@ -124,7 +96,10 @@
   margin-top: 2.0em;
 }
 
-
+.btn-gradient:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
 
 @media (min-width: 768px) {
   .btn-group button {
@@ -148,53 +123,4 @@
   padding-top: 0.25em;
   padding-bottom: 0.25em;
   margin-bottom: 1em;
-}
-
-.stars-index-btn {
-  width: auto;
-  text-transform: uppercase;
-  background-color: #d1e751;
-  color: white;
-  margin-bottom: 1.5em;
-  margin-left: 0.5em;
-  border-radius: 1.5em;
-  font-weight: bold;
-  background: #AF795D;
-  // transition: background 0.3s ease;
-  // border: 1px solid white;
-  padding: 0.5em;
-}
-
-.index-name-btn {
-  width: auto;
-  text-transform: uppercase;
-  background-color: #d1e751;
-  color: white;
-  margin: 0 0 0 0.5em;
-  border-radius: 1.5em;
-  font-weight: bold;
-  font-weight: bold;
-  background: #AF795D;
-  padding-right: 0.5em;
-  padding-left: 0.5em;
-  padding-bottom: 0.25em;
-  padding-top: 0.25em;
-  position: absolute;
-  top: 8em;
-  // margin-right: 0.3em;
-}
-
-.btn-left-icon {
-  width: auto;
-  text-transform: uppercase;
-  background-color: #d1e751;
-  color: white;
-  margin-bottom: 1.5em;
-  margin-left: 0.5em;
-  border-radius: 1.5em;
-  font-weight: bold;
-  background: #AF795D;
-  // transition: background 0.3s ease;
-  // border: 1px solid white;
-  padding: 0.5em;
 }
