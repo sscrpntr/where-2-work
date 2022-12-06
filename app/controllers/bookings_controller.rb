@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: :show
   before_action :set_venue, only: %i[:show :new :create :destroy]
-  before_action :authorize_booking_access, only: %i[:show :create]
   # fow now we don't need to set any venue before starting a method
 
   def index
@@ -16,22 +15,30 @@ class BookingsController < ApplicationController
   end
 
   def new
-    # @venues = Venue.all
-    # @booking = Booking.new
+    @venues = Venue.all
+    @booking = Booking.new
   end
 
   def create
     set_venue
-    if params[:booking]["date"].present?
-      @booking = Booking.new
-      @booking.venue = @venue
-      @booking.user = current_user
-      @booking.date = params[:booking]["date"]
-      @booking.save!
+    @booking = Booking.new
+    @booking.venue = @venue
+    @booking.user = current_user
+    @booking.date = params[:booking]["date"]
+    @booking.save!
+    redirect_to booking_path(@booking)
+  end
+
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
       redirect_to booking_path(@booking)
     else
-      flash[:alert] = "User not found."
-      redirect_to venue_path(@venue)#, notice: 'You need to pick a date!'
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -54,8 +61,4 @@ class BookingsController < ApplicationController
   def set_venue
     @venue = Venue.find(params[:venue_id])
   end
-
-  # def authorize_booking_access
-  #   @booking = Booking.find(params[:id, :current_user])
-  # end
 end

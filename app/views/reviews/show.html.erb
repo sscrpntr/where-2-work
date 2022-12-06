@@ -20,6 +20,13 @@
           <% end %>
         </p>
         <p><%= @review.comment %></p>
+        <% unless @review.wifi.nil? %>
+          <p>Wifi down: <%= @review.wifi_down %> Mbps</p>
+          <p>Wifi up: <%= @review.wifi_up %> Mbps</p>
+        <% else %>
+          <% wifi_simple = ["Bad", "Neutral", "Good"] %>
+          <p>Wifi: <%= wifi_simple[@reivew.wifi - 1] %></p>
+        <% end %>
       </div>
       <h2 class="review-card-trip-pricing"><%= @review.rating %></h2>
       <%= link_to user_path(@user) do %>

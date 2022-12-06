@@ -4,7 +4,7 @@
       <%= simple_form_for [@booking, @review], data: { turbo: false } do |f| %>
         <%= f.input :rating, collection: (1..5).to_a, label: false, input_html: {data: {controller: "star-rating"}} %>
         <%= f.input :comment%>
-        <%= f.input :rating, collection: (1..3).to_a, label: "Wi-Fi quality", input_html: {data: {controller: "star-rating"}} %>
+        <%= f.input :wifi, collection: (1..3).to_a, label: "Wi-Fi quality", input_html: {data: {controller: "star-rating"}} %>
         <%= f.input :speedtest, as: :boolean %>
         <%# <div> "test wifi button" </div> --> stim controller to test wifi, returns %>
         <%= f.input :power_outlets%>
