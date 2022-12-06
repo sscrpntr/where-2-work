@@ -20,7 +20,7 @@
           <% end %>
         </p>
         <p><%= @review.comment %></p>
-        <% unless @review.wifi.nil? %>
+        <% unless @review.wifi == "" %>
           <p>Wifi down: <%= @review.wifi_down %> Mbps</p>
           <p>Wifi up: <%= @review.wifi_up %> Mbps</p>
         <% else %>
