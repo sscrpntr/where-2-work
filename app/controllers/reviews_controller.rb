@@ -25,13 +25,14 @@ class ReviewsController < ApplicationController
     set_booking
     @review = Review.new(review_params)
     @review.booking = Booking.find(params[:booking_id])
-    @venue = @review.booking.venue_id
+    @venue_id = @review.booking.venue_id
+    @venue = Venue.find(@venue_id)
+    @user_id = @booking.user_id
+    @user = User.find(@user_id)
     if params[:review][:speedtest] == "1"
       speed_results = test_speed
       @review.wifi_down = speed_results.pretty_download_rate
       @review.wifi_up = speed_results.pretty_upload_rate
-    else
-      @review.wifi = params[:wifi]
     end
     if @review.save
       redirect_to venue_path(@venue)
