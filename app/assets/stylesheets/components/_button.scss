@@ -156,9 +156,8 @@
   color: white;
   margin: auto;
   border-radius: 1.5em;
-  background: linear-gradient(#422800, #AF795D);
-  transition: background 0.3s ease;
-  border: 1px solid white;
+  font-weight: bold;
+  background: #422800;
   margin-top: 2em;
   padding-right: 0.1em;
   padding-top: 0.25em;
@@ -173,9 +172,8 @@
   margin: 0 0 0 0.5em;
   border-radius: 1.5em;
   font-weight: bold;
-  background: linear-gradient(#422800, #AF795D);
-  transition: background 0.3s ease;
-  border: 1px solid white;
+  font-weight: bold;
+  background: #422800;
   padding-right: 0.5em;
   padding-left: 0.5em;
   padding-bottom: 0.25em;
@@ -193,8 +191,8 @@
   margin-left: 0.5em;
   border-radius: 1.5em;
   font-weight: bold;
-  background: linear-gradient(#422800, #AF795D);
-  transition: background 0.3s ease;
-  border: 1px solid white;
+  background: #422800;
+  // transition: background 0.3s ease;
+  // border: 1px solid white;
   padding: 0.5em;
 }

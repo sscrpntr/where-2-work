@@ -1,17 +1,15 @@
 <div class="venue-title">
-  <h2>Post a New Review</h2>
+  <h2>Leave a Review</h2>
     <div class="form-group" style="width: 80%" >
       <%= simple_form_for [@booking, @review], data: { turbo: false } do |f| %>
         <%= f.input :rating, collection: (1..5).to_a, label: false, input_html: {data: {controller: "star-rating"}} %>
         <%= f.input :comment%>
-        <%= f.input :rating, collection: (1..4).to_a, label: "Wi-Fi quality", input_html: {data: {controller: "star-rating"}} %>
-        <%= f.input :wifi_down%>
-        <%= f.input :wifi_up%>
+        <%= f.input :rating, collection: (1..3).to_a, label: "Wi-Fi quality", input_html: {data: {controller: "star-rating"}} %>
+        <%= f.input :speedtest, as: :boolean %>
+        <%# <div> "test wifi button" </div> --> stim controller to test wifi, returns %>
         <%= f.input :power_outlets%>
         <%= f.input :suited_for_calls%>
         <%= f.input :natural_light%>
-        <%= f.input :coffe_price, collection: (1..4).to_a, label: "Coffee price", input_html: {data: {controller: "star-rating"}} %>
-        <%= f.input :food_price, collection: (1..4).to_a, label: "Food price", input_html: {data: {controller: "star-rating"}} %>
         <%= f.input :photo, as: :file %>
         <%= f.submit class: 'btn btn-primary' %>
       <% end %>
