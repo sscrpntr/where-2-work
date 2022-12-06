@@ -16,6 +16,12 @@
             <i class="fa-solid fa-sun title"></i>
           <% end %>
           </p>
+          <% unless @booking.venue.latitude.nil? %>
+            <% url = "https://www.google.com/maps/search/?api=1&query=#{@booking.venue.latitude},#{@booking.venue.longitude}" %>
+            <p><%= link_to @booking.venue.address, url, target: "_blank" %></p>
+          <% else %>
+            <p><%= @booking.venue.address %></p>
+          <% end %>
     </div>
     <h2 class="card-trip-pricing"><%= @booking.date %></h2>
     <% unless @user.photo.key.nil? %>
@@ -46,7 +52,7 @@
       <%= cl_image_tag booking.venue.photo.key, :alt=>"booking image", :width=>300 %>
       <div class="card-product-infos">
         <h2><%= booking.venue.name %></h2>
-        <p><%= booking.date %></p>
+        <p><%= link_to booking.date, booking_path(@booking) %></p>
         <p><%= booking.venue.address %></p>
       </div>
     </div>
