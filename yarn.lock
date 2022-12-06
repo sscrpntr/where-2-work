@@ -1428,14 +1428,14 @@
     "glob-to-regexp" "^0.4.1"
     "graceful-fs" "^4.1.2"
 
-"webpack-cli@^5.0.0":
+"webpack-cli@file:../../../.nvm/versions/node/v16.15.1/lib/node_modules/webpack-cli":
   "resolved" "file:../../../.nvm/versions/node/v16.15.1/lib/node_modules/webpack-cli"
-  "version" "5.0.0"
+  "version" "5.0.1"
   dependencies:
     "@discoveryjs/json-ext" "^0.5.0"
-    "@webpack-cli/configtest" "^2.0.0"
-    "@webpack-cli/info" "^2.0.0"
-    "@webpack-cli/serve" "^2.0.0"
+    "@webpack-cli/configtest" "^2.0.1"
+    "@webpack-cli/info" "^2.0.1"
+    "@webpack-cli/serve" "^2.0.1"
     "colorette" "^2.0.14"
     "commander" "^9.4.1"
     "cross-spawn" "^7.0.3"
