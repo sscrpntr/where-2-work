@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: :show
   before_action :set_venue, only: %i[:show :new :create :destroy]
+  before_action :authorize_booking_access, only: %i[:show :create]
   # fow now we don't need to set any venue before starting a method
 
   def index
@@ -66,4 +67,8 @@ class BookingsController < ApplicationController
   def set_venue
     @venue = Venue.find(params[:venue_id])
   end
+
+  # def authorize_booking_access
+  #   @booking = Booking.find(params[:id, :current_user])
+  # end
 end
