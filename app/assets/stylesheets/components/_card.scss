@@ -43,9 +43,6 @@
 
 .venue-image {
   display: block;
-  margin-left: 4px;
-  margin-right: 4px;
-  margin-top: 4px;
   width: 186px;
   height: 110px;
   border-radius: 15px;
@@ -186,7 +183,7 @@
 
 .venue-first-row {
   display: flex;
-
+  margin-right: 5px;
 }
 
 .card-rating {

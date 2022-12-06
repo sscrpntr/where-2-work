@@ -89,7 +89,7 @@
       <i class="fas fa-fire-flame-curved"></i><h3>Top Rated Nearby</h3>
     </div>
     <div class="wrapper">
-      <% @venues.select{|a| a.average_rating}.sort{ |a,b| b.average_rating <=> a.average_rating}.first(10).each do |venue| %>
+      <% @venues.nearbys.select{|a| a.average_rating}.sort{ |a,b| b.average_rating <=> a.average_rating}.first(10).each do |venue| %>
         <%=link_to venue_path(venue) do %>
           <div class="venue-card">
           <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
