@@ -159,3 +159,17 @@
   top: 8em;
   // margin-right: 0.3em;
 }
+.btn-left-icon {
+  width: auto;
+  text-transform: uppercase;
+  background-color: #d1e751;
+  color: white;
+  margin-bottom: 1.5em;
+  margin-left: 0.5em;
+  border-radius: 1.5em;
+  font-weight: bold;
+  background: linear-gradient(#422800, #AF795D);
+  transition: background 0.3s ease;
+  border: 1px solid white;
+  padding: 0.5em;
+}
