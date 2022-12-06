@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: row;
   justify-items: left;
-  background-color: #422800;
+  background-color: #704628;
   color: white;
+  font-family: 'Quando', serif!important;
   padding-top: 1em;
   padding-left: 1em;
 }
@@ -12,4 +13,8 @@
   width: 2em;
   height: 2em;
   margin-right: 0.5em;
+}
+
+.branding-navbar p{
+  font-size: large;
 }
