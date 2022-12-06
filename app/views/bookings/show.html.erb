@@ -2,7 +2,7 @@
   <%= cl_image_tag(@booking.venue.photo.key, :alt=>"venue image") %>
   <div class="card-trip-infos-booking">
     <div>
-      <h2><%= @booking.venue.name %></h2>
+      <h1><%= @booking.venue.name %></h1>
           <p><% if @booking.venue.wifi %>
             <i class="fa-solid fa-wifi title"></i>
           <% end %>
@@ -40,7 +40,7 @@
 </div>
 
 
-<h2>Other Bookings:</h2>
+<h2 class="visit-title">Other Bookings:</h2>
 <% @user_bookings.each do |booking| %>
   <% if booking.id != @booking.id %>
     <div class="card-product-booking">
