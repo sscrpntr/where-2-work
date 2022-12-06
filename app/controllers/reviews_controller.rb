@@ -33,7 +33,6 @@ class ReviewsController < ApplicationController
     else
       @review.wifi = params[:wifi]
     end
-    raise
     if @review.save
       redirect_to venue_path(@venue)
     else
