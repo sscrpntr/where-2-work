@@ -3,16 +3,16 @@ class Booking < ApplicationRecord
   belongs_to :venue
   has_one :review, :dependent => :destroy
   validates :date, presence: true
-  validate :booking_in_the_past
+  # validate :booking_in_the_past
   # validate :no_reservation_overlap
 
-  private
+  # private
 
-  def booking_in_the_past
-    if date < Date.today
-      errors.add(:date, "can't be in the past")
-    end
-  end
+  # def booking_in_the_past
+  #   if date < Date.today
+  #     errors.add(:date, "can't be in the past")
+  #   end
+  # end
 
   # scope :overlapping, ->(period_start, period_end) do
   #   where "((date_start <= ?) and (date_end >= ?))", period_end, period_start
