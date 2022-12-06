@@ -26,6 +26,14 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.booking = Booking.find(params[:booking_id])
     @venue = @review.booking.venue_id
+    if params[:review][:speedtest] == "1"
+      speed_results = test_speed
+      @review.wifi_down = speed_results.pretty_download_rate
+      @review.wifi_up = speed_results.pretty_upload_rate
+    else
+      @review.wifi = params[:wifi]
+    end
+    raise
     if @review.save
       redirect_to venue_path(@venue)
     else
@@ -34,14 +42,14 @@ class ReviewsController < ApplicationController
   end
 
   def test_speed
-    @test = Speedtest::Test.new(
+    Speedtest::Test.new(
       download_runs: 1,
       upload_runs: 1,
       ping_runs: 1,
       download_sizes: [750, 1500],
       upload_sizes: [10000, 400000],
       debug: true
-      )
+      ).run
   end
 
   private
@@ -63,6 +71,8 @@ class ReviewsController < ApplicationController
                   :food_price,
                   :comment,
                   :title,
-                  :photo)
+                  :photo,
+                  :speedtest
+                )
   end
 end
