@@ -7,6 +7,9 @@ import { application } from "./application"
 import ButtonController from "./button_controller"
 application.register("button", ButtonController)
 
+import CheckifdateController from "./checkifdate_controller"
+application.register("checkifdate", CheckifdateController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
@@ -21,6 +24,3 @@ application.register("speedtest", SpeedtestController)
 
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
-
-import CheckIfDateController from "./checkifdate_controller"
-application.register("checkifdate", CheckIfDateController)
