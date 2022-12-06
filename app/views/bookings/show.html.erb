@@ -26,13 +26,17 @@
   </div>
 </div>
 
-<h2>Your other bookings</h2>
+
+<h2>Other Bookings:</h2>
 <% @user_bookings.each do |booking| %>
   <% if booking.id != @booking.id %>
-    <div class="venue-card">
-      <a href=<%= booking_path(booking.id) %>>
-      <%= cl_image_tag(booking.venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250) %></a><%= booking.venue.name %> <%= booking.venue.address %>
-      <p>Opening time: <%= booking.venue.opening_time %>, Closing time: <%= booking.venue.closing_time %></p>
+    <div class="card-product-booking">
+      <%= cl_image_tag booking.venue.photo.key, :alt=>"booking image", :width=>300 %>
+      <div class="card-product-infos">
+        <h2><%= booking.venue.name %></h2>
+        <p><%= booking.date %></p>
+        <p><%= booking.venue.address %></p>
+      </div>
     </div>
   <% end %>
   <% if @user_bookings.size < 2 %>
@@ -41,7 +45,6 @@
     Visit a venue.</p>
   <% end %>
 <% end %>
-
 
 
 <%= link_to "Delete",
