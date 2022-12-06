@@ -25,7 +25,7 @@
           <p>Wifi up: <%= @review.wifi_up %> Mbps</p>
         <% else %>
           <% wifi_simple = ["Bad", "Neutral", "Good"] %>
-          <p>Wifi: <%= wifi_simple[@reivew.wifi - 1] %></p>
+          <p>Wifi: <%= wifi_simple[@review.wifi.to_i - 1] %></p>
         <% end %>
       </div>
       <h2 class="review-card-trip-pricing"><%= @review.rating %></h2>
