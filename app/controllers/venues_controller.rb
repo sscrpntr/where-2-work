@@ -53,11 +53,9 @@ class VenuesController < ApplicationController
     if type == "favorite"
       current_user.favorite_venues << @venue
       redirect_to :back, notice: 'Added to favorites'
-
     elsif type == "unfavorite"
       current_user.favorite_venues.delete(@venue)
       redirect_to :back, notice: 'Removed from favorites'
-
     else
       redirect_to :back, notice: 'Nothing happened.'
     end
