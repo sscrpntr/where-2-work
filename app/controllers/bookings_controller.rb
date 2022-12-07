@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to booking_path(@booking)
     else
-      render "venues/show", status: :unprocessable_entity
+      redirect_to new_user_session_path
     end
   end
 

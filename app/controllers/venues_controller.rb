@@ -20,11 +20,6 @@ class VenuesController < ApplicationController
       { lat: venue.latitude, lng: venue.longitude,
         info_window: render_to_string(partial: "info_window", locals: { venue: }) }
     end
-    if Geocoder.search(request.remote_ip)
-      @user_location = Geocoder.search(request.remote_ip).first.coordinates
-      @markers << { lat: @user_location[0], lng: @user_location[1] }
-    end
-    @oscar = request.location.try :city
   end
 
   def new
@@ -48,20 +43,6 @@ class VenuesController < ApplicationController
     @venues = Venue.all
   end
 
-  def favorite
-    @venue = Venue.find(params[:id])
-    type = params[:type]
-    if type == "favorite"
-      current_user.favorite_venues << @venue
-      redirect_to :back, notice: 'Added to favorites'
-    elsif type == "unfavorite"
-      current_user.favorite_venues.delete(@venue)
-      redirect_to :back, notice: 'Removed from favorites'
-    else
-      redirect_to :back, notice: 'Nothing happened.'
-    end
-    raise
-  end
 
   private
 

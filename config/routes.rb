@@ -10,12 +10,16 @@ Rails.application.routes.draw do
   resources :venues do
     resources :bookings, only: %i[new create]
     resources :venue_offers, only: %i[create edit new update destroy]
-    resources :favorite_venues, only: %i[create destroy]
+    resources :favorite_venues, only: %i[create destroy] do
+      member do
+        post :toggle_favorite
+      end
+    end
     resources :reviews, only: %i[show index]
   end
 
   resources :users do
-    resources :favorite_venues, only: %i[index create]
+    resources :favorite_venues, only: %i[index]
   end
 
   resources :users, only: %i[show edit update]

@@ -21,16 +21,24 @@
         </p>
         <p><%= @review.comment %></p>
         <% unless @review.wifi == "" %>
-          <p>Wifi down: <%= @review.wifi_down %> Mbps</p>
-          <p>Wifi up: <%= @review.wifi_up %> Mbps</p>
+          <p>Wifi <i class="fas fa-arrow-down"></i>: <%= @review.wifi_down %> Mbps</p>
+          <p>Wifi <i class="fas fa-arrow-up"></i>: <%= @review.wifi_up %> Mbps</p>
         <% else %>
           <% wifi_simple = ["Bad", "Neutral", "Good"] %>
           <p>Wifi: <%= wifi_simple[@review.wifi.to_i - 1] %></p>
         <% end %>
       </div>
-      <h2 class="review-card-trip-pricing"><%= @review.rating %></h2>
+      <h2 class="review-card-trip-pricing btn-left-review-show">
+        <% @review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+      </h2>
       <%= link_to user_path(@user) do %>
-        <%= cl_image_tag @user.photo.key, :class=>"review-card-trip-user avatar-bordered" %>
+        <% if @user.photo.key %>
+          <%= cl_image_tag @user.photo.key, :class=>"review-card-trip-user avatar-bordered" %>
+        <% else %>
+          <%= image_tag "favicon.ico", :class=>"review-card-trip-user avatar-bordered" %>
+        <% end %>
       <% end %>
     </div>
   </div>

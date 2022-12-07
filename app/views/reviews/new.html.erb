@@ -18,9 +18,11 @@
         <%= f.input :suited_for_calls%>
         <%= f.input :natural_light%>
         <%= f.input :photo, as: :file %>
-        <%= f.submit class: 'btn btn-primary' %>
+        <%= f.submit "Add Review", class: 'btn btn-primary' %>
       <% end %>
-      <%= link_to "See all Venues", venues_path %>
+      <div class="button">
+        <%= link_to "Back to all Venues", venues_path %>
+      </div>
     </div>
 </div>
 

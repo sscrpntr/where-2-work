@@ -135,6 +135,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .fa-star {
   color: #FDBC1F;
 }
+.btn-left-vindex .fa-star {
+  color: #FDBC1F;
+}
 .card-trip-infos .fa-heart {
   color: #FE8668;
 }
@@ -180,6 +183,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin: 0;
 }
 
+.review-card-trip-infos .review-card-trip-pricing {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+  align-items: flex-end;
+}
+.review-card-trip-infos p {
+  margin-bottom: 1em;
+}
 
 .review-card-trip .review-card-trip-infos {
   padding: 16px;

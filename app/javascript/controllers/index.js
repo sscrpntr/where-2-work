@@ -25,5 +25,11 @@ application.register("speedtest", SpeedtestController)
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
 
+import CheckIfDateController from "./checkifdate_controller"
+application.register("checkifdate", CheckIfDateController)
+
+import FavoriteController from "./favorite_controller"
+application.register("favorite", FavoriteController)
+
 import WifiController from "./wifi_controller"
 application.register("wifi", WifiController)
