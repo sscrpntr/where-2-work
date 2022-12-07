@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :venue
-  has_one :review, :dependent => :destroy
+  has_one :review, dependent: :destroy
   validates :date, presence: true
   # validate :booking_in_the_past
   # validate :no_reservation_overlap
