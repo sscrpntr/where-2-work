@@ -3,7 +3,9 @@
   position: relative;
   overflow: scroll;
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 1.2em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .wrapper a {
@@ -152,12 +154,13 @@
   width: 100%;
   display: flex;
   justify-content: left;
-  margin-bottom: 2px;
+  margin-bottom: 0.3em;
   font-family: 'Lato';
   font-style: normal;
   font-weight: 800;
-  font-size: 16px;
+  font-size: 3em;
   color: #422800;
+  margin-left: 0.5em;
 }
 
 .title-group i {
