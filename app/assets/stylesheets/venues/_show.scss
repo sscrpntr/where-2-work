@@ -279,6 +279,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .card-product-infos h3 .fa-star {
+  padding-top: 0.25em;
   font-size: 0.6em;
 }
 
@@ -291,6 +292,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .card-product-infos .comment {
   font-size: 1em;
+  // padding-bottom: 0.25em;
 }
 .card-trip-infos .title {
   margin-right: 0.5em;
