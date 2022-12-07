@@ -21,8 +21,8 @@
         </p>
         <p><%= @review.comment %></p>
         <% unless @review.wifi == "" %>
-          <p>Wifi down: <%= @review.wifi_down %> Mbps</p>
-          <p>Wifi up: <%= @review.wifi_up %> Mbps</p>
+          <p>Wifi <i class="fas fa-arrow-down"></i>: <%= @review.wifi_down %> Mbps</p>
+          <p>Wifi <i class="fas fa-arrow-up"></i>: <%= @review.wifi_up %> Mbps</p>
         <% else %>
           <% wifi_simple = ["Bad", "Neutral", "Good"] %>
           <p>Wifi: <%= wifi_simple[@review.wifi.to_i - 1] %></p>
