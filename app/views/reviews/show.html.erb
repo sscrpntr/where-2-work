@@ -30,7 +30,10 @@
       </div>
       <h2 class="review-card-trip-pricing"><%= @review.rating %></h2>
       <%= link_to user_path(@user) do %>
-        <%= cl_image_tag @user.photo.key, :class=>"review-card-trip-user avatar-bordered" %>
+        <% if @user.photo.key %>
+          <%= cl_image_tag @user.photo.key, :class=>"review-card-trip-user avatar-bordered" %>
+        <% else %>
+          <%= <%= image_tag "favicon.ico", :class=>"review-card-trip-user avatar-bordered" %>
       <% end %>
     </div>
   </div>
