@@ -124,3 +124,24 @@
   padding-bottom: 0.25em;
   margin-bottom: 1em;
 }
+
+.button a {
+  display: block !important;
+  padding: 2px;
+  margin-top: 10px !important;
+  border: 1px solid !important;
+  width: fit-content;
+  border-color: black !important;
+  border-radius: 3px;
+  background-color: rgb(235, 234, 234);
+  text-align: center;
+  text-decoration: none !important;
+  color: black;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.button a:hover{
+  background-color: rgb(218, 217, 217);
+}
