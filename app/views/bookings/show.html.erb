@@ -1,11 +1,10 @@
-<h1>Your Booking</h1>
-<h2>Date: <%= (@booking.date) %></h2>
-<div class="card-trip">
-    <div class="card-trip-infos">
-        <%= cl_image_tag(@booking.venue.photo.key, :class=>"booking-image", :alt=>"venue image", :width=>350, :height=>250) %>
-        <ul>
-          <h2><%= @booking.venue.name %></h2>
-          <h3><% if @booking.venue.wifi %>
+<div class="card-trip-booking">
+  <%= cl_image_tag(@booking.venue.photo.key, :alt=>"venue image") %>
+  <div class="card-trip-infos-booking">
+    <div>
+      <h1><%= @booking.venue.name %></h1>
+          <p>
+          <% if @booking.venue.wifi %>
             <i class="fa-solid fa-wifi title"></i>
           <% end %>
           <% if @booking.venue.power_outlets %>
@@ -17,37 +16,46 @@
           <% if @booking.venue.natural_light %>
             <i class="fa-solid fa-sun title"></i>
           <% end %>
-          </h3>
-        </ul>
-            <%= link_to "Delete Booking",
-              booking_path(@booking), class: "btn btn-gradient",
-              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-            %>
-            <%= link_to "Edit Booking",
-              edit_booking_path(@booking), class: "btn btn-gradient"
-            %>
-            <% unless @booking.review %>
-              <%= link_to "Add Review",
-            new_booking_review_path(@booking), class: "btn btn-gradient"
-            %>
-            <% end %>
+          </p>
+          <% unless @booking.venue.latitude.nil? %>
+            <% url = "https://www.google.com/maps/search/?api=1&query=#{@booking.venue.latitude},#{@booking.venue.longitude}" %>
+            <p><%= link_to @booking.venue.address, url, target: "_blank" %></p>
+          <% else %>
+            <p><%= @booking.venue.address %></p>
+          <% end %>
     </div>
-</div>
-
-<h2>Your other bookings</h2>
-  <div class="wrapper">
-    <% @user_bookings.each do |booking| %>
-      <% if booking.id != @booking.id %>
-        <div class="venue-card">
-          <a href=<%= booking_path(booking.id) %>>
-          <%= cl_image_tag(booking.venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250) %></a><%= booking.venue.name %> <%= booking.venue.address %>
-          <p>Opening time: <%= booking.venue.opening_time %>, Closing time: <%= booking.venue.closing_time %></p>
-        </div>
-      <% end %>
-      <% if @user_bookings.size < 2 %>
-        <p>No more bookings.
-        <br>
-        Visit a venue.</p>
-      <% end %>
+    <h2 class="card-trip-pricing"><%= @booking.date %></h2>
+    <% unless @user.photo.key.nil? %>
+      <%= cl_image_tag @user.photo.key,  class: "card-trip-user-booking avatar-bordered"  %>
+    <% else %>
+      <%= image_tag "favicon.ico", class: "card-trip-user-booking avatar-bordered"  %>
     <% end %>
   </div>
+  <div id="booking-buttons">
+    <%= link_to "Delete", booking_path(@booking), class: "btn btn-gradient", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <%= link_to "Edit", edit_booking_path(@booking), class: "btn btn-gradient" %>
+    <% unless @booking.review %>
+      <%= link_to "Review", new_booking_review_path(@booking), class: "btn btn-gradient" %>
+    <% end %>
+  </div>
+</div>
+
+
+<h2 class="visit-title">Other Bookings:</h2>
+<% @user_bookings.each do |booking| %>
+  <% if booking.id != @booking.id %>
+    <div class="card-product-booking">
+      <%= cl_image_tag booking.venue.photo.key, :alt=>"booking image", :width=>250 %>
+      <div class="card-product-infos">
+        <h2><%= booking.venue.name %></h2>
+        <p><%= link_to booking.date, booking_path(@booking) %></p>
+        <p><%= booking.venue.address %></p>
+      </div>
+    </div>
+  <% end %>
+  <% if @user_bookings.size < 2 %>
+    <p>No more bookings.
+    <br>
+    Visit a venue.</p>
+  <% end %>
+<% end %>

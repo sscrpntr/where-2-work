@@ -195,3 +195,62 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   top: -20px;
   width: 40px;
 }
+
+.card-trip-booking {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-trip-booking > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip-booking h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip-booking p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip-booking .card-trip-infos-booking {
+  padding: 0.5em 0.5em 0 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos-booking .card-trip-user-booking {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+.visit-title {
+  margin: 1em;
+}
+#booking-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 1em;
+}
+
+.card-trip-infos-booking p {
+  margin: 1em 0 1em 0;
+}
+.card-product-booking img {
+  width: 120px;
+}
+.card-trip-pricing {
+  margin-right: 0.5em;
+}

@@ -7,6 +7,9 @@ import { application } from "./application"
 import ButtonController from "./button_controller"
 application.register("button", ButtonController)
 
+import CheckifdateController from "./checkifdate_controller"
+application.register("checkifdate", CheckifdateController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
@@ -27,3 +30,6 @@ application.register("checkifdate", CheckIfDateController)
 
 import FavoriteController from "./favorite_controller"
 application.register("favorite", FavoriteController)
+
+import WifiController from "./wifi_controller"
+application.register("wifi", WifiController)

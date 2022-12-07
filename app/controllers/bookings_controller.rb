@@ -12,6 +12,8 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     @user_bookings = Booking.where(user_id: current_user.id)
+    @user_id = @booking.user_id
+    @user = User.find(@user_id)
   end
 
   def new
@@ -25,8 +27,11 @@ class BookingsController < ApplicationController
     @booking.venue = @venue
     @booking.user = current_user
     @booking.date = params[:booking]["date"]
-    @booking.save!
-    redirect_to booking_path(@booking)
+    if @booking.save
+      redirect_to booking_path(@booking)
+    else
+      render "venues/show", status: :unprocessable_entity
+    end
   end
 
   def edit

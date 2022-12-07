@@ -2,9 +2,9 @@
   <div class="review-card-trip">
     <h1><%= @venue.name %></h1>
     <% unless @review.photo.key.nil? %>
-      <%= cl_image_tag @review.photo.key, height: 400, crop: :fill %>
+      <%= cl_image_tag @review.photo.key, width: 250, crop: :fill %>
     <% else %>
-      <%= cl_image_tag @venue.photo.key, height: 400, crop: :fill %>
+      <%= cl_image_tag @venue.photo.key, width: 250, crop: :fill %>
     <% end %><div class="review-card-trip-infos">
       <div>
         <h2><%= @booking.date %></h2>
@@ -20,7 +20,7 @@
           <% end %>
         </p>
         <p><%= @review.comment %></p>
-        <% unless @review.wifi.nil? %>
+        <% unless @review.wifi == "" %>
           <p>Wifi down: <%= @review.wifi_down %> Mbps</p>
           <p>Wifi up: <%= @review.wifi_up %> Mbps</p>
         <% else %>
@@ -30,7 +30,10 @@
       </div>
       <h2 class="review-card-trip-pricing"><%= @review.rating %></h2>
       <%= link_to user_path(@user) do %>
-        <%= cl_image_tag @user.photo.key, :class=>"review-card-trip-user avatar-bordered" %>
+        <% if @user.photo.key %>
+          <%= cl_image_tag @user.photo.key, :class=>"review-card-trip-user avatar-bordered" %>
+        <% else %>
+          <%= <%= image_tag "favicon.ico", :class=>"review-card-trip-user avatar-bordered" %>
       <% end %>
     </div>
   </div>
