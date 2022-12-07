@@ -43,29 +43,29 @@
             </h3>
             <p>
               <% if review.power_outlets %>
-                <i class="fas fa-plug"></i>
+                <i class="fas fa-plug sfilter"></i>
               <% end %>
               <% if review.natural_light %>
-                <i class="fas fa-sun"></i>
+                <i class="fas fa-sun sfilter"></i>
               <% end %>
               <% if review.suited_for_calls %>
-                <i class="fas fa-phone"></i>
+                <i class="fas fa-phone sfilter"></i>
               <% end %>
               <% unless review.wifi_up.nil? || review.wifi_down.nil? %>
-                <i class="fas fa-wifi"></i>
+                <i class="fas fa-wifi sfilter"></i>
                 <% unless review.wifi_down.nil? %>
-                  <i class="fas fa-arrow-down"></i>
+                  <i class="fas fa-arrow-down wifi"></i>
                   <%= review.wifi_down %> Mbps
                 <% end %>
                 <% unless review.wifi_up.nil? %>
-                  <i class="fas fa-arrow-up"></i>
+                  <i class="fas fa-arrow-up wifi"></i>
                   <%= review.wifi_up %> Mbps
                 <% end %>
               <% end %>
             </p>
 
-            <p>
-            <%= "#{review.comment.capitalize.first(75)} ... " %>
+            <p class="comment">
+            <%= "#{review.comment.capitalize.first(100)} ... " %>
             <%= link_to "(full review)", venue_review_path(@venue, review) %>
             </p>
 
@@ -74,8 +74,7 @@
         <% end %>
         <p><%= link_to "All reviews", venue_reviews_path(@venue) %></p>
       </div>
-    <h3 class="card-trip-user"><i class="fas fa-star"></i>  <%= @venue.average_rating %></h3>
-
+    <h3 class="card-trip-user btn-left-vshow"><i class="fas fa-star"></i>  <%= @venue.average_rating %></h3>
     <h3 class="card-trip-review"><i class="fa-regular fa-heart"></i></h3>
 
   </div>
