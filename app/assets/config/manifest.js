@@ -5,3 +5,4 @@
 //= link application.js
 //= link favicon.ico
 //= link brandingicon.svg
+//= link meta_banner.png
