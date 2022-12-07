@@ -272,10 +272,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .card-trip-pricing {
   margin-right: 0.5em;
 }
+
 .card-trip h3 .fa-star {
-  font-size: 0.6em;
+  font-size: 1em;
   margin-right: 0.25em;
 }
+
+.card-product-infos h3 .fa-star {
+  font-size: 0.6em;
+}
+
 .card-product-infos .sfilter {
   margin-right: 0.5em;
 }
@@ -284,5 +290,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-left: 0.25em;
 }
 .card-product-infos .comment {
-  font-size: 0.85em;
+  font-size: 1em;
+}
+.card-trip-infos .title {
+  margin-right: 0.5em;
 }
