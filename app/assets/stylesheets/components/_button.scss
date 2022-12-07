@@ -124,6 +124,49 @@
   padding-bottom: 0.25em;
   margin-bottom: 1em;
 }
+
+#button1 {
+  border: 1px solid rgba(145, 134, 134, 0.54);
+  box-shadow: 0 0px 12px 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 0 5px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  background-color: #AF795D;
+  color: white;
+  width: 144px;
+  height: 53px;
+  border-radius: 20%;
+}
+
+#button2 {
+  border: 1px solid rgba(145, 134, 134, 0.54);
+  box-shadow: 0 0px 12px 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 0 5px;
+  line-height: 50px;
+  border-radius: 20%;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  background-color: #AF795D;
+  color: white;
+  width: 144px;
+  height: 53px;
+  margin-left: 15px;
+ }
 .btn-left-vindex {
   width: 40%;
   text-transform: uppercase;

@@ -1,0 +1,9 @@
+# config/meta.yml
+
+meta_product_name: "Where 2 Work"
+meta_title: "Where 2 Work - Find the best workplace around you"
+meta_description: "Work.
+    From Anywhere.
+    The most reliable workspace.
+    At your fingertips."
+meta_image: "meta_banner.png" # should exist in `app/assets/images/`
