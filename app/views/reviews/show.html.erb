@@ -2,9 +2,9 @@
   <div class="review-card-trip">
     <h1><%= @venue.name %></h1>
     <% unless @review.photo.key.nil? %>
-      <%= cl_image_tag @review.photo.key, height: 400, crop: :fill %>
+      <%= cl_image_tag @review.photo.key, width: 250, crop: :fill %>
     <% else %>
-      <%= cl_image_tag @venue.photo.key, height: 400, crop: :fill %>
+      <%= cl_image_tag @venue.photo.key, width: 250, crop: :fill %>
     <% end %><div class="review-card-trip-infos">
       <div>
         <h2><%= @booking.date %></h2>
