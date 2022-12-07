@@ -28,7 +28,11 @@
           <p>Wifi: <%= wifi_simple[@review.wifi.to_i - 1] %></p>
         <% end %>
       </div>
-      <h2 class="review-card-trip-pricing"><%= @review.rating %></h2>
+      <h2 class="review-card-trip-pricing btn-left-review-show">
+        <% @review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+      </h2>
       <%= link_to user_path(@user) do %>
         <% if @user.photo.key %>
           <%= cl_image_tag @user.photo.key, :class=>"review-card-trip-user avatar-bordered" %>
