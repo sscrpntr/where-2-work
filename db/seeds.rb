@@ -147,26 +147,72 @@ end
 
 #######
 ########
+# x = 0
+# while x < 100
+#   booking = Booking.new(
+#     user: User.all.sample,
+#     venue: Venue.find(102),
+#     date: Date.today - rand(900)
+#   )
+#   booking.save!
+#   puts "Booking #{booking.id} saved!"
+#   x += 1
+# end
+
+# x = 0
+# while x < 100
+#   booking = Booking.new(
+#     user: User.all.sample,
+#     venue: Venue.find(103),
+#     date: Date.today - rand(900)
+#   )
+#   booking.save!
+#   puts "Booking #{booking.id} saved!"
+#   x += 1
+# end
+
+#1010 - 1109
 x = 0
 while x < 100
-  booking = Booking.new(
-    user: User.all.sample,
-    venue: Venue.find(102),
-    date: Date.today - rand(900)
+  review = Review.new(
+    suited_for_calls: [Faker::Boolean.boolean(true_ratio: 0.5)],
+    coffe_price: rand(0..5),
+    wifi_down: rand(30..300),
+    wifi_up: rand(30..150),
+    power_outlets: Faker::Boolean.boolean(true_ratio: 0.9),
+    natural_light: Faker::Boolean.boolean(true_ratio: 0.05),
+    rating: rand(3..5),
+    food_price: rand(0..5),
+    comment: Faker::Restaurant.review,
+    title: Faker::Coffee.origin,
+    booking: Booking.find(x+1010)
   )
-  booking.save!
-  puts "Booking #{booking.id} saved!"
+  file = URI.open(review_photos[x][0])
+  review.photo.attach(io: file, content_type: "image/png", filename: "review_#{review.id}.jpg")
+  review.save!
+  puts "Review #{review.id} saved"
   x += 1
 end
 
+#1110 - 1209
 x = 0
 while x < 100
-  booking = Booking.new(
-    user: User.all.sample,
-    venue: Venue.find(103),
-    date: Date.today - rand(900)
+  review = Review.new(
+    suited_for_calls: [Faker::Boolean.boolean(true_ratio: 0.5)],
+    coffe_price: rand(0..5),
+    wifi_down: rand(30..300),
+    wifi_up: rand(30..150),
+    power_outlets: Faker::Boolean.boolean(true_ratio: 0.8),
+    natural_light: Faker::Boolean.boolean(true_ratio: 0.95),
+    rating: rand(3..5),
+    food_price: rand(0..5),
+    comment: Faker::Restaurant.review,
+    title: Faker::Coffee.origin,
+    booking: Booking.find(x+1110)
   )
-  booking.save!
-  puts "Booking #{booking.id} saved!"
+  file = URI.open(review_photos[x][0])
+  review.photo.attach(io: file, content_type: "image/png", filename: "review_#{review.id}.jpg")
+  review.save!
+  puts "Review #{review.id} saved"
   x += 1
 end
