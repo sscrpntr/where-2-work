@@ -3,13 +3,39 @@ class FavoriteVenuesController < ApplicationController
 
   def create
     @favorite_venue = FavoriteVenue.create(venue_id: params[:venue_id], user: current_user)
-    redirect_to venues_path
+    respond_to do |format|
+      format.html {redirect_to venues_path}
+      format.json
+    end
+
+  end
+
+  def destroy
+    @favorite_venue = FavoriteVenue.find(params[:id]).destroy
+    respond_to do |format|
+      format.html {redirect_to venues_path}
+      format.json
+    end
+
   end
 
   def index
     @favorites = current_user.favorite_venues
   end
 
+  def toggle_favorite
+    @venue = Venue.find(params[:id])
+    type = params[:type]
+    if type == "favorite"
+      current_user.favorite_venues << @venue
+      redirect_to :back, notice: 'Added to favorites'
+    elsif type == "unfavorite"
+      current_user.favorite_venues.delete(@venue)
+      redirect_to :back, notice: 'Removed from favorites'
+    else
+      redirect_to :back, notice: 'Nothing happened.'
+    end
+  end
 
   private
 
