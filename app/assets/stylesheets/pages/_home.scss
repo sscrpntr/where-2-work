@@ -1,8 +1,9 @@
 // Specific CSS for your home-page
-body{
+body {
   display: flex;
   flex-direction: column;
   min-height: 100vh !important;
+  flex-grow: 1;
   // overflow: scroll;
 }
 
