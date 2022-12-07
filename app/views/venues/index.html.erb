@@ -63,7 +63,7 @@
             <div class="venue-first-row">
               <p class="venue-text">
                 <%= venue.name.first(25) %>
-                <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
+                <h6 class="card-rating btn-left"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
               </p>
             </div>
             <div class="venue-icons">
@@ -97,7 +97,7 @@
             <div class="venue-first-row">
               <p class="venue-text">
                 <%= venue.name.first(25) %>
-                <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
+                <h6 class="card-rating btn-left"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
               </p>
             </div>
             <div class="venue-icons">
@@ -120,7 +120,7 @@
       <% end %>
     </div>
     <div class=title-group>
-      <i class="fas fa-euro-sign"></i><h3>Top offers</h3>
+      <i class="fas fa-euro-sign"></i><h3>Top Offers</h3>
     </div>
     <div class="wrapper">
       <% @venues.first(10).each do |venue| %>
@@ -144,7 +144,7 @@
                 <div class="venue-first-row">
                   <p class="venue-text">
                     <%= venue.name.first(25) %>
-                    <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
+                    <h6 class="card-rating btn-left"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
                   </p>
                 </div>
               <div class="venue-icons">
