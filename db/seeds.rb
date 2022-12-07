@@ -159,17 +159,17 @@ end
 #   x += 1
 # end
 
-x = 0
-while x < 100
-  booking = Booking.new(
-    user: User.all.sample,
-    venue: Venue.find(104),
-    date: Date.today - rand(900)
-  )
-  booking.save!
-  puts "Booking #{booking.id} saved!"
-  x += 1
-end
+# x = 0
+# while x < 100
+#   booking = Booking.new(
+#     user: User.all.sample,
+#     venue: Venue.find(104),
+#     date: Date.today - rand(900)
+#   )
+#   booking.save!
+#   puts "Booking #{booking.id} saved!"
+#   x += 1
+# end
 
 #1010 - 1109
 x = 0
@@ -185,7 +185,7 @@ while x < 100
     food_price: rand(0..5),
     comment: Faker::Restaurant.review,
     title: Faker::Coffee.origin,
-    booking: Booking.find(x+1210)
+    booking: Booking.find(x+1214)
   )
   file = URI.open(review_photos[x][0])
   review.photo.attach(io: file, content_type: "image/png", filename: "review_#{review.id}.jpg")
