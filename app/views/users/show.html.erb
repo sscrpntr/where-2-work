@@ -14,7 +14,7 @@
         <p><strong>Venue(s):</strong>  <%= @user.venue_owned %>
       <% end %>
       <p><%= link_to "Edit Profile", edit_user_path(@user) %></p>
-      <p><%= link_to "Log out", destroy_user_session %></p>
+      <p><%= link_to "Log out", destroy_user_session_path %></p>
     </div>
   </div>
 <% else %>
