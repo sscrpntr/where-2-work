@@ -57,7 +57,7 @@
   font-size: 1em;
 }
 .card-trip-infos .card-trip-review i {
-  font-size: 2em;
+  font-size: 1.8em;
 }
 .card-trip-infos .card-trip-user {
   position: absolute;
@@ -137,6 +137,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-right: 1em;
 }
 .btn-left-vindex .fa-star {
+  color: #FDBC1F;
+  margin-right: 0.4em;
+}
+.btn-left-vshow .fa-star {
   color: #FDBC1F;
   margin-right: 0.4em;
 }
