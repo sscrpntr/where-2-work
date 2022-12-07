@@ -1,6 +1,12 @@
 <div class="booking-form", data-controller = "checkifdate">
   <%= simple_form_for [venue, booking] do |f| %>
     <%= f.input :date, as: :string, input_html: { data: { controller: "flatpickr", checkifdate_target: "datefield", action: "change->checkifdate#disableButton" } } %>
-    <%= f.submit "Submit", id:"create-booking", data: { checkifdate_target: "buttonlistener" } %>
+    <% if user_signed_in? %>
+      <%= f.submit "Submit", id:"create-booking", data: { checkifdate_target: "buttonlistener" } %>
+    <% else %>
+      <div class="button">
+      <%= link_to "Submit", new_user_session_path, data: {turbo_method: :create, turbo_confirm: "You need be logged in to book"} %>
+      </div>
+    <% end %>
   <% end %>
 </div>
