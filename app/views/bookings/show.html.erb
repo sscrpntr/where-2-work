@@ -45,7 +45,7 @@
 <% @user_bookings.each do |booking| %>
   <% if booking.id != @booking.id %>
     <div class="card-product-booking">
-      <%= cl_image_tag booking.venue.photo.key, :alt=>"booking image", :width=>250, :crop=>"fill" %>
+      <%= cl_image_tag booking.venue.photo.key, :alt=>"booking image", :width=>250 %>
       <div class="card-product-infos">
         <h2><%= booking.venue.name %></h2>
         <p><%= link_to booking.date, booking_path(@booking) %></p>

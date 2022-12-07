@@ -28,9 +28,9 @@
       <% @venue.all_reviews.reverse.first(2).each do |review| %>
         <div class="card-product">
           <% unless review.photo.key.nil? %>
-            <%= cl_image_tag review.photo.key, :alt=>"review image", :width=>300 %>
+            <%= cl_image_tag review.photo.key, :alt=>"review image", :width=>250 %>
           <% else %>
-            <%= image_tag "favicon.ico", :alt=>"review image", :width=>300 %>
+            <%= image_tag "favicon.ico", :alt=>"review image", :width=>250 %>
           <% end %>
           <div class="card-product-infos">
             <h3>
