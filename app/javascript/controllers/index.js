@@ -24,3 +24,6 @@ application.register("speedtest", SpeedtestController)
 
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
+
+import WifiController from "./wifi_controller"
+application.register("wifi", WifiController)
