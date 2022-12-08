@@ -16,32 +16,28 @@
             <div class="venue-first-row">
               <p class="venue-text">
                 <%= link_to venue_path(favorite.venue) do %>
-                  <%= favorite.venue.name%>
+                  <strong><%= favorite.venue.name%></strong>
                 <% end %>
                 <br>
                 <%= favorite.venue.address %>
+                <br>
+                From <%= favorite.venue.opening_time_display %> to <%= favorite.venue.closing_time_display %>.
+                <br>
+                <% if favorite.venue.wifi %>
+                  <i class="fa-solid fa-wifi card-title"></i>
+                <% end %>
+                <% if favorite.venue.power_outlets %>
+                  <i class="fa-solid fa-plug card-title"></i>
+                <% end %>
+                <% if favorite.venue.suited_for_calls %>
+                  <i class="fa-solid fa-phone card-title"></i>
+                <% end %>
+                <% if favorite.venue.natural_light %>
+                  <i class="fa-solid fa-sun card-title"></i>
+                <% end %>
               </p>
             </div>
             <h6 class="card-rating btn-left-findex"><i class="fas fa-star"></i><%= favorite.venue.average_rating %></h6>
-            <div class="venue-timetable">
-              <p class="venue-text">
-                From <%= favorite.venue.opening_time_display %> to <%= favorite.venue.closing_time_display %>.
-              </p>
-            </div>
-            <div class="venue-icons">
-              <% if favorite.venue.wifi %>
-                <i class="fa-solid fa-wifi card-title"></i>
-              <% end %>
-              <% if favorite.venue.power_outlets %>
-                <i class="fa-solid fa-plug card-title"></i>
-              <% end %>
-              <% if favorite.venue.suited_for_calls %>
-                <i class="fa-solid fa-phone card-title"></i>
-              <% end %>
-              <% if favorite.venue.natural_light %>
-                <i class="fa-solid fa-sun card-title"></i>
-              <% end %>
-            </div>
           </div>
         </div>
       <% end %>
