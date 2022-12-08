@@ -25,6 +25,8 @@
         <p><%= @venue.address %></p>
       <% end %>
 
+  <%= render "bookings/form", venue: @venue, booking: @booking %>
+
       <% @venue.all_reviews.last(2).each do |review| %>
         <div class="card-product">
           <% unless review.photo.key.nil? %>
@@ -76,9 +78,7 @@
       </div>
     <h3 class="card-trip-user btn-left-vshow"><i class="fas fa-star"></i>  <%= @venue.average_rating %></h3>
     <h3 class="card-trip-review"><i class="fa-regular fa-heart"></i></h3>
-
   </div>
-  <%= render "bookings/form", venue: @venue, booking: @booking %>
 </div>
 
 <script>
