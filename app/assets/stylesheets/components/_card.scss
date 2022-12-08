@@ -24,6 +24,10 @@
   margin-top: 1rem;
   display: inline-block;
   border-radius: 15px;
+  text-decoration: none;
+}
+.venue-card a {
+  text-decoration: none;
 }
 
 .favorite-venue-card {
@@ -73,8 +77,9 @@
   border: 1px solid #704628;
   padding: 10px
 }
-.favorite-venue-card a{
+.favorite-venue-card a {
   color: rgb(66, 40, 0);
+  text-decoration: none;
 }
 
 .venue-text {
@@ -90,8 +95,11 @@
   text-overflow: ellipsis;
 
   text-align: left;
-
+  text-decoration: none;
   color: #000000;
+}
+.venue-first-row .venue-text {
+  text-decoration: none;
 }
 
 .venue-card .fa-star {
