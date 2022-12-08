@@ -1,6 +1,6 @@
 <div class="booking-form", data-controller = "checkifdate">
   <%= simple_form_for [venue, booking] do |f| %>
-    <%= f.input :date, as: :string, input_html: { data: { controller: "flatpickr", checkifdate_target: "datefield", action: "change->checkifdate#disableButton" } } %>
+    <%= f.input :date, as: :string, label: "", placeholder: "yyyy-mm-dd", input_html: { data: { controller: "flatpickr", checkifdate_target: "datefield", action: "change->checkifdate#disableButton" } } %>
     <% if user_signed_in? %>
       <%= f.submit "Submit", id:"create-booking", data: { checkifdate_target: "buttonlistener" } %>
     <% else %>
