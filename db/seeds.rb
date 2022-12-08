@@ -172,7 +172,7 @@ while x < 100
 end
 
 #1010 - 1109
-x = 0
+# x = 0
 # while x < 100
 #   review = Review.new(
 #     suited_for_calls: [Faker::Boolean.boolean(true_ratio: 0.2)],

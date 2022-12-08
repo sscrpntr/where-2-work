@@ -90,8 +90,11 @@
   text-overflow: ellipsis;
 
   text-align: left;
-
+  text-decoration: none;
   color: #000000;
+}
+.venue-first-row .venue-text {
+  text-decoration: none;
 }
 
 .venue-card .fa-star {
