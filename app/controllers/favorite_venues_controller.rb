@@ -13,7 +13,13 @@ class FavoriteVenuesController < ApplicationController
   def destroy
     @favorite_venue = FavoriteVenue.find(params[:id]).destroy
     respond_to do |format|
-      format.html {redirect_to venues_path}
+      format.html {
+        if current_user.favorite_venues.present?
+          redirect_to user_favorite_venues_path(current_user)
+        else
+          redirect_to venues_path
+        end
+      }
       format.json
     end
 

@@ -21,7 +21,7 @@ export default class extends Controller {
       })
       .then(response => response.json())
       .then((data) => {
-        this.element.innerHTML= `<a data-turbo-method="post" href="/venues/${this.venueIdValue}/favorite_venues"><i class="fa-regular fa-heart fav-icon" data-action="click->favorite#drefresh"></i></a>`
+        this.element.innerHTML= `<a data-turbo-method="post" href="/venues/${this.venueIdValue}/favorite_venues"><i class="fa-regular fa-heart fav-icon fav-background" data-action="click->favorite#drefresh"></i></a>`
       })
 
   }
@@ -40,7 +40,7 @@ export default class extends Controller {
       })
       .then(response => response.json())
       .then((data) => {
-        this.element.innerHTML= `<a data-turbo-method="delete" href="/venues/${this.venueIdValue}/favorite_venues"><i class="fa-solid fa-heart fav-icon" data-action="click->favorite#refresh"></i></a>`
+        this.element.innerHTML= `<a data-turbo-method="delete" href="/venues/${this.venueIdValue}/favorite_venues"><i class="fa-solid fa-heart fav-icon fav-background" data-action="click->favorite#refresh"></i></a>`
       })
 
   }

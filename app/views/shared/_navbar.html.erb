@@ -98,8 +98,8 @@
 
       <li class="nav-item" style="margin-left: 25px;">
         <% if user_signed_in? %>
-          <%= link_to venues_path, class:"nav-link d-flex flex-column" do  %>
-            <% if  params[:action] == 'create' && params[:controller] == 'favourites'%>
+          <%= link_to  user_favorite_venues_path(current_user), class:"nav-link d-flex flex-column" do  %>
+            <% if  params[:action] == 'index' && params[:controller] == 'favorite_venues'%>
               <i class="fa-regular fa-heart fa-cog"></i>
               <span class="d-none d-sm-inline", style=" color: rgba(132, 96, 70, 1);">Favorites</span>
             <% else %>
@@ -108,8 +108,8 @@
             <% end %>
           <% end %>
         <% else %>
-          <%= link_to venues_path, class: "nav-link d-flex flex-column" do  %>
-            <% if  params[:action] == 'show' && params[:controller] == 'favorite_venues'%>
+          <%= link_to new_user_session_path, class: "nav-link d-flex flex-column" do  %>
+            <% if  params[:action] == 'index' && params[:controller] == 'favorite_venues'%>
                 <i class="fa-regular fa-heart fa-cog"></i>
                 <span class="d-none d-sm-inline", style=" color: rgba(132, 96, 70, 1);">Favorites</span>
               <% else %>
