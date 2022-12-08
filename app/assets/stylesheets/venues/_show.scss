@@ -164,6 +164,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   text-decoration: none;
 }
 .booking-form {
+  display: flex;
+  align-items: center;
   padding: 1em;
   width: 50%;
 }
