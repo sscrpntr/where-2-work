@@ -2,46 +2,44 @@
   <div class="container">
     <div class="listDiv" data-button-target="listDiv">
       <div class=btn-group>
-        <i class="fa-regular fa-heart"></i><h3>Your favorites</h3>
+        <h1 class="visit-title"><i class="fa-regular fa-heart heart-title"></i>Your Favorites</h1>
       </div>
       <% @favorites.each do |favorite| %>
-        <%= link_to venue_path(favorite.venue) do %>
-          <div class="venue-card favorite-venue-card">
-            <div data-controller="favorite" data-favorite-venue-id-value='<%=favorite.venue.id%>' data-favorite-favorite-id-value='<%=favorite.id%>'>
-              <%= link_to '<i class="fa-solid fa-heart favview-icon-test fav-background"></i>'.html_safe, venue_favorite_venue_path(favorite.venue,favorite.id), data: {turbo_method: "delete", target: "favorite.remove"} %>
-            </div>
-            <%= cl_image_tag favorite.venue.photo.key, :class=>"venue-image favorite-image-size", :alt=>"venue image" %>
-              <div class="venue-content">
-                <div class="venue-first-row">
-                  <p class="venue-text">
-                    <%= favorite.venue.name%>
-                    <%= favorite.venue.address %>
-                    <h6 class="card-rating"><i class="far fa-star"></i>  <%= favorite.venue.average_rating %></h6>
-                  </p>
-                </div>
-                <div class="venue-timetable">
-                  <p class="venue-text">
-                    From <%= favorite.venue.opening_time %> to <%= favorite.venue.closing_time %> h.
-                  </p>
-                </div>
-                <div class="venue-icons">
-                  <% if favorite.venue.wifi %>
-                    <i class="fa-solid fa-wifi title"></i>
-                  <% end %>
-                  <% if favorite.venue.power_outlets %>
-                    <i class="fa-solid fa-plug title"></i>
-                  <% end %>
-                  <% if favorite.venue.suited_for_calls %>
-                    <i class="fa-solid fa-phone title"></i>
-                  <% end %>
-                  <% if favorite.venue.natural_light %>
-                    <i class="fa-solid fa-sun title"></i>
-                  <% end %>
-                </div>
-              </div>
-
+        <div class="venue-card favorite-venue-card">
+          <div data-controller="favorite" data-favorite-venue-id-value='<%=favorite.venue.id%>' data-favorite-favorite-id-value='<%=favorite.id%>'>
+            <%= link_to '<i class="fa-solid fa-heart favview-icon-test fav-background"></i>'.html_safe, venue_favorite_venue_path(favorite.venue,favorite.id), data: {turbo_method: "delete", target: "favorite.remove"} %>
           </div>
-        <% end %>
+          <%= link_to venue_path(favorite.venue) do %>
+            <%= cl_image_tag favorite.venue.photo.key, :class=>"venue-image favorite-image-size", :alt=>"venue image" %>
+          <% end %>
+          <div class="venue-content">
+            <div class="venue-first-row">
+              <p class="venue-text">
+                <%= link_to venue_path(favorite.venue) do %>
+                  <strong><%= favorite.venue.name%></strong>
+                <% end %>
+                <br>
+                <%= favorite.venue.address %>
+                <br>
+                From <%= favorite.venue.opening_time_display %> to <%= favorite.venue.closing_time_display %>.
+                <br>
+                <% if favorite.venue.wifi %>
+                  <i class="fa-solid fa-wifi card-title"></i>
+                <% end %>
+                <% if favorite.venue.power_outlets %>
+                  <i class="fa-solid fa-plug card-title"></i>
+                <% end %>
+                <% if favorite.venue.suited_for_calls %>
+                  <i class="fa-solid fa-phone card-title"></i>
+                <% end %>
+                <% if favorite.venue.natural_light %>
+                  <i class="fa-solid fa-sun card-title"></i>
+                <% end %>
+              </p>
+            </div>
+            <h6 class="card-rating btn-left-findex"><i class="fas fa-star"></i><%= favorite.venue.average_rating %></h6>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

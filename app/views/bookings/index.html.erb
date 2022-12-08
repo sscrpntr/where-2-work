@@ -1,7 +1,7 @@
 <h1 class="visit-title">Your Visits</h1>
 <% if @user_bookings.size > 0 %>
   <% @user_bookings.each do |booking| %>
-    <div class="card-product-booking">
+    <div class="card-product-booking general-card">
       <%= cl_image_tag booking.venue.photo.key %>
       <div class="card-product-infos">
         <h2><%= booking.venue.name %></h2>

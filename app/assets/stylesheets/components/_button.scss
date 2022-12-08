@@ -185,6 +185,31 @@
   margin-bottom: 1em;
   font-size: 0.8em;
 }
+.btn-left-findex {
+  width: 15%;
+  text-transform: uppercase;
+  // background-color: #d1e751;
+  color: white;
+  // margin: auto;
+  border-radius: 1.5em;
+  // font-weight: bold;
+  background: #AF795D;
+  // transition: background 0.3s ease;
+  // border: 1px solid white;
+  // margin-top: 0.0em;
+  // padding-top: 0.5em;
+  // padding-right: 0.5em;
+  // margin-bottom: 1em;
+  // margin-left: 2em;
+  font-size: 0.8em;
+  display: flex;
+  position: relative;
+  top: -5em;
+  left: 23.5em;
+  padding-top: 0.5em;
+  padding-right: 1em;
+  padding-bottom: 0.5em;
+}
 
 .btn-left-vmap {
   width: auto;
