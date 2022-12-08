@@ -184,6 +184,38 @@
   margin-bottom: 1em;
   font-size: 0.8em;
 }
+
+.btn-left-review-show {
+  // width: 40%;
+  text-transform: uppercase;
+  // background-color: #d1e751;
+  color: white;
+  // margin: auto;
+  border-radius: 1.5em;
+  // font-weight: bold;
+  background: #AF795D;
+  // transition: background 0.3s ease;
+  // border: 1px solid white;
+  // margin-top: 0.0em;
+  // padding-top: 0.5em;
+  // padding-bottom: 0.25em;
+  // margin-bottom: 1em;
+  font-size: 0.8em;
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  margin-right: 0;
+  // margin-top: 10em;
+}
+.btn-left-review-show h2 {
+  margin-top: 5em;
+}
+.btn-left-review-show .fa-star {
+  margin: 0 0.3em 0 0.3em;
+  padding: 0.1em;
+  // justify-content: sp;
+}
 .card-trip-user .btn-left-vshow {
   width: 35%;
   text-transform: uppercase;
@@ -202,23 +234,6 @@
   font-size: 0.5em;
   padding-right: 0.5em;
   padding-left: 0.5em;
-}
-
-.btn-left-review-show {
-  width: 40%;
-  text-transform: uppercase;
-  background-color: #d1e751;
-  color: white;
-  margin: auto;
-  border-radius: 1.5em;
-  font-weight: bold;
-  background: linear-gradient(#422800, #AF795D);
-  transition: background 0.3s ease;
-  border: 1px solid white;
-  margin-top: 0.0em;
-  padding: .5em 0.2em .5em 0.2em;
-  position: relative;
-  top: -12em;
 }
 
 .button a {

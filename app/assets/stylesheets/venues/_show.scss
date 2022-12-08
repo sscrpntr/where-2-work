@@ -59,6 +59,9 @@
 .card-trip-infos .card-trip-review i {
   font-size: 1.8em;
 }
+.review-content {
+  margin-right: 10em;
+}
 .card-trip-infos .card-trip-user {
   position: absolute;
   text-transform: uppercase;
@@ -198,12 +201,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .review-card-trip-infos p {
   margin-bottom: 1em;
 }
-
+.review-card-trip-infos {
+  display: flex;
+}
 .review-card-trip .review-card-trip-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   position: relative;
 }
 
