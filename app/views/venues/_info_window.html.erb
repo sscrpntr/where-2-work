@@ -5,21 +5,21 @@
     <div class="venue-first-row">
       <p class="venue-text">
         <%= venue.name.first(25) %>
-        <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
+        <h6 class="card-rating btn-left-vmap"><i class="fas fa-star"></i><%= venue.average_rating %></h6>
       </p>
     </div>
     <div class="venue-icons">
         <% if venue.wifi %>
-          <i class="fa-solid fa-wifi title"></i>
+          <i class="fa-solid fa-wifi card-title"></i>
         <% end %>
         <% if venue.power_outlets %>
-          <i class="fa-solid fa-plug title"></i>
+          <i class="fa-solid fa-plug card-title"></i>
         <% end %>
         <% if venue.suited_for_calls %>
-          <i class="fa-solid fa-phone title"></i>
+          <i class="fa-solid fa-phone card-title"></i>
         <% end %>
         <% if venue.natural_light %>
-          <i class="fa-solid fa-sun title"></i>
+          <i class="fa-solid fa-sun card-title"></i>
         <% end %>
       </div>
     </div>
