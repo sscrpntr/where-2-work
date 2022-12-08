@@ -6,8 +6,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-has_many :favorite_venues
-has_many :favorited_by, through: :favorites_venues, source: :user
+  has_many :favorite_venues
+  has_many :favorited_by, through: :favorites_venues, source: :user
+  # validate :loged_in
 
   def wifi_speed
     Speedtest::Test.new(
@@ -19,4 +20,10 @@ has_many :favorited_by, through: :favorites_venues, source: :user
       debug: true
     ).run
   end
+
+  # def loged_in
+  #   if date < Date.today
+  #     errors.add(:date, "can't be in the past")
+  #   end
+  # end
 end

@@ -1,15 +1,12 @@
 // Specific CSS for your home-page
-body{
+body {
   display: flex;
   flex-direction: column;
   min-height: 100vh !important;
-<<<<<<< Updated upstream
-  // overflow: scroll;
-=======
   flex-grow: 1;
+  // overflow: scroll;
   margin-top: 5px;
   margin-bottom: 5px;
->>>>>>> Stashed changes
 }
 
 .main-content {

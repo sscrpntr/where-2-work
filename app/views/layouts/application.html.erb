@@ -2,11 +2,9 @@
 <html>
   <head>
     <!-- HTML Meta Tags -->
-    <title>Where 2 Work</title>
-    <meta name="description" content="Work.
-    From Anywhere.
-    The most reliable workspace.
-    At your fingertips.">
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google / Search Engine Tags -->
     <meta itemprop="name" content="Where 2 Work">
@@ -19,25 +17,22 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Quando&display=swap" rel="stylesheet">
 
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="http://www.where2work.es">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Where 2 Work">
-    <meta property="og:description" content="Work.
-    From Anywhere.
-    The most reliable workspace.
-    At your fingertips.">
-    <meta property="og:image" content="">
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
 
     <!-- Twitter Meta Tags -->
+    <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Where 2 Work">
-    <meta name="twitter:description" content="Work.
-    From Anywhere.
-    The most reliable workspace.
-    At your fingertips.">
-    <meta name="twitter:image" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:title" content="<%= meta_title %>">
+    <meta name="twitter:description" content="<%= meta_description %>">
+    <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+    <meta name="twitter:image:src" content="<%= meta_image %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.1/css/all.css">

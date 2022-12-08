@@ -52,7 +52,7 @@
   </div>
   <div class="listDiv" data-button-target="listDiv">
     <div class=title-group>
-      <i class="fa-solid fa-magnifying-glass"></i><h3>Your Search Results</h3>
+      <i class="fa-solid fa-magnifying-glass"></i><h3>Search Results</h3>
     </div>
     <div class="wrapper">
       <% @venues.first(10).each do |venue| %>
@@ -63,21 +63,30 @@
             <div class="venue-first-row">
               <p class="venue-text">
                 <%= venue.name.first(25) %>
-                <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
+                <h6 class="card-rating btn-left-vindex"><i class="fas fa-star"></i><%= venue.average_rating %></h6>
               </p>
             </div>
+            <% if FavoriteVenue.find_by(user: current_user, venue:venue) %>
+              <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' data-favorite-favorite-id-value='<%=FavoriteVenue.find_by(user: current_user, venue:venue).id%>'>
+                  <%=link_to ('<i class="fa-solid fa-heart fav-background fav-icon" data-action="click->favorite#refresh"></i>').html_safe, venue_favorite_venue_path(venue,FavoriteVenue.find_by(user: current_user, venue:venue)), data: {turbo_method: "delete", target: "favorite.remove"} %>
+              </div>
+            <% else %>
+              <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' >
+                <%=link_to ('<i class="fa-regular fa-heart fav-background fav-icon" data-action="click->favorite#drefresh"></i>').html_safe, venue_favorite_venues_path(venue), data: {turbo_method: "post", target: "favorite.add"} %>
+              </div>
+            <% end %>
             <div class="venue-icons">
                 <% if venue.wifi %>
-                  <i class="fa-solid fa-wifi title"></i>
+                  <i class="fa-solid fa-wifi card-title"></i>
                 <% end %>
                 <% if venue.power_outlets %>
-                  <i class="fa-solid fa-plug title"></i>
+                  <i class="fa-solid fa-plug card-title"></i>
                 <% end %>
                 <% if venue.suited_for_calls %>
-                  <i class="fa-solid fa-phone title"></i>
+                  <i class="fa-solid fa-phone card-title"></i>
                 <% end %>
                 <% if venue.natural_light %>
-                  <i class="fa-solid fa-sun title"></i>
+                  <i class="fa-solid fa-sun card-title"></i>
                 <% end %>
               </div>
             </div>
@@ -97,21 +106,30 @@
             <div class="venue-first-row">
               <p class="venue-text">
                 <%= venue.name.first(25) %>
-                <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
+                <h6 class="card-rating btn-left-vindex"><i class="fas fa-star"></i><%= venue.average_rating %></h6>
               </p>
             </div>
+            <% if FavoriteVenue.find_by(user: current_user, venue:venue) %>
+              <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' data-favorite-favorite-id-value='<%=FavoriteVenue.find_by(user: current_user, venue:venue).id%>'>
+                  <%=link_to ('<i class="fa-solid fa-heart fav-icon fav-background" data-action="click->favorite#refresh"></i>').html_safe, venue_favorite_venue_path(venue,FavoriteVenue.find_by(user: current_user, venue:venue)), data: {turbo_method: "delete", target: "favorite.remove"} %>
+              </div>
+            <% else %>
+              <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' >
+                <%=link_to ('<i class="fa-regular fa-heart fav-icon fav-background"  data-action="click->favorite#drefresh"></i>').html_safe, venue_favorite_venues_path(venue), data: {turbo_method: "post", target: "favorite.add"} %>
+              </div>
+            <% end %>
             <div class="venue-icons">
                 <% if venue.wifi %>
-                  <i class="fa-solid fa-wifi title"></i>
+                  <i class="fa-solid fa-wifi card-title"></i>
                 <% end %>
                 <% if venue.power_outlets %>
-                  <i class="fa-solid fa-plug title"></i>
+                  <i class="fa-solid fa-plug card-title"></i>
                 <% end %>
                 <% if venue.suited_for_calls %>
-                  <i class="fa-solid fa-phone title"></i>
+                  <i class="fa-solid fa-phone card-title"></i>
                 <% end %>
                 <% if venue.natural_light %>
-                  <i class="fa-solid fa-sun title"></i>
+                  <i class="fa-solid fa-sun card-title"></i>
                 <% end %>
               </div>
             </div>
@@ -120,23 +138,11 @@
       <% end %>
     </div>
     <div class=title-group>
-      <i class="fas fa-euro-sign"></i><h3>Top offers</h3>
+      <i class="fas fa-euro-sign"></i><h3>Top Offers</h3>
     </div>
     <div class="wrapper">
       <% @venues.first(10).each do |venue| %>
         <%=link_to venue_path(venue) do %>
-          <% if FavoriteVenue.find_by(user: current_user, venue:venue) %>
-            <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' data-favorite-favorite-id-value='<%=FavoriteVenue.find_by(user: current_user, venue:venue).id%>'>
-
-                <%=link_to ('<i class="fa-solid fa-heart fav-icon" data-action="click->favorite#refresh"></i>').html_safe, venue_favorite_venue_path(venue,FavoriteVenue.find_by(user: current_user, venue:venue)), data: {turbo_method: "delete", target: "favorite.remove"} %>
-
-            </div>
-          <% else %>
-            <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' >
-
-              <%=link_to ('<i class="fa-regular fa-heart fav-icon"  data-action="click->favorite#drefresh"></i>').html_safe, venue_favorite_venues_path(venue), data: {turbo_method: "post", target: "favorite.add"} %>
-            </div>
-          <% end %>
           <div class="venue-card">
             <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
 
@@ -144,26 +150,34 @@
                 <div class="venue-first-row">
                   <p class="venue-text">
                     <%= venue.name.first(25) %>
-                    <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
+                    <h6 class="card-rating btn-left-vindex"><i class="fas fa-star"></i><%= venue.average_rating %></h6>
                   </p>
+              </div>
+              <% if FavoriteVenue.find_by(user: current_user, venue:venue) %>
+                <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' data-favorite-favorite-id-value='<%=FavoriteVenue.find_by(user: current_user, venue:venue).id%>'>
+                  <%=link_to ('<i class="fa-solid fa-heart fav-icon fav-background" data-action="click->favorite#refresh"></i>').html_safe, venue_favorite_venue_path(venue,FavoriteVenue.find_by(user: current_user, venue:venue)), data: {turbo_method: "delete", target: "favorite.remove"} %>
                 </div>
+              <% else %>
+              <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' >
+                <%=link_to ('<i class="fa-regular fa-heart fav-icon fav-background"  data-action="click->favorite#drefresh"></i>').html_safe, venue_favorite_venues_path(venue), data: {turbo_method: "post", target: "favorite.add"} %>
+              </div>
+              <% end %>
               <div class="venue-icons">
                 <% if venue.wifi %>
-                  <i class="fa-solid fa-wifi title"></i>
+                  <i class="fa-solid fa-wifi card-title"></i>
                 <% end %>
                 <% if venue.power_outlets %>
-                  <i class="fa-solid fa-plug title"></i>
+                  <i class="fa-solid fa-plug card-title"></i>
                 <% end %>
                 <% if venue.suited_for_calls %>
-                  <i class="fa-solid fa-phone title"></i>
+                  <i class="fa-solid fa-phone card-title"></i>
                 <% end %>
                 <% if venue.natural_light %>
-                  <i class="fa-solid fa-sun title"></i>
+                  <i class="fa-solid fa-sun card-title"></i>
                 <% end %>
               </div>
             </div>
           </div>
-
         <% end %>
       <% end %>
     </div>

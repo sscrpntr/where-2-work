@@ -17,7 +17,7 @@
 }
 .card-trip h3 {
   font-size: 1.5em;
-  margin-top: 0.5em;
+  // margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
 
@@ -57,7 +57,10 @@
   font-size: 1em;
 }
 .card-trip-infos .card-trip-review i {
-  font-size: 2em;
+  font-size: 1.8em;
+}
+.review-content {
+  margin-right: 10em;
 }
 .card-trip-infos .card-trip-user {
   position: absolute;
@@ -134,6 +137,23 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .fa-star {
   color: #FDBC1F;
+  margin-right: 1em;
+}
+.btn-left-vmap .fa-star {
+  color: #FDBC1F;
+  margin-right: 0.1em;
+}
+.btn-left-vindex .fa-star {
+  color: #FDBC1F;
+  margin-right: 0.4em;
+}
+.btn-left-findex .fa-star {
+  color: #FDBC1F;
+  margin-right: 0.4em;
+}
+.btn-left-vshow .fa-star {
+  color: #FDBC1F;
+  margin-right: 0.4em;
 }
 .card-trip-infos .fa-heart {
   color: #FE8668;
@@ -180,12 +200,23 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin: 0;
 }
 
-
+.review-card-trip-infos .review-card-trip-pricing {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+  align-items: flex-end;
+}
+.review-card-trip-infos p {
+  margin-bottom: 1em;
+}
+.review-card-trip-infos {
+  display: flex;
+}
 .review-card-trip .review-card-trip-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   position: relative;
 }
 
@@ -253,4 +284,51 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .card-trip-pricing {
   margin-right: 0.5em;
+}
+
+.card-trip h3 .fa-star {
+  font-size: 1em;
+  margin-right: 0.25em;
+}
+
+.card-product-infos h3 .fa-star {
+  padding-top: 0.25em;
+  font-size: 0.6em;
+}
+
+.card-product-infos .sfilter {
+  margin-right: 0.5em;
+}
+.card-product-infos .wifi {
+  margin-right: 0.25em;
+  margin-left: 0.25em;
+}
+.card-product-infos .comment {
+  font-size: 1em;
+  // padding-bottom: 0.25em;
+}
+.card-trip-infos .title {
+  margin-right: 0.5em;
+  color: #422800;
+}
+.venue-icons .card-title {
+  color: #422800;
+}
+
+.card-product {
+  overflow: hidden;
+  height: 8em;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+.heart-title {
+  margin-right: 0.3em;
 }

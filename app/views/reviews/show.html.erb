@@ -5,8 +5,9 @@
       <%= cl_image_tag @review.photo.key, width: 250, crop: :fill %>
     <% else %>
       <%= cl_image_tag @venue.photo.key, width: 250, crop: :fill %>
-    <% end %><div class="review-card-trip-infos">
-      <div>
+    <% end %>
+    <div class="review-card-trip-infos">
+      <div class="review-content">
         <h2><%= @booking.date %></h2>
         <p>
           <% if @review.power_outlets %>
@@ -21,19 +22,24 @@
         </p>
         <p><%= @review.comment %></p>
         <% unless @review.wifi == "" %>
-          <p>Wifi down: <%= @review.wifi_down %> Mbps</p>
-          <p>Wifi up: <%= @review.wifi_up %> Mbps</p>
+          <p>Wifi <i class="fas fa-arrow-down"></i>: <%= @review.wifi_down %> Mbps</p>
+          <p>Wifi <i class="fas fa-arrow-up"></i>: <%= @review.wifi_up %> Mbps</p>
         <% else %>
           <% wifi_simple = ["Bad", "Neutral", "Good"] %>
           <p>Wifi: <%= wifi_simple[@review.wifi.to_i - 1] %></p>
         <% end %>
       </div>
-      <h2 class="review-card-trip-pricing"><%= @review.rating %></h2>
+      <h2 class="btn-left-review-show">
+        <% @review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+      </h2>
       <%= link_to user_path(@user) do %>
         <% if @user.photo.key %>
           <%= cl_image_tag @user.photo.key, :class=>"review-card-trip-user avatar-bordered" %>
         <% else %>
-          <%= <%= image_tag "favicon.ico", :class=>"review-card-trip-user avatar-bordered" %>
+          <%= image_tag "favicon.ico", :class=>"review-card-trip-user avatar-bordered" %>
+        <% end %>
       <% end %>
     </div>
   </div>

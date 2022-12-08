@@ -3,7 +3,9 @@
   position: relative;
   overflow: scroll;
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 1.2em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .wrapper a {
@@ -22,22 +24,20 @@
   margin-top: 1rem;
   display: inline-block;
   border-radius: 15px;
+  text-decoration: none;
+}
+
+.venue-card a {
+  text-decoration: none;
 }
 
 .favorite-venue-card {
-<<<<<<< Updated upstream
-
-  width: 295px;
-  height: 202px;
-
-=======
   position: relative;
   width: 90%;
   height: 220px;
   margin: 1em 1em 1em 1em;
   overflow: hidden;
   background: white;
->>>>>>> Stashed changes
 }
 
 .fav-vindex{
@@ -57,7 +57,6 @@
 }
 .venue-card:hover {
   box-shadow: 0 0px 12px 0 rgba(0, 0, 0, 0.3);
-  transform: scale(103%);
 }
 
 .venue-image {
@@ -72,9 +71,34 @@
   width: 285px;
 }
 
-.fav-icon{
+.fav-icon {
   position: absolute;
-  margin: 32px 166px;
+  margin: -136px 150px;
+}
+
+.favview-icon {
+  position: absolute;
+  margin: -181px 311px;
+}
+
+.favview-icon-test {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  // margin: -181px 311px;
+}
+
+.fav-background {
+  background-color: #704628;
+  color: white;
+  border-radius: 50%;
+  // border: 1px solid #704628;
+  padding: 10px
+}
+
+.favorite-venue-card a {
+  color: rgb(66, 40, 0);
+  text-decoration: none;
 }
 
 .venue-text {
@@ -90,8 +114,12 @@
   text-overflow: ellipsis;
 
   text-align: left;
-
+  text-decoration: none;
   color: #000000;
+}
+
+.venue-first-row .venue-text {
+  text-decoration: none;
 }
 
 .venue-card .fa-star {
@@ -135,7 +163,6 @@
 
 .venue-cardmap:hover {
   box-shadow: 0 0px 12px 0 rgba(0, 0, 0, 0.3);
-  transform: scale(103%);
 }
 
 .venue-imagemap {
@@ -176,12 +203,13 @@
   width: 100%;
   display: flex;
   justify-content: left;
-  margin-bottom: 2px;
+  margin-bottom: 0.3em;
   font-family: 'Lato';
   font-style: normal;
   font-weight: 800;
-  font-size: 16px;
+  font-size: 3em;
   color: #422800;
+  margin-left: 0.5em;
 }
 
 .title-group i {
@@ -232,13 +260,10 @@
   display: flex;
 }
 
-<<<<<<< Updated upstream
 #button2 {
   margin-left: 15px;
-=======
+}
 
 .fav-margins{
   margin-top: 5px;
-
->>>>>>> Stashed changes
 }
