@@ -46,7 +46,7 @@
       <li class="nav-item">
         <%= link_to venues_path, class:"nav-link d-flex flex-column" do  %>
           <% if  params[:action] == 'index' && params[:controller] == 'venues'%>
-            <i class="fa-solid fa-house fa-cog"></i>
+            <i class="fa-solid fa-house"></i>
             <span class="d-none d-sm-inline", style=" color: rgba(114, 0, 38, 1);">Home</span>
             <% else %>
             <i class="fa-solid fa-house"></i>
@@ -61,10 +61,10 @@
       <% if user_signed_in? %>
         <%= link_to bookings_path, class:"nav-link d-flex flex-column" do  %>
           <% if params[:action]== 'index' && params[:controller] == 'bookings'%>
-            <i class="fa-solid fa-calendar-check fa-cog"></i>
+            <i class="fa-solid fa-calendar-check"></i>
             <span class="d-none d-sm-inline">Bookings</span>
           <% else %>
-            <i class="fa-solid fa-calendar-check"></i>
+            <i class="fa-regular fa-calendar-check"></i>
             <span class="d-none d-sm-inline">Bookings</span>
           <% end %>
         <% end %>
@@ -72,10 +72,10 @@
       <% else %>
         <%= link_to new_user_session_path, class: "nav-link d-flex flex-column" do  %>
           <% if params[:action]== 'index' && params[:controller] == 'bookings'%>
-            <i class="fa-solid fa-calendar-check fa-cog"></i>
+            <i class="fa-solid fa-calendar-check"></i>
             <span class="d-none d-sm-inline", style=" color: rgba(114, 0, 38, 1);">Bookings</span>
           <% else %>
-            <i class="fa-solid fa-calendar-check"></i>
+            <i class="fa-regular fa-calendar-check"></i>
             <span class="d-none d-sm-inline">Bookings</span>
           <% end %>
         <% end %>
@@ -98,9 +98,15 @@
 
       <li class="nav-item" style="margin-left: 25px;">
         <% if user_signed_in? %>
+<<<<<<< Updated upstream
           <%= link_to venues_path, class:"nav-link d-flex flex-column" do  %>
             <% if  params[:action] == 'create' && params[:controller] == 'favourites'%>
               <i class="fa-regular fa-heart fa-cog"></i>
+=======
+          <%= link_to  user_favorite_venues_path(current_user), class:"nav-link d-flex flex-column" do  %>
+            <% if  params[:action] == 'index' && params[:controller] == 'favorite_venues'%>
+              <i class="fa-solid fa-heart"></i>
+>>>>>>> Stashed changes
               <span class="d-none d-sm-inline", style=" color: rgba(132, 96, 70, 1);">Favorites</span>
             <% else %>
               <i class="fa-regular fa-heart"></i>
@@ -108,9 +114,15 @@
             <% end %>
           <% end %>
         <% else %>
+<<<<<<< Updated upstream
           <%= link_to venues_path, class: "nav-link d-flex flex-column" do  %>
             <% if  params[:action] == 'show' && params[:controller] == 'favorite_venues'%>
                 <i class="fa-regular fa-heart fa-cog"></i>
+=======
+          <%= link_to new_user_session_path, class: "nav-link d-flex flex-column" do  %>
+            <% if  params[:action] == 'index' && params[:controller] == 'favorite_venues'%>
+                <i class="fa-solid fa-heart"></i>
+>>>>>>> Stashed changes
                 <span class="d-none d-sm-inline", style=" color: rgba(132, 96, 70, 1);">Favorites</span>
               <% else %>
                 <i class="fa-regular fa-heart"></i>
@@ -125,8 +137,8 @@
       <li class="nav-item">
         <% if user_signed_in? %>
           <%= link_to user_path(current_user), class:"nav-link d-flex flex-column" do  %>
-            <% if params[:action] == 'create' && params[:controller] == 'users'%>
-              <i class="fa-regular fa-user fa-cog"></i>
+            <% if params[:action] == 'show' && params[:controller] == 'users'%>
+              <i class="fa-solid fa-user"></i>
               <span class="d-none d-sm-inline", style=" color: rgba(132, 96, 70, 1);">You</span>
             <% else %>
               <i class="fa-regular fa-user"></i>
@@ -136,7 +148,7 @@
         <% else %>
           <%= link_to new_user_session_path, class: "nav-link d-flex flex-column" do  %>
           <% if params[:action] == 'create' && params[:controller] == 'users'%>
-              <i class="fa-regular fa-user fa-cog"></i>
+              <i class="fa-solid fa-user"></i>
               <span class="d-none d-sm-inline", style=" color: rgba(132, 96, 70, 1);">You</span>
             <% else %>
               <i class="fa-regular fa-user"></i>
