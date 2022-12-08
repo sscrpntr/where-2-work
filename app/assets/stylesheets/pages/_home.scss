@@ -5,14 +5,10 @@ body {
   min-height: 100vh !important;
   flex-grow: 1;
   // overflow: scroll;
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 
 .main-content {
   flex-grow: 1;
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 
 .main-content-home {
@@ -21,6 +17,5 @@ body {
   max-height: calc(100vh - 49px - 58px);
   overflow: scroll;
   flex-grow: 1;
-  margin-top: 5px;
-  margin-bottom: 5px;
+
 }
