@@ -33,8 +33,6 @@
   position: relative;
   width: 100%;
   height: 220px;
-
-
 }
 
 .venue-card:hover {
@@ -76,6 +74,9 @@
   border-radius: 50%;
   // border: 1px solid #704628;
   padding: 10px
+}
+fav-background-show {
+  background-color: white;
 }
 
 .favorite-venue-card a {
@@ -191,7 +192,6 @@
   font-weight: 800;
   font-size: 3em;
   color: #422800;
-  margin-left: 0.5em;
 }
 
 .title-group i {
