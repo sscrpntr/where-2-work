@@ -2,10 +2,10 @@
   <%= simple_form_for [venue, booking] do |f| %>
     <%= f.input :date, as: :string, label: "", placeholder: "yyyy-mm-dd", input_html: { data: { controller: "flatpickr", checkifdate_target: "datefield", action: "change->checkifdate#disableButton" } } %>
     <% if user_signed_in? %>
-      <%= f.submit "Book now", id:"create-booking", data: { checkifdate_target: "buttonlistener" } %>
+      <%= f.submit "Book now", id:"create-booking", data: { checkifdate_target: "buttonlistener" }, class: "btn btn-gradientdeux" %>
     <% else %>
       <div class="button">
-      <%= link_to "Book now", new_user_session_path, data: {turbo_method: :create, turbo_confirm: "You need be logged in to book"} %>
+      <%= link_to "Book now", new_user_session_path, data: {turbo_method: :create, turbo_confirm: "You need be logged in to book"}, class: "btn btn-gradientdeux" %>
       </div>
     <% end %>
   <% end %>
