@@ -29,7 +29,11 @@ Rails.application.routes.draw do
     # should we add a route to display availability for booking?
     resources :reviews, only: %i[create new]
   end
-  resources :reviews, only: %i[show index]
+  resources :reviews, only: %i[show index] do
+    collection do
+      get :test_speed
+    end
+  end
   # Defines the root path route ("/")
   # root "articles#index"
 end

@@ -10,8 +10,8 @@ application.register("button", ButtonController)
 import CheckifdateController from "./checkifdate_controller"
 application.register("checkifdate", CheckifdateController)
 
-import ClipboardController from "./clipboard_controller"
-application.register("clipboard", ClipboardController)
+// import ClipboardController from "./clipboard_controller"
+// application.register("clipboard", ClipboardController)
 
 import FavoriteController from "./favorite_controller"
 application.register("favorite", FavoriteController)
@@ -31,5 +31,5 @@ application.register("speed-test", SpeedTestController)
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
 
-import WifiController from "./wifi_controller"
-application.register("wifi", WifiController)
+// import WifiController from "./wifi_controller"
+// application.register("wifi", WifiController)

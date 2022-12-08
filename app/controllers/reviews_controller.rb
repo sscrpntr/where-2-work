@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_booking, only: [:create, :update, :new]
+  before_action :set_booking, only: %i[create update new]
 
   def index
     @venue = Venue.find(params[:venue_id])
@@ -29,11 +29,6 @@ class ReviewsController < ApplicationController
     @venue = Venue.find(@venue_id)
     @user_id = @booking.user_id
     @user = User.find(@user_id)
-    if params[:review][:speedtest] == "1"
-      speed_results = test_speed
-      @review.wifi_down = speed_results.pretty_download_rate
-      @review.wifi_up = speed_results.pretty_upload_rate
-    end
     if @review.save
       redirect_to venue_path(@venue)
     else
@@ -42,14 +37,19 @@ class ReviewsController < ApplicationController
   end
 
   def test_speed
-    Speedtest::Test.new(
+    test = Speedtest::Test.new(
       download_runs: 4,
       upload_runs: 4,
       ping_runs: 4,
       download_sizes: [750, 1500],
-      upload_sizes: [10000, 400000],
+      upload_sizes: [10_000, 400_000],
       debug: true
-      ).run
+    ).run
+    @wifi_down = (test.download_rate / 1_048_394.2).round(2)
+    @wifi_up = (test.upload_rate / 1_048_394.2).round(2)
+    respond_to do |format|
+      format.json { render json: { wifi_down: @wifi_down, wifi_up: @wifi_up } }
+    end
   end
 
   private
@@ -72,7 +72,6 @@ class ReviewsController < ApplicationController
                   :comment,
                   :title,
                   :photo,
-                  :speedtest
-                )
+                  :speedtest)
   end
 end
