@@ -311,7 +311,14 @@
 }
 .btn-general:hover{
   color:white!important;
-  background-color: #704628
+  background-color: #704628;
+
+}
+
+.btn-general:active{
+  color:white!important;
+  background-color: #704628!important;
+  border-style: none;
 
 }
 .btn-gradientdeux {
