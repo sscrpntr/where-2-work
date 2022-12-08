@@ -4,6 +4,8 @@
   overflow: scroll;
   display: flex;
   margin-bottom: 1.2em;
+  // margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .wrapper a {
@@ -192,6 +194,7 @@ fav-background-show {
   font-weight: 800;
   font-size: 3em;
   color: #422800;
+  padding-left: 0.5em;
 }
 
 .title-group i {
