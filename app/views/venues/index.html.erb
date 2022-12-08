@@ -63,7 +63,9 @@
             <div class="venue-first-row">
               <p class="venue-text">
                 <%= venue.name.first(25) %>
-                <h6 class="card-rating btn-left-vindex"><i class="fas fa-star"></i><%= venue.average_rating %></h6>
+                <% if venue.average_rating %>
+                  <h6 class="card-rating btn-left-vindex"><i class="fas fa-star"></i><%= venue.average_rating %></h6>
+                <% end %>
               </p>
             </div>
             <% if FavoriteVenue.find_by(user: current_user, venue:venue) %>
@@ -106,7 +108,9 @@
             <div class="venue-first-row">
               <p class="venue-text">
                 <%= venue.name.first(25) %>
-                <h6 class="card-rating btn-left-vindex"><i class="fas fa-star"></i><%= venue.average_rating %></h6>
+                <% if venue.average_rating %>
+                  <h6 class="card-rating btn-left-vindex"><i class="fas fa-star"></i><%= venue.average_rating %></h6>
+                <% end %>
               </p>
             </div>
             <% if FavoriteVenue.find_by(user: current_user, venue:venue) %>
@@ -145,12 +149,13 @@
         <%=link_to venue_path(venue) do %>
           <div class="venue-card">
             <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
-
               <div class="venue-content">
                 <div class="venue-first-row">
                   <p class="venue-text">
                     <%= venue.name.first(25) %>
-                    <h6 class="card-rating btn-left-vindex"><i class="fas fa-star"></i><%= venue.average_rating %></h6>
+                    <% if venue.average_rating %>
+                      <h6 class="card-rating btn-left-vindex"><i class="fas fa-star"></i><%= venue.average_rating %></h6>
+                    <% end %>
                   </p>
               </div>
               <% if FavoriteVenue.find_by(user: current_user, venue:venue) %>

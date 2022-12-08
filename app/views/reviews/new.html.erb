@@ -6,15 +6,20 @@
         <%= f.input :comment%>
         <div data-controller="speed-test">
           <div class="wifistests">
-            <p id="button1">Wifi Rating</p>
-            <p id="button2" data-action="click->speed-test#runTest">Speed Test</p>
+            <p id="button1">Wifi's Speed Rating</p>
+            <p id="button2" data-action="click->speed-test#runTest">Do a Speed Test</p>
           </div>
           <div id="div1" style="display:none">
             <%= f.input :wifi, collection: (1..3).to_a, label: "Wi-Fi Quality", input_html: {data: {controller: "star-rating"}} %>
           </div>
           <div id="div2" style="display:none">
-            <%= f.input :wifi_down, input_html: { data: { speed_test_target: "wifiDown" } }%>
-            <%= f.input :wifi_up, input_html: { data: { speed_test_target: "wifiUp"}} %>
+              <div class="spinner-border" role="status" data-speed-test-target="progress">
+                <span class="sr-only">Loading...</span>
+              </div>
+              <div data-speed-test-target="wifiInputs" style="display:none">
+                <%= f.input :wifi_down, input_html: { data: { speed_test_target: "wifiDown" } }%>
+                <%= f.input :wifi_up, input_html: { data: { speed_test_target: "wifiUp"}} %>
+              </div>
           </div>
         </div>
         <%= f.input :power_outlets%>
