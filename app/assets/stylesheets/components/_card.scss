@@ -25,9 +25,10 @@
 }
 
 .favorite-venue-card {
+  position: relative;
+  width: 100%;
+  height: 220px;
 
-  width: 295px;
-  height: 202px;
 
 }
 
@@ -50,7 +51,28 @@
 
 .fav-icon{
   position: absolute;
-  margin: 32px 166px;
+  margin: -136px 150px;
+}
+.favview-icon{
+  position: absolute;
+  margin: -181px 311px;
+}
+
+.favview-icon-test{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  // margin: -181px 311px;
+}
+
+.fav-background{
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid #704628;
+  padding: 10px
+}
+.favorite-venue-card a{
+  color: rgb(66, 40, 0);
 }
 
 .venue-text {

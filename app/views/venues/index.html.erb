@@ -57,17 +57,6 @@
     <div class="wrapper">
       <% @venues.first(10).each do |venue| %>
         <%=link_to venue_path(venue) do %>
-
-           <% if FavoriteVenue.find_by(user: current_user, venue:venue) %>
-            <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' data-favorite-favorite-id-value='<%=FavoriteVenue.find_by(user: current_user, venue:venue).id%>'>
-                <%=link_to ('<i class="fa-solid fa-heart fav-icon" data-action="click->favorite#refresh"></i>').html_safe, venue_favorite_venue_path(venue,FavoriteVenue.find_by(user: current_user, venue:venue)), data: {turbo_method: "delete", target: "favorite.remove"} %>
-            </div>
-          <% else %>
-            <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' >
-              <%=link_to ('<i class="fa-regular fa-heart fav-icon"  data-action="click->favorite#drefresh"></i>').html_safe, venue_favorite_venues_path(venue), data: {turbo_method: "post", target: "favorite.add"} %>
-            </div>
-          <% end %>
-
           <div class="venue-card">
           <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
           <div class="venue-content">
@@ -77,6 +66,15 @@
                 <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
               </p>
             </div>
+            <% if FavoriteVenue.find_by(user: current_user, venue:venue) %>
+            <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' data-favorite-favorite-id-value='<%=FavoriteVenue.find_by(user: current_user, venue:venue).id%>'>
+                <%=link_to ('<i class="fa-solid fa-heart fav-background fav-icon" data-action="click->favorite#refresh"></i>').html_safe, venue_favorite_venue_path(venue,FavoriteVenue.find_by(user: current_user, venue:venue)), data: {turbo_method: "delete", target: "favorite.remove"} %>
+            </div>
+            <% else %>
+            <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' >
+              <%=link_to ('<i class="fa-regular fa-heart fav-background fav-icon" data-action="click->favorite#drefresh"></i>').html_safe, venue_favorite_venues_path(venue), data: {turbo_method: "post", target: "favorite.add"} %>
+            </div>
+            <% end %>
             <div class="venue-icons">
                 <% if venue.wifi %>
                   <i class="fa-solid fa-wifi title"></i>
@@ -102,17 +100,6 @@
     <div class="wrapper">
       <% @venues.select{|a| a.average_rating}.sort{ |a,b| b.average_rating <=> a.average_rating}.first(10).each do |venue| %>
         <%=link_to venue_path(venue) do %>
-
-           <% if FavoriteVenue.find_by(user: current_user, venue:venue) %>
-            <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' data-favorite-favorite-id-value='<%=FavoriteVenue.find_by(user: current_user, venue:venue).id%>'>
-                <%=link_to ('<i class="fa-solid fa-heart fav-icon" data-action="click->favorite#refresh"></i>').html_safe, venue_favorite_venue_path(venue,FavoriteVenue.find_by(user: current_user, venue:venue)), data: {turbo_method: "delete", target: "favorite.remove"} %>
-            </div>
-          <% else %>
-            <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' >
-              <%=link_to ('<i class="fa-regular fa-heart fav-icon"  data-action="click->favorite#drefresh"></i>').html_safe, venue_favorite_venues_path(venue), data: {turbo_method: "post", target: "favorite.add"} %>
-            </div>
-          <% end %>
-
           <div class="venue-card">
           <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
           <div class="venue-content">
@@ -122,6 +109,15 @@
                 <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
               </p>
             </div>
+             <% if FavoriteVenue.find_by(user: current_user, venue:venue) %>
+            <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' data-favorite-favorite-id-value='<%=FavoriteVenue.find_by(user: current_user, venue:venue).id%>'>
+                <%=link_to ('<i class="fa-solid fa-heart fav-icon fav-background" data-action="click->favorite#refresh"></i>').html_safe, venue_favorite_venue_path(venue,FavoriteVenue.find_by(user: current_user, venue:venue)), data: {turbo_method: "delete", target: "favorite.remove"} %>
+            </div>
+            <% else %>
+            <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' >
+              <%=link_to ('<i class="fa-regular fa-heart fav-icon fav-background"  data-action="click->favorite#drefresh"></i>').html_safe, venue_favorite_venues_path(venue), data: {turbo_method: "post", target: "favorite.add"} %>
+            </div>
+            <% end %>
             <div class="venue-icons">
                 <% if venue.wifi %>
                   <i class="fa-solid fa-wifi title"></i>
@@ -147,15 +143,6 @@
     <div class="wrapper">
       <% @venues.first(10).each do |venue| %>
         <%=link_to venue_path(venue) do %>
-          <% if FavoriteVenue.find_by(user: current_user, venue:venue) %>
-            <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' data-favorite-favorite-id-value='<%=FavoriteVenue.find_by(user: current_user, venue:venue).id%>'>
-                <%=link_to ('<i class="fa-solid fa-heart fav-icon" data-action="click->favorite#refresh"></i>').html_safe, venue_favorite_venue_path(venue,FavoriteVenue.find_by(user: current_user, venue:venue)), data: {turbo_method: "delete", target: "favorite.remove"} %>
-            </div>
-          <% else %>
-            <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' >
-              <%=link_to ('<i class="fa-regular fa-heart fav-icon"  data-action="click->favorite#drefresh"></i>').html_safe, venue_favorite_venues_path(venue), data: {turbo_method: "post", target: "favorite.add"} %>
-            </div>
-          <% end %>
           <div class="venue-card">
             <%= cl_image_tag venue.photo.key, :class=>"venue-image", :alt=>"venue image", :width=>350, :height=>250 %>
 
@@ -165,7 +152,16 @@
                     <%= venue.name.first(25) %>
                     <h6 class="card-rating"><i class="far fa-star"></i>  <%= venue.average_rating %></h6>
                   </p>
+              </div>
+              <% if FavoriteVenue.find_by(user: current_user, venue:venue) %>
+                <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' data-favorite-favorite-id-value='<%=FavoriteVenue.find_by(user: current_user, venue:venue).id%>'>
+                  <%=link_to ('<i class="fa-solid fa-heart fav-icon fav-background" data-action="click->favorite#refresh"></i>').html_safe, venue_favorite_venue_path(venue,FavoriteVenue.find_by(user: current_user, venue:venue)), data: {turbo_method: "delete", target: "favorite.remove"} %>
                 </div>
+              <% else %>
+              <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' >
+                <%=link_to ('<i class="fa-regular fa-heart fav-icon fav-background"  data-action="click->favorite#drefresh"></i>').html_safe, venue_favorite_venues_path(venue), data: {turbo_method: "post", target: "favorite.add"} %>
+              </div>
+              <% end %>
               <div class="venue-icons">
                 <% if venue.wifi %>
                   <i class="fa-solid fa-wifi title"></i>
