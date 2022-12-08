@@ -10,3 +10,12 @@ body {
 .main-content {
   flex-grow: 1;
 }
+
+.main-content-home {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 49px - 58px);
+  overflow: scroll;
+  flex-grow: 1;
+
+}

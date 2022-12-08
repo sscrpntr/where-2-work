@@ -167,6 +167,7 @@
   height: 53px;
   margin-left: 15px;
 }
+
 .btn-left-vindex {
   width: 30%;
   text-transform: uppercase;
@@ -178,11 +179,55 @@
   background: #AF795D;
   // transition: background 0.3s ease;
   // border: 1px solid white;
-  margin-top: 0.0em;
-  padding-top: 0.5em;
-  // padding-bottom: 0.25em;
+  margin-top: 1em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
   margin-bottom: 1em;
   font-size: 0.8em;
+}
+.btn-left-findex {
+  width: 15%;
+  text-transform: uppercase;
+  // background-color: #d1e751;
+  color: white;
+  // margin: auto;
+  border-radius: 1.5em;
+  // font-weight: bold;
+  background: #AF795D;
+  // transition: background 0.3s ease;
+  // border: 1px solid white;
+  // margin-top: 0.0em;
+  // padding-top: 0.5em;
+  // padding-right: 0.5em;
+  // margin-bottom: 1em;
+  // margin-left: 2em;
+  font-size: 0.8em;
+  display: flex;
+  position: relative;
+  top: -5em;
+  left: 83%;
+  padding-top: 0.5em;
+  padding-right: 1em;
+  padding-bottom: 0.5em;
+}
+
+.btn-left-vmap {
+  width: auto;
+  text-transform: uppercase;
+  // background-color: #d1e751;
+  color: white;
+  // margin: auto;
+  border-radius: 1.5em;
+  // font-weight: bold;
+  background: #AF795D;
+  // transition: background 0.3s ease;
+  // border: 1px solid white;
+  margin: auto;
+  // padding-bottom: 0.25em;
+  // margin-bottom: 1em;
+  font-size: 0.8em;
+  text-align: center;
+  padding: 0.3em 0.75em 0.25em 0.25em;
 }
 
 .btn-left-review-show {
@@ -208,14 +253,17 @@
   margin-right: 0;
   // margin-top: 10em;
 }
+
 .btn-left-review-show h2 {
   margin-top: 5em;
 }
+
 .btn-left-review-show .fa-star {
   margin: 0 0.3em 0 0.3em;
   padding: 0.1em;
   // justify-content: sp;
 }
+
 .card-trip-user .btn-left-vshow {
   width: 35%;
   text-transform: uppercase;
@@ -254,9 +302,18 @@
 }
 
 .button a:hover {
-background-color: rgb(218, 217, 217);
+  background-color: rgb(218, 217, 217);
 }
 
+
+.btn-general{
+
+}
+.btn-general:hover{
+  color:white!important;
+  background-color: #704628
+
+}
 .btn-gradientdeux {
   display: flex;
   width: fit-content;

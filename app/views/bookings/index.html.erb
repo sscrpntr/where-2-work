@@ -1,7 +1,7 @@
 <h1 class="visit-title">Your Visits</h1>
 <% if @user_bookings.size > 0 %>
   <% @user_bookings.each do |booking| %>
-    <div class="card-product-booking">
+    <div class="card-product-booking general-card">
       <%= cl_image_tag booking.venue.photo.key %>
       <div class="card-product-infos">
         <h2><%= booking.venue.name %></h2>
@@ -11,7 +11,7 @@
     </div>
   <% end %>
   <% else %>
-    <p>No more visits.
+    <p class="visit-title">No more visits.
     <br>
     <%= link_to "New Visit", venues_path, class: "btn btn-gradient" %></p>
   <% end %>

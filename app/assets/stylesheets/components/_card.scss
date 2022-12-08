@@ -4,7 +4,7 @@
   overflow: scroll;
   display: flex;
   margin-bottom: 1.2em;
-  margin-left: 0.5em;
+  // margin-left: 0.5em;
   margin-right: 0.5em;
 }
 
@@ -24,19 +24,22 @@
   margin-top: 1rem;
   display: inline-block;
   border-radius: 15px;
+  text-decoration: none;
+
+}
+
+.venue-card a {
+  text-decoration: none;
 }
 
 .favorite-venue-card {
   position: relative;
   width: 100%;
   height: 220px;
-
-
 }
 
 .venue-card:hover {
   box-shadow: 0 0px 12px 0 rgba(0, 0, 0, 0.3);
-  transform: scale(103%);
 }
 
 .venue-image {
@@ -45,36 +48,46 @@
   height: 110px;
   border-radius: 15px;
   object-position: center;
+  object-fit: cover;
 }
 
 .favorite-image-size {
-  width: 285px;
+  width: -webkit-fill-available;
+  object-fit: cover;
 }
 
-.fav-icon{
+.fav-icon {
   position: absolute;
   margin: -136px 150px;
 }
-.favview-icon{
+
+.favview-icon {
   position: absolute;
   margin: -181px 311px;
 }
 
-.favview-icon-test{
+.favview-icon-test {
   position: absolute;
   top: 8px;
   right: 8px;
   // margin: -181px 311px;
 }
 
-.fav-background{
-  background-color: white;
+.fav-background {
+  background-color: #AF795D;
+  color: white;
   border-radius: 50%;
-  border: 1px solid #704628;
+  // border: 1px solid #704628;
   padding: 10px
 }
-.favorite-venue-card a{
+
+fav-background-show {
+  background-color: white;
+}
+
+.favorite-venue-card a {
   color: rgb(66, 40, 0);
+  text-decoration: none;
 }
 
 .venue-text {
@@ -90,8 +103,12 @@
   text-overflow: ellipsis;
 
   text-align: left;
-
+  text-decoration: none;
   color: #000000;
+}
+
+.venue-first-row .venue-text {
+  text-decoration: none;
 }
 
 .venue-card .fa-star {
@@ -135,7 +152,6 @@
 
 .venue-cardmap:hover {
   box-shadow: 0 0px 12px 0 rgba(0, 0, 0, 0.3);
-  transform: scale(103%);
 }
 
 .venue-imagemap {
@@ -147,6 +163,7 @@
   height: 90px;
   border-radius: 15px;
   object-position: center;
+  object-fit: cover;
 }
 
 .venue-textmap {
@@ -182,7 +199,7 @@
   font-weight: 800;
   font-size: 3em;
   color: #422800;
-  margin-left: 0.5em;
+  padding-left: 0.5em;
 }
 
 .title-group i {

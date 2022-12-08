@@ -71,9 +71,16 @@
 
   <body>
     <%= render "shared/branding" %>
-    <div class="main-content">
-      <%= yield %>
-    </div>
-    <%= render "shared/navbar" %>
+    <% if  params[:action] == 'index' && params[:controller] == 'venues'%>
+      <div class="main-content-home">
+        <%= yield %>
+      </div>
+      <%= render "shared/navbar" %>
+    <% else %>
+      <div class="main-content">
+         <%= yield %>
+      </div>
+      <%= render "shared/navbar" %>
+    <% end %>
   </body>
 </html>
