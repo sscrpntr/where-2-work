@@ -33,12 +33,28 @@
 
 .favorite-venue-card {
   position: relative;
-  width: 100%;
+  width: 90%;
   height: 220px;
-
-
+  margin: 1em 1em 1em 1em;
+  overflow: hidden;
+  background: white;
 }
 
+.fav-vindex{
+  width: 16%!important;
+  margin-left: 15px;
+}
+
+.general-card{
+  width: 90%;
+  margin: 1em 1em 1em 1em!important;
+  box-sizing: border-box;
+  border: 1px solid #FFFFFF;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  border-radius: 15px;
+}
 .venue-card:hover {
   box-shadow: 0 0px 12px 0 rgba(0, 0, 0, 0.3);
 }
@@ -242,4 +258,12 @@
 
 .wifistests {
   display: flex;
+}
+
+#button2 {
+  margin-left: 15px;
+}
+
+.fav-margins{
+  margin-top: 5px;
 }
