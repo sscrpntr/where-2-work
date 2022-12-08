@@ -67,13 +67,13 @@
               </p>
             </div>
             <% if FavoriteVenue.find_by(user: current_user, venue:venue) %>
-            <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' data-favorite-favorite-id-value='<%=FavoriteVenue.find_by(user: current_user, venue:venue).id%>'>
-                <%=link_to ('<i class="fa-solid fa-heart fav-background fav-icon" data-action="click->favorite#refresh"></i>').html_safe, venue_favorite_venue_path(venue,FavoriteVenue.find_by(user: current_user, venue:venue)), data: {turbo_method: "delete", target: "favorite.remove"} %>
-            </div>
+              <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' data-favorite-favorite-id-value='<%=FavoriteVenue.find_by(user: current_user, venue:venue).id%>'>
+                  <%=link_to ('<i class="fa-solid fa-heart fav-background fav-icon" data-action="click->favorite#refresh"></i>').html_safe, venue_favorite_venue_path(venue,FavoriteVenue.find_by(user: current_user, venue:venue)), data: {turbo_method: "delete", target: "favorite.remove"} %>
+              </div>
             <% else %>
-            <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' >
-              <%=link_to ('<i class="fa-regular fa-heart fav-background fav-icon" data-action="click->favorite#drefresh"></i>').html_safe, venue_favorite_venues_path(venue), data: {turbo_method: "post", target: "favorite.add"} %>
-            </div>
+              <div data-controller="favorite" data-favorite-venue-id-value='<%=venue.id%>' >
+                <%=link_to ('<i class="fa-regular fa-heart fav-background fav-icon" data-action="click->favorite#drefresh"></i>').html_safe, venue_favorite_venues_path(venue), data: {turbo_method: "post", target: "favorite.add"} %>
+              </div>
             <% end %>
             <div class="venue-icons">
                 <% if venue.wifi %>
@@ -178,7 +178,6 @@
               </div>
             </div>
           </div>
-
         <% end %>
       <% end %>
     </div>

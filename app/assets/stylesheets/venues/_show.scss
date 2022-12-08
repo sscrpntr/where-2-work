@@ -147,6 +147,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: #FDBC1F;
   margin-right: 0.4em;
 }
+.btn-left-findex .fa-star {
+  color: #FDBC1F;
+  margin-right: 0.4em;
+}
 .btn-left-vshow .fa-star {
   color: #FDBC1F;
   margin-right: 0.4em;
@@ -324,4 +328,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 100%;
   width: 120px;
   object-fit: cover;
+}
+.heart-title {
+  margin-right: 0.3em;
 }

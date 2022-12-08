@@ -2,7 +2,7 @@
   <div class="container">
     <div class="listDiv" data-button-target="listDiv">
       <div class=btn-group>
-        <i class="fa-regular fa-heart"></i><h3>Your favorites</h3>
+        <h1 class="visit-title"><i class="fa-regular fa-heart heart-title"></i>Your Favorites</h1>
       </div>
       <% @favorites.each do |favorite| %>
         <%= link_to venue_path(favorite.venue) do %>
@@ -16,26 +16,26 @@
                   <p class="venue-text">
                     <%= favorite.venue.name%>
                     <%= favorite.venue.address %>
-                    <h6 class="card-rating"><i class="far fa-star"></i>  <%= favorite.venue.average_rating %></h6>
+                    <h6 class="card-rating btn-left-findex"><i class="fas fa-star"></i><%= favorite.venue.average_rating %></h6>
                   </p>
                 </div>
                 <div class="venue-timetable">
                   <p class="venue-text">
-                    From <%= favorite.venue.opening_time %> to <%= favorite.venue.closing_time %> h.
+                    From <%= favorite.venue.opening_time %> to <%= favorite.venue.closing_time %>.
                   </p>
                 </div>
                 <div class="venue-icons">
                   <% if favorite.venue.wifi %>
-                    <i class="fa-solid fa-wifi title"></i>
+                    <i class="fa-solid fa-wifi card-title"></i>
                   <% end %>
                   <% if favorite.venue.power_outlets %>
-                    <i class="fa-solid fa-plug title"></i>
+                    <i class="fa-solid fa-plug card-title"></i>
                   <% end %>
                   <% if favorite.venue.suited_for_calls %>
-                    <i class="fa-solid fa-phone title"></i>
+                    <i class="fa-solid fa-phone card-title"></i>
                   <% end %>
                   <% if favorite.venue.natural_light %>
-                    <i class="fa-solid fa-sun title"></i>
+                    <i class="fa-solid fa-sun card-title"></i>
                   <% end %>
                 </div>
               </div>
