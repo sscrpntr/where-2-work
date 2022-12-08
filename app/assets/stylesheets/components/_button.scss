@@ -282,13 +282,13 @@ background-color: rgb(218, 217, 217);
   background-color: #d1e751;
   color: white;
   margin: 0;
-  align-items: left;
+  align-items: center;
   display: flex;
   justify-content: center;
   border-radius: 1em;
   font-weight: bold;
-  background: linear-gradient(#422800, #AF795D);
-  transition: background 0.3s ease;
-  border: 1px solid white;
+  background: #AF795D;
+  // transition: background 0.3s ease;
+  // border: 1px solid white;
   margin-top: 2.0em;
 }
