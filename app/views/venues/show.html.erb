@@ -74,18 +74,23 @@
         <% end %>
         <p><%= link_to "All reviews", venue_reviews_path(@venue) %></p>
       </div>
-    <h3 class="card-trip-user btn-left-vshow"><i class="fas fa-star"></i><%= @venue.average_rating %></h3>
-    <h3 class="card-trip-review">
-      <% if FavoriteVenue.find_by(user: current_user, venue:@venue) %>
-        <div data-controller="favorite" data-favorite-venue-id-value='<%= @venue.id %>' data-favorite-favorite-id-value='<%=FavoriteVenue.find_by(user: current_user, venue:@venue).id %>'>
-          <%= link_to ('<i class="fa-solid fa-heart fav-background-show" data-action="click->favorite#removeFavoriteVenueShow"></i>').html_safe, venue_favorite_venue_path(@venue,FavoriteVenue.find_by(user: current_user, venue:@venue)), data: {turbo_method: "delete", target: "favorite.remove"} %>
-        </div>
+      <% if @venue.average_rating %>
+        <h3 class="card-trip-user btn-left-vshow"><i class="fas fa-star"></i><%= @venue.average_rating %></h3>
       <% else %>
-        <div data-controller="favorite" data-favorite-venue-id-value='<%=@venue.id%>'>
-          <%=link_to ('<i class="fa-regular fa-heart fav-background-show" data-action="click->favorite#addFavoriteVenueShow"></i>').html_safe, venue_favorite_venues_path(@venue), data: {turbo_method: "post", target: "favorite.add"} %>
-        </div>
+        <h3 class="card-trip-user btn-left-vshow"><i class="fas fa-star"></i>N/A</h3>
       <% end %>
-    </h3>
+
+      <h3 class="card-trip-review">
+        <% if FavoriteVenue.find_by(user: current_user, venue:@venue) %>
+          <div data-controller="favorite" data-favorite-venue-id-value='<%= @venue.id %>' data-favorite-favorite-id-value='<%=FavoriteVenue.find_by(user: current_user, venue:@venue).id %>'>
+            <%= link_to ('<i class="fa-solid fa-heart fav-background-show" data-action="click->favorite#removeFavoriteVenueShow"></i>').html_safe, venue_favorite_venue_path(@venue,FavoriteVenue.find_by(user: current_user, venue:@venue)), data: {turbo_method: "delete", target: "favorite.remove"} %>
+          </div>
+        <% else %>
+          <div data-controller="favorite" data-favorite-venue-id-value='<%=@venue.id%>'>
+            <%=link_to ('<i class="fa-regular fa-heart fav-background-show" data-action="click->favorite#addFavoriteVenueShow"></i>').html_safe, venue_favorite_venues_path(@venue), data: {turbo_method: "post", target: "favorite.add"} %>
+          </div>
+        <% end %>
+      </h3>
 
 
   </div>
