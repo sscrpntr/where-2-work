@@ -1,6 +1,6 @@
 <div class="booking-form">
   <%= simple_form_for [@booking] do |f| %>
-    <%= f.input :date, as: :string, input_html: { data: { controller: "flatpickr" } } %>
-    <%= f.submit %>
+    <%= f.input :date, as: :string, label: "New Date", input_html: { data: { controller: "flatpickr" } } %>
+    <%= f.submit class: "btn btn-gradientdeux" %>
   <% end %>
 </div>
