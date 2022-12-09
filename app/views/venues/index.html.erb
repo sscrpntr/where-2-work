@@ -20,7 +20,7 @@
     <button class="button-list button-clicked" data-action="click->button#switchButtonList" data-button-target="buttonList">List</button>
     <button class="button-map" data-action="click->button#switchButtonMap click->map#resize" data-button-target="buttonMap">Map</button>
   </div>
-  <div class="filter-group">
+  <div class="filter-group extra-filter-margin">
     <%= link_to (params[:has_wifi].nil? ? venues_path(request.query_parameters.merge({has_wifi:"true"})) : venues_path(request.query_parameters.merge({has_wifi: nil}))) do %>
       <% if params[:has_wifi].nil? %>
         <i class="fa-duotone fa-wifi-weak filter"></i>
@@ -51,7 +51,11 @@
     <% end %>
   </div>
   <div class="listDiv" data-button-target="listDiv">
+<<<<<<< HEAD
     <div class="title-group">
+=======
+    <div class="title-group extra-margin-title-group">
+>>>>>>> 309c626f79381c3aa47ce9905f833513da18c989
       <i class="fa-solid fa-magnifying-glass"></i><h3>Search Results</h3>
     </div>
     <div class="wrapper">
@@ -96,7 +100,11 @@
         <% end %>
       <% end %>
     </div>
+<<<<<<< HEAD
     <div class="title-group">
+=======
+    <div class="title-group extra-margin-title-group">
+>>>>>>> 309c626f79381c3aa47ce9905f833513da18c989
       <i class="fas fa-fire-flame-curved"></i><h3>Top Rated</h3>
     </div>
     <div class="wrapper">
@@ -141,7 +149,11 @@
         <% end %>
       <% end %>
     </div>
+<<<<<<< HEAD
     <div class="title-group">
+=======
+    <div class="title-group extra-margin-title-group">
+>>>>>>> 309c626f79381c3aa47ce9905f833513da18c989
       <i class="fas fa-euro-sign"></i><h3>Top Offers</h3>
     </div>
     <div class="wrapper">
