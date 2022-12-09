@@ -30,6 +30,17 @@
   padding: 4px;
 }
 
+.navbar{
+  background-color: #704628!important;
+  color:white;
+}
+.navbar i{
+  color:white;
+}
+
+.addblackground{
+  background-color: #704628!important;
+}
 .fa-cog {
   color: rgba(114, 0, 38, 1);
 }
@@ -39,4 +50,9 @@
   position: sticky !important;
   bottom: 0;
   z-index: 1020;
+}
+
+.bordernavbar {
+  padding-bottom: 2px;
+  border-bottom: 3px solid white;
 }
