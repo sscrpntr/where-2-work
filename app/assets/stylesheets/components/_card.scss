@@ -51,6 +51,17 @@
   object-fit: cover;
 }
 
+.general-card{
+  width: 90%;
+  margin: 1em 1em 1em 1em!important;
+  box-sizing: border-box;
+  border: 1px solid #FFFFFF;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  border-radius: 15px;
+}
+
 .favorite-image-size {
   width: -webkit-fill-available;
   object-fit: cover;
