@@ -139,11 +139,11 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  background-color: #AF795D;
-  color: white;
+  background-color: #ffffff;
+  color: #AF795D;
   width: 144px;
   height: 53px;
-  border-radius: 20%;
+  border-radius: 1em;
 }
 
 #button2 {
@@ -155,14 +155,14 @@
   font-size: 13px;
   padding: 0 5px;
   line-height: 50px;
-  border-radius: 20%;
+  border-radius: 1em;
   text-align: center;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  background-color: #AF795D;
-  color: white;
+  background-color: #ffffff;
+  color: #AF795D;
   width: 144px;
   height: 53px;
   margin-left: 15px;
@@ -329,7 +329,6 @@
   color: white;
   margin: 0;
   align-items: center;
-  display: flex;
   justify-content: center;
   border-radius: 1em;
   font-weight: bold;
