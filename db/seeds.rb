@@ -216,10 +216,7 @@ end
 #   puts "Review #{review.id} saved"
 #   x += 1
 # end
-
-https://avatars.githubusercontent.com/u/113022487?v=4
-name = Faker::Name.name
-  user = User.new(
+user = User.new(
     is_owner: true,
     name: "Julian Gaspar",
     username: "JGaspar15",
@@ -227,5 +224,5 @@ name = Faker::Name.name
     password: "123456",
   )
   file = URI.open("https://i.imgur.com/vE0hjMo.png")
-  user.photo.attach(io: file, content_type: "image/png", filename: "user#{user.id}.jpg")
+  user.photo.attach(io: file, content_type: "image/png", filename: "Julian.jpg")
   user.save!
