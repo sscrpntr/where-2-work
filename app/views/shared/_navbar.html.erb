@@ -46,7 +46,7 @@
       <li class="nav-item">
         <%= link_to venues_path, class:"nav-link d-flex flex-column" do  %>
           <% if  params[:action] == 'index' && params[:controller] == 'venues'%>
-            <i class="fa-solid fa-house fa-cog"></i>
+            <i class="fa-solid fa-house bordernavbar"></i>
             <span class="d-none d-sm-inline", style=" color: rgba(114, 0, 38, 1);">Home</span>
             <% else %>
             <i class="fa-solid fa-house"></i>
@@ -61,7 +61,7 @@
       <% if user_signed_in? %>
         <%= link_to bookings_path, class:"nav-link d-flex flex-column" do  %>
           <% if params[:action]== 'index' && params[:controller] == 'bookings'%>
-            <i class="fa-solid fa-calendar-check fa-cog"></i>
+            <i class="fa-solid fa-calendar-check  bordernavbar"></i>
             <span class="d-none d-sm-inline">Bookings</span>
           <% else %>
             <i class="fa-solid fa-calendar-check"></i>
@@ -72,7 +72,7 @@
       <% else %>
         <%= link_to new_user_session_path, class: "nav-link d-flex flex-column" do  %>
           <% if params[:action]== 'index' && params[:controller] == 'bookings'%>
-            <i class="fa-solid fa-calendar-check fa-cog"></i>
+            <i class="fa-solid fa-calendar-check bordernavbar"></i>
             <span class="d-none d-sm-inline", style=" color: rgba(114, 0, 38, 1);">Bookings</span>
           <% else %>
             <i class="fa-solid fa-calendar-check"></i>
@@ -87,10 +87,10 @@
       <li class="nav-item add-button">
         <%= link_to "/venues/new", class:"nav-link d-flex flex-column align-items-center" do  %>
           <% if params[:action] == 'create' && params[:controller] == 'venues'%>
-            <i class="fa-solid fa-circle-plus fa-4x fa-cog"></i>
+            <i class="fa-solid fa-circle-plus fa-4x addblackground"></i>
             <span class="d-none d-sm-inline", style=" color: rgba(132, 96, 70, 1);">Add</span>
           <% else %>
-            <i class="fa-solid fa-circle-plus fa-4x"></i>
+            <i class="fa-solid fa-circle-plus fa-4x addblackground"></i>
             <span class="d-none d-sm-inline">Add</span>
           <% end %>
         <% end %>
@@ -100,17 +100,17 @@
         <% if user_signed_in? %>
           <%= link_to  user_favorite_venues_path(current_user), class:"nav-link d-flex flex-column" do  %>
             <% if  params[:action] == 'index' && params[:controller] == 'favorite_venues'%>
-              <i class="fa-regular fa-heart fa-cog"></i>
+              <i class="fa-solid fa-heart bordernavbar"></i>
               <span class="d-none d-sm-inline", style=" color: rgba(132, 96, 70, 1);">Favorites</span>
             <% else %>
-              <i class="fa-regular fa-heart"></i>
+              <i class="fa-solid fa-heart"></i>
               <span class="d-none d-sm-inline">Favorites</span>
             <% end %>
           <% end %>
         <% else %>
           <%= link_to new_user_session_path, class: "nav-link d-flex flex-column" do  %>
             <% if  params[:action] == 'index' && params[:controller] == 'favorite_venues'%>
-                <i class="fa-regular fa-heart fa-cog"></i>
+                <i class="fa-solid fa-heart"></i>
                 <span class="d-none d-sm-inline", style=" color: rgba(132, 96, 70, 1);">Favorites</span>
               <% else %>
                 <i class="fa-regular fa-heart"></i>
@@ -125,21 +125,21 @@
       <li class="nav-item">
         <% if user_signed_in? %>
           <%= link_to user_path(current_user), class:"nav-link d-flex flex-column" do  %>
-            <% if params[:action] == 'create' && params[:controller] == 'users'%>
-              <i class="fa-regular fa-user fa-cog"></i>
+            <% if params[:action] == 'show' && params[:controller] == 'users'%>
+              <i class="fa-solid fa-user bordernavbar"></i>
               <span class="d-none d-sm-inline", style=" color: rgba(132, 96, 70, 1);">You</span>
             <% else %>
-              <i class="fa-regular fa-user"></i>
+              <i class="fa-solid fa-user"></i>
               <span class="d-none d-sm-inline">You</span>
             <% end %>
           <% end %>
         <% else %>
           <%= link_to new_user_session_path, class: "nav-link d-flex flex-column" do  %>
-          <% if params[:action] == 'create' && params[:controller] == 'users'%>
-              <i class="fa-regular fa-user fa-cog"></i>
+          <% if params[:action] == 'show' && params[:controller] == 'users'%>
+              <i class="fa-solid fa-user"></i>
               <span class="d-none d-sm-inline", style=" color: rgba(132, 96, 70, 1);">You</span>
             <% else %>
-              <i class="fa-regular fa-user"></i>
+              <i class="fa-solid fa-user"></i>
               <span class="d-none d-sm-inline">You</span>
             <% end %>
           <% end %>
